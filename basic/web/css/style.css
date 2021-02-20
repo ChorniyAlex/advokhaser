@@ -1,0 +1,3855 @@
+/*---------------------общие установки--------------------*/
+/* значение 1rem шрифт для страницы */
+html {
+    font-size: 15px;
+}
+
+body {
+    width: 100%;
+    color: rgb(0, 5, 65);
+    background-color: rgb(248, 248, 248);
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.26rem;
+}
+
+h4 {
+    font-size: 1.19rem;
+}
+
+/*----------шапка----------*/
+header {
+    max-width: 100%;
+    background-color: rgb(251, 251, 251);
+}
+
+.header-top {
+    width: 70%;
+    height: 35px;
+    margin: 0 auto;
+    padding: 0 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-mobil {
+    display: none;
+}
+
+.logo {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: space-around;
+}
+
+.logo>img {
+    height: 55px;
+    width: auto;
+}
+
+.logo>p,
+.phone-headers {
+    font-size: 1.5rem;
+}
+
+.phone-headersTop {
+    font-size: 1rem;
+    color: rgba(67, 67, 67, 0.72);
+}
+
+.top-contact {
+    font-size: 1.2rem;
+    color: rgba(67, 67, 67, 0.79);
+}
+
+.logo>p {
+    margin-bottom: 5px;
+    line-height: 60%;
+    color: rgb(0, 113, 212)
+}
+
+.lang-header>li {
+    font-size: 1.3rem;
+}
+
+/*------------------Навигация-меню--------------------*/
+nav {
+    width: 100%;
+    height: 85px;
+    background-color: rgb(215, 236, 239, 1);
+    position: relative;
+    z-index: 5;
+}
+
+.nav-fixed {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+.nav-marginFixed {
+    margin-bottom: 85px;
+}
+
+/*----устанавливаем ширину, равную ширине контента, и выравниваем по центру----*/
+.top-nav {
+    width: 70%;
+    margin: 0 auto;
+    padding: 0 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*----------языковая панель-----------*/
+
+.lang-mobil {
+    display: none;
+}
+
+.lang-header>li,
+.lang-mobil>li {
+    display: inline-block;
+    border-radius: 2px;
+    padding: 0 3px 2px 3px;
+    margin-left: 0px;
+}
+
+.lang-header>li+li,
+.lang-mobil>li+li {
+    padding: 0 4px 2px 4px;
+}
+
+.lang-header>li:hover,
+.lang-mobil>li:hover {
+    background-color: rgb(0, 113, 212);
+    color: rgb(255, 150, 0);
+}
+
+.lang-header a,
+.lang-mobil a {
+    text-decoration: none;
+    color: #434343;
+}
+
+.lang-header a:hover,
+.lang-mobil a:hover {
+    color: rgb(255, 150, 0);
+}
+
+/*----------------меню панель----------------*/
+.top-menu {
+    height: 85px;
+    list-style-type: none;
+}
+
+.top-menu>li {
+    padding: 30px 0 15px 0;
+    margin-left: 15px;
+    display: inline-block;
+    position: relative;
+    line-height: 21px;
+    font-size: 1.2rem;
+}
+
+.top-menu a {
+    text-decoration: none;
+    color: #434343;
+    letter-spacing: .2px;
+}
+
+.top-menu a:hover {
+    color: rgb(0, 113, 212);
+}
+
+.lang-header>.active a,
+.lang-mobil>.active a,
+.top-menu>.active a {
+    color: #434343;
+}
+
+.lang-header>.active li:hover,
+.lang-mobil>.active li:hover,
+.top-menu>.active li:hover {
+    color: rgb(255, 150, 0);
+}
+
+/*--------------выпадающие подменю-----------*/
+.sub-menu-1,
+.sub-menu-2,
+.sub-menu-3 {
+    position: absolute;
+    top: 70px;
+    list-style-type: none;
+    background-color: #D7ECEF;
+    padding: 0 15px 10px 15px;
+    border-radius: 0 0 5px 5px;
+    font-size: 1.1rem;
+    z-index: 3;
+}
+
+.sub-menu-1>li,
+.sub-menu-2>li,
+.sub-menu-3>li {
+    padding: 2px 0;
+    line-height: 115%;
+}
+
+.sub-menu-1>li:hover,
+.sub-menu-2>li:hover,
+.sub-menu-3>li:hover {
+    background-color: #b8cdcf;
+}
+
+.sub-menu-1>li::after,
+.sub-menu-2>li::after,
+.sub-menu-3>li::after {
+    content: "";
+    margin: auto;
+    width: 100%;
+    height: 1px;
+    margin-top: 3px;
+    background-color: rgb(0, 113, 212);
+    display: block;
+}
+
+/*--------------подменю "виды помощи"-----------*/
+.sub-menu-1 {
+    left: -115px;
+    width: 362px;
+}
+
+/*-----------подменю "Специализация"-----------*/
+.sub-menu-2 {
+    left: -67px;
+    width: 235px;
+}
+
+/* ----------подменю "Полезные советы"------- */
+.sub-menu-3 {
+    left: -47px;
+    width: 279px;
+}
+
+/* --------------------меню-анимация--------- */
+.top-menu>li a::after {
+    content: "";
+    margin: auto;
+    width: 0%;
+    height: 3px;
+    margin-top: 3px;
+    background-color: rgb(0, 113, 212);
+    display: block;
+    transition: width .4s ease-in-out;
+}
+
+.top-menu>li a:hover::after {
+    width: 100%;
+}
+
+.top-menu li ul {
+    display: none;
+}
+
+.top-menu li:hover ul {
+    display: block;
+    -webkit-animation: sub_menu .4s forwards;
+    animation: sub_menu .4s forwards;
+}
+
+@-webkit-keyframes sub_menu {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes sub_menu {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ----------------гамбургер-меню----------------------- */
+.hamburger-menu {
+    display: none;
+}
+
+#menu-toggle {
+    opacity: 0;
+}
+
+#menu-toggle:checked~.menu-btn>span {
+    transform: rotate(45deg);
+}
+
+#menu-toggle:checked~.menu-btn>span::before {
+    top: 0;
+    transform: rotate(0);
+}
+
+#menu-toggle:checked~.menu-btn>span::after {
+    top: 0;
+    transform: rotate(90deg);
+}
+
+#menu-toggle:checked~.menu-box {
+    visibility: visible;
+    right: 0;
+}
+
+.menu-btn {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 7px;
+    right: 20px;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.menu-btn>span,
+.menu-btn>span::before,
+.menu-btn>span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #434343;
+    transition-duration: .25s;
+}
+
+.menu-btn>span::before {
+    content: '';
+    top: -8px;
+}
+
+.menu-btn>span::after {
+    content: '';
+    top: 8px;
+}
+
+.menu-box {
+    display: block;
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100%;
+    margin: 0;
+    padding: 80px 0;
+    list-style: none;
+    background-color: rgba(236, 239, 241, .98);
+    box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+    transition-duration: .25s;
+}
+
+.menu-item {
+    display: block;
+    padding: 12px 24px;
+
+    color: rgb(0, 5, 65);
+
+    font-size: 20px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition-duration: .25s;
+}
+
+.menu-item:hover {
+    background-color: #CFD8DC;
+}
+
+/*---------------------------контент----------------*/
+/* ----------------экран-1--------------------- */
+.home-ekran-1-container {
+    height: 725px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-end;
+    background-image: url(../img/h-1.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center center;
+}
+
+section {
+    width: 80%;
+    margin: 0 auto;
+    padding: 0 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.innovation-head {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: flex-start;
+    display: none;
+}
+
+.content-innovation-servis {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    margin: 0 auto 50px auto;
+}
+
+.btn {
+    display: block;
+    width: 60%;
+    height: 60px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(155, 170, 193, 1);
+    color: rgb(0, 0, 0, .8);
+    border: 5px double rgb(255, 255, 255);
+    padding-top: 12px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    text-align: center;
+    cursor: pointer;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.btn_contacti {
+    margin-bottom: 100px;
+}
+
+article>.btn {
+    margin-bottom: 50px;
+}
+
+.innovation-photo-text {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.btn:hover {
+    background-color: rgb(129, 142, 160);
+}
+
+a:hover .innovation-text,
+a:hover .innovation-photo-text,
+a:hover img {
+    text-decoration: underline;
+    color: rgb(0, 136, 255);
+    -webkit-filter: brightness(85%);
+    filter: brightness(85%);
+}
+
+.btn:active {
+    background-color: rgb(107, 130, 163);
+}
+
+.home-ekran-1 {
+    height: auto;
+    width: 65%;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.head-innovation,
+.head-side {
+    width: 48%;
+    padding: 30px 20px 20px 35px;
+    background-color: rgb(215, 236, 239);
+    border-radius: 3px;
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+.head-innovation-text {
+    font-size: 1.17rem;
+    color: rgba(0, 0, 0, 0.75);
+}
+
+.head-anons {
+    font-size: 1.3rem;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+/* ----------------эпиграф и разделительные линии---- */
+#epigraf {
+    width: 60%;
+    height: 140px;
+    margin: 30px auto 0 auto;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(250, 250, 250, .88);
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+}
+
+.epigraph-text {
+    width: 85%;
+    font-size: 1.2rem;
+    color: #434343;
+    text-align: center;
+}
+
+.content-epigraf {
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+#epigraf-content {
+    width: 50%;
+    margin: 0 auto;
+    padding: 5px;
+    font-size: 1.2rem;
+    color: rgb(0, 7, 87, .8);
+    text-align: center;
+    background-color: rgb(234, 243, 245);
+    border-radius: 5px;
+    box-shadow: 0 3px 5px 2px rgb(76, 125, 133, 0.7);
+}
+
+.line-content-home {
+    height: 5px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(155, 170, 193, 1);
+}
+
+a+.line-content,
+aside>.line-content {
+    margin: 15px 0 30px 0;
+    height: 2px;
+}
+
+/* -------------общие настройки контент---------- */
+.main-content {
+    width: 75%;
+    margin: 0 auto;
+    padding: 50px 12px 0 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+article {
+    width: 80%;
+    margin: 0 auto;
+}
+
+article>div,
+article>.o-dashko {
+    position: relative;
+}
+
+.o-dashko {
+    margin-top: 80px;
+}
+
+.content-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+    display: block;
+    box-shadow: 0px 0px 20px 5px rgb(76, 125, 133, 0.7);
+    border-radius: 10px;
+}
+
+.content-photo-text {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 5px;
+    font-size: 1.4rem;
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 4, 36, .719);
+    border-radius: 3px;
+}
+
+.content-innovation-servis>h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.photo-dtp {
+    width: 40%;
+    height: auto;
+    margin: 0 10px 3px 0;
+    float: left;
+}
+
+.content-text,
+.spisok {
+    /* width: 450px; */
+    font-size: 1.2rem;
+    line-height: 150%;
+    margin: 30px 0;
+    list-style-position: inside;
+}
+
+.spisok>li {
+    margin-bottom: 10px;
+    list-style-type: disc;
+}
+
+.content-text>a {
+    text-decoration: none;
+    color: rgb(0, 113, 212);
+}
+
+.content-text>a:hover {
+    color: rgb(0, 113, 212);
+    text-decoration: underline;
+}
+
+.home-ekran-2 h2,
+.home-ekran-3 h2,
+.home-ekran-4 h2,
+.home-ekran-5 h2,
+.home-ekran-6 h2 {
+    margin: 0 auto 20px auto;
+    text-align: center;
+}
+
+#vidi-pomoschi,
+#specializaciya,
+#pochemu,
+#otzivi,
+#soveti {
+    font-size: 2.2rem;
+}
+
+article>h1 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+article h2 {
+    margin-top: 50px;
+}
+
+article>h3,
+main>h3 {
+    margin: 30px 0 5px 0;
+}
+
+article>.pr {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+article>p {
+    font-size: 1.1rem;
+}
+
+.container-icon {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: center;
+    border-radius: 3px;
+    padding-bottom: 20px;
+}
+
+.container-icon>a,
+.container-icon>.not-animation,
+.container-icon>.not-animation-text {
+    width: 30%;
+    height: auto;
+    margin-top: 20px;
+    border: 1px solid rgb(192, 192, 192);
+    border-radius: 3px;
+    box-shadow: 0 3px 5px 2px rgb(76, 125, 133, 0.7);
+}
+
+.not-animation-text {
+    padding: 20px;
+    text-align: left;
+    background-color: rgb(234, 243, 245);
+}
+
+a>.icon,
+.not-animation>.icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon {
+    width: 100%;
+    padding: 0 2px 10px 2px;
+    border-radius: 3px;
+}
+
+.icon>img {
+    width: 80px;
+    margin: 10px 0 10px 0;
+}
+
+a>.icon>p,
+.not-animation>.icon>p {
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.not-animation>.icon>p>span {
+    font-size: 1.1rem;
+}
+
+a>.icon>p>span {
+    font-size: 1.1rem;
+    text-align: center;
+    font-weight: normal;
+}
+
+.container-icon>a {
+    text-decoration: none;
+    color: rgb(0, 7, 87);
+}
+
+.line-content {
+    background-color: rgb(155, 170, 193, .8);
+    height: 3px;
+}
+
+/* --------------------------анимация иконок--------------------- */
+.container-icon>a:hover {
+    transform: scale(1.05, 1.05);
+    text-decoration: none;
+    background-color: rgb(215, 236, 239, 1);
+    color: rgb(0, 12, 148);
+}
+
+/* -------------------экран-2---------------- */
+.home-ekran-2 {
+    margin-top: 50px;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ----------------экран-3--------------------- */
+.home-ekran-3 {
+    margin-top: 50px;
+}
+
+/* ----------------экран-4, 5, 6--------------------- */
+.home-ekran-4,
+.home-ekran-5,
+.home-ekran-6 {
+    margin: 50px auto 0 auto;
+}
+
+blockquote {
+    margin-top: 20px;
+    text-align: center;
+    font-size: .9rem;
+    color: rgb(0, 5, 65, .65);
+}
+
+form+div {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---------фото полезные советы------------ */
+aside {
+    width: 25%;
+}
+
+#soveti,
+.contact {
+    margin: 0 auto 18px auto;
+    color: rgb(0, 5, 65);
+    text-align: center;
+    border-left-width: 5px;
+}
+
+aside>a {
+    text-decoration: none;
+}
+
+.side-content {
+    position: relative;
+    padding-top: 5px;
+    margin-bottom: 0;
+}
+
+.side-podzagolovok {
+    font-size: 1.25rem;
+    color: rgb(0, 5, 65);
+}
+
+.side-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+    display: block;
+}
+
+.side-photo-text {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    padding: 5px;
+    font-size: 1rem;
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 4, 36, .7);
+    border-radius: 3px;
+    text-decoration: none;
+}
+
+a>:hover .side-podzagolovok,
+a>:hover .side-photo-text {
+    color: rgb(0, 136, 255);
+}
+
+/* -----------отзывы----------- */
+.not-animation-text>p {
+    font-size: .85rem;
+}
+
+.otzivi {
+    font-size: 1rem;
+    color: rgb(0, 5, 65, .9);
+}
+
+/* -----------Форма обратной связи----------- */
+.contactBody {
+    width: 100%;
+    height: 430px;
+    background-color: rgb(248, 248, 248);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.title {
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+    /* padding-bottom: 10px; */
+    font-size: 2.5rem;
+    color: rgb(0, 7, 87);
+}
+
+#title-Tag-Line {
+    font-size: 20px;
+}
+
+/* This will center the form */
+.wrapper {
+    width: 100%;
+    height: 450px;
+    margin: 1% auto 0 auto;
+}
+
+/* form animation starts */
+.form {
+    background: #f1f1f1;
+    text-align: center;
+    box-shadow: 0px 0px 20px 5px rgb(76, 125, 133, 0.7);
+    border-radius: 10px;
+    width: 80%;
+    height: 400px;
+    margin: 30px auto 0 auto;
+    padding: 10px 10px;
+    -webkit-animation: bounce 1.5s infinite;
+    animation: bounce 1.5s infinite;
+}
+
+.name {
+    background-color: rgb(0, 167, 218);
+    border-bottom: 5px solid rgb(0, 128, 167);
+    color: white;
+    width: 300px;
+}
+
+::-webkit-input-placeholder {
+    color: white;
+    font-size: 20px;
+}
+
+.name:hover {
+    background-color: rgba(0, 163, 212);
+    border-bottom: 5px solid rgba(0, 128, 167);
+    height: 40px;
+    width: 380px;
+}
+
+.email {
+    background-color: rgb(0, 167, 218);
+    border-bottom: 5px solid rgb (0, 128, 167);
+    height: 40px;
+    width: 300px;
+}
+
+.email:hover {
+    background-color: rgba(0, 163, 212);
+    border-bottom: 5px solid rgba(0, 128, 167);
+    height: 50px;
+    width: 380px;
+}
+
+.message {
+    background-color: rgb(0, 167, 218);
+    border-bottom: 5px solid rgb(0, 128, 167);
+    overflow: hidden;
+    height: 100px;
+    width: 300px;
+}
+
+.message:hover {
+    background-color: rgb(0, 163, 212);
+    border-bottom: 5px solid rgb(0, 128, 167);
+    height: 100px;
+    width: 380px;
+}
+
+.submit {
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #2dd7bb;
+    border: none;
+    border-bottom: 5px solid #cb64b2;
+    transform: translateY(-120px);
+}
+
+.submit:hover {
+    background-color: rgb(0, 163, 212);
+    border-bottom: 5px solid rgb(0, 128, 167);
+    box-shadow: 15px 15px 15px 5px rgb(76, 125, 133, 0.7);
+}
+
+.entry {
+    display: block;
+    margin: 30px auto;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    transition: all 0.5s ease 0s;
+    box-shadow: 0px 0px 25px 2px #aaa;
+}
+
+/* Shadow to make it look like form is floating  */
+.shadow {
+    box-shadow: 0px 0px 60px 5px #aaa;
+    opacity: 0.5;
+    border-radius: 100px;
+    width: 50%;
+    margin: 50px auto 0 auto;
+    padding: 0 20px;
+    -webkit-animation: shadow 1.5s infinite;
+    animation: shadow 1.5s infinite;
+}
+
+.submit {
+    border-radius: 5px;
+    padding: 10px;
+    width: 150px;
+    color: white;
+    background-color: rgb(155, 170, 193);
+    border: none;
+    border-bottom: 5px solid rgb(99, 110, 124, .9);
+    margin-top: 150px;
+}
+
+@-webkit-keyframes bounce {
+    0% {}
+
+    50% {
+        transform: translate(0, 8px);
+        -webkit-transform: translate(0, 8px);
+        -moz-transform: translate(0, 8px);
+        -ms-transform: translate(0, 8px);
+        -o-transform: translate(0, 8px);
+    }
+}
+
+@keyframes bounce {
+    0% {}
+
+    50% {
+        transform: translate(0, 8px);
+    }
+}
+
+@-webkit-keyframes shadow {
+    0% {}
+
+    50% {
+        opacity: 0.8;
+        width: 50%;
+    }
+}
+
+@keyframes shadow {
+    0% {}
+
+    50% {
+        opacity: 0.8;
+        width: 50%;
+    }
+}
+
+
+/*--------------- подвал --------------*/
+footer {
+    width: 100%;
+    margin-top: 70px;
+    padding: 12px 0;
+    background-color: #D7ECEF;
+}
+
+/* ---- соцсети-------- */
+.fb-ig {
+    width: 55%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 40px;
+}
+
+.fb-ig>div {
+    width: 45%;
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.fb-ig>div>a {
+    width: 30%;
+    height: auto;
+}
+
+.foot {
+    width: 80%;
+    margin: 0 auto 15px auto;
+    padding: 0 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.foot-contacti,
+.logo-foot,
+.developer {
+    width: 33%;
+}
+
+.foot-contacti,
+.developer-text,
+.logo-foot>p+p {
+    font-size: 1rem;
+    color: rgba(0, 5, 65, .7);
+}
+
+.logo-foot {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.logo-foot>img {
+    height: 57px;
+    width: auto;
+}
+
+.logo-foot>p {
+    font-size: 1.5rem;
+    line-height: 70%;
+    color: rgb(0, 136, 255);
+}
+
+.logo-foot>p+p {
+    margin-top: 50px;
+}
+
+.developer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    align-content: space-between;
+    justify-content: center;
+}
+
+.developer-text {
+    text-align: right;
+}
+
+/* ---------------break points------------------ */
+@media only screen and (max-width: 1600px) {
+    .header-top {
+        width: 90%;
+    }
+
+    .top-nav {
+        width: 90%;
+    }
+
+    .home-ekran-1-container {
+        height: 550px;
+    }
+
+    .sub-menu-1>li,
+    .sub-menu-2>li,
+    .sub-menu-3>li {
+        font-size: 1rem;
+    }
+
+    #epigraf {
+        width: 75%;
+        height: 144px;
+    }
+
+    .epigraph-text {
+        width: 75%;
+        font-size: 1.2rem;
+    }
+
+    .home-ekran-1 {
+        height: auto;
+        width: 90%;
+    }
+
+    .head-innovation>h2 {
+        font-size: 1.5rem;
+    }
+
+    .logo-foot>p+p {
+        margin-top: 55px;
+    }
+}
+
+@media only screen and (max-width: 1440px) {
+    .header-top {
+        width: 90%;
+    }
+
+    .top-nav {
+        width: 90%;
+    }
+
+    .top-menu>li {
+        font-size: 1.2rem;
+    }
+
+    .sub-menu-1>li,
+    .sub-menu-2>li,
+    .sub-menu-3>li {
+        font-size: 1.1rem;
+    }
+
+    #epigraf {
+        width: 90%;
+        height: 144px;
+    }
+
+    .epigraph-text {
+        width: 90%;
+        font-size: 1.1rem;
+    }
+
+    .home-ekran-1 {
+        height: auto;
+        width: 95%;
+    }
+
+    .head-innovation>h2 {
+        font-size: 1.5rem;
+    }
+
+    .side-podzagolovok {
+        font-size: 1.2rem;
+    }
+
+    .home-ekran-2 {
+        width: 90%;
+    }
+
+    .main-content {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 1366px) {
+    .header-top {
+        width: 90%;
+    }
+
+    .top-menu>li {
+        font-size: 1.2rem;
+    }
+
+    .home-ekran-1-container {
+        height: 500px;
+    }
+
+    .home-ekran-1 {
+        height: auto;
+    }
+
+    .head-innovation>h2 {
+        font-size: 1.5rem;
+    }
+
+    #epigraf {
+        width: 75%;
+        height: 100px;
+    }
+
+    .epigraf-text {
+        width: 75%;
+        font-size: 1.2rem;
+    }
+
+    .side-podzagolovok {
+        font-size: 1.1rem;
+    }
+
+    .foot {
+        width: 95%;
+    }
+}
+
+@media only screen and (max-width: 1280px) {
+    .header-top {
+        width: 90%;
+    }
+
+    .top-menu>li {
+        font-size: 1.1rem;
+    }
+
+    .sub-menu-1>li,
+    .sub-menu-2>li,
+    .sub-menu-3>li {
+        font-size: .95rem;
+    }
+
+    .home-ekran-1 {
+        height: auto;
+        width: 95%;
+    }
+
+    #epigraf {
+        width: 80%;
+        height: 100px;
+    }
+
+    .epigraph-text {
+        width: 80%;
+        font-size: 1.2rem;
+    }
+
+    .head-innovation>h2 {
+        font-size: 1.45rem;
+    }
+
+    .head-innovation-text {
+        font-size: 1.15rem;
+    }
+
+    .head-anons {
+        font-size: 1.25rem;
+    }
+
+    .side-podzagolovok {
+        font-size: 1.2rem;
+    }
+
+    .main-content {
+        width: 100%;
+    }
+
+    .foot {
+        width: 95%;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    #header {
+        width: 100%;
+    }
+
+    .logo>img {
+        height: 50px;
+        width: auto;
+    }
+
+    .logo>p {
+        margin-bottom: 5px;
+        font-size: 1.3rem;
+
+    }
+
+    .top-menu>li {
+        font-size: 1rem;
+    }
+
+    .sub-menu-1>li,
+    .sub-menu-2>li,
+    .sub-menu-3>li {
+        font-size: .95rem;
+    }
+
+    .home-ekran-1-container {
+        height: 500px;
+    }
+
+    #epigraf {
+        height: 90px;
+        width: 90%;
+    }
+
+    .epigraph-text {
+        width: 90%;
+    }
+
+    .home-ekran-1 {
+        width: 95%;
+    }
+
+    .btn {
+        font-size: 1.2rem;
+    }
+
+    .side-podzagolovok {
+        font-size: 1.1rem;
+    }
+
+    section {
+        max-width: 992px;
+    }
+
+    .head-innovation>h2 {
+        font-size: 1.4rem;
+    }
+
+    .head-innovation>h3 {
+        font-size: 1.1rem;
+    }
+
+    .head-innovation-text {
+        font-size: 1.05rem;
+    }
+
+    .head-anons {
+        font-size: 1.12rem;
+    }
+
+    .anons-head {
+        font-size: 1.3rem;
+    }
+
+    .main-content {
+        width: 100%;
+    }
+
+    .content-innovation-servis>h1 {
+        text-align: center;
+        font-size: 1.7rem;
+    }
+
+    aside>.line-content {
+        margin: 15px 0 48px 0;
+    }
+
+    .side-photo-text {
+        font-size: .9rem;
+    }
+
+    article {
+        width: 90%;
+    }
+
+    .foot {
+        max-width: 992px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    body {
+        position: relative;
+    }
+
+    #header {
+        width: 100%;
+    }
+
+    .top-nav {
+        width: 95%;
+    }
+
+    .top-menu>li {
+        font-size: .95rem;
+    }
+
+    .sub-menu-1,
+    .sub-menu-2,
+    .sub-menu-3 {
+        font-size: .85rem;
+    }
+
+    section {
+        max-width: 960px;
+    }
+
+    .content-innovation-servis>h1 {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    .head-innovation-text {
+        font-size: 1.03rem;
+    }
+
+    #epigraf,
+    .epigraph-text {
+        width: 90%;
+        font-size: 1rem;
+    }
+
+    .home-ekran-1 {
+        width: 100%;
+        height: auto;
+    }
+
+    article {
+        width: 90%;
+    }
+
+    article>h1 {
+        font-size: 2rem;
+    }
+
+    article>h3 {
+        font-size: 1.5rem;
+    }
+
+    .head-innovation>h2 {
+        font-size: 1.2rem;
+    }
+
+    .head-innovation>h3 {
+        font-size: 1rem;
+    }
+
+    .head-innovation-text {
+        font-size: .96rem;
+    }
+
+    .head-anons {
+        font-size: 1.08rem;
+    }
+
+    .btn {
+        font-size: 1.2rem;
+    }
+
+    .main-content {
+        width: 95%;
+    }
+
+    #vidi-pomoschi,
+    #specializaciya,
+    #pochemu,
+    #otzivi,
+    #soveti {
+        font-size: 2rem;
+    }
+
+    .side-podzagolovok {
+        font-size: .9rem;
+    }
+
+    .side-photo-text {
+        font-size: .9rem;
+    }
+
+    aside>.line-content {
+        margin: 15px 0 48px 0;
+    }
+
+    .foot {
+        max-width: 935px;
+    }
+
+    .fb-ig>a {
+        width: 25%;
+        height: auto;
+    }
+
+    iframe {
+        max-width: 450px;
+        height: 200px;
+    }
+}
+
+@media only screen and (max-width: 854px) {
+    #header>.phone-headersTop>.top-contact {
+        font-size: 1rem;
+    }
+
+    #header>.phone-headersTop {
+        font-size: .9rem;
+    }
+
+    .top-menu>li {
+        font-size: .8rem;
+    }
+
+    .sub-menu-1,
+    .sub-menu-2,
+    .sub-menu-3 {
+        font-size: 2.85rem;
+    }
+
+    .home-ekran-1-container {
+        height: 480px;
+    }
+
+    .epigraph-text {
+        font-size: 1rem;
+    }
+
+    .head-innovation>h2 {
+        font-size: 1.2rem;
+    }
+
+    .head-innovation>h3 {
+        font-size: .95rem;
+    }
+
+    .btn {
+        font-size: 1.1rem;
+    }
+
+    .not-animation-text>p {
+        font-size: .9rem;
+    }
+
+    .side-podzagolovok {
+        font-size: .85rem;
+    }
+
+    .logo-foot>p {
+        font-size: 1.3rem;
+    }
+
+    .logo-foot>p+p {
+        margin-top: 45px;
+    }
+
+    .foot-contacti,
+    .diveloper,
+    .logo-foot>p+p,
+    .developer-text {
+        font-size: .85rem;
+    }
+}
+
+@media only screen and (max-width: 823px) {
+
+    .sub-menu-1,
+    .sub-menu-2,
+    .sub-menu-3 {
+        font-size: 2.85rem;
+    }
+
+    .home-ekran-1-container {
+        height: 450px;
+    }
+
+    .head-innovation>h2 {
+        font-size: 1.19rem;
+    }
+
+    .btn {
+        font-size: 1.05rem;
+    }
+
+    .not-animation-text>p {
+        font-size: .8rem;
+    }
+}
+
+@media only screen and (max-width: 812px) {
+
+    .sub-menu-1,
+    .sub-menu-2,
+    .sub-menu-3 {
+        font-size: .85rem;
+    }
+
+    .home-ekran-1-container {
+        height: 455px;
+    }
+
+    .epigraph-text {
+        font-size: .9rem;
+    }
+
+    .btn {
+        font-size: .9rem;
+    }
+
+    .not-animation>.icon>p>span {
+        font-size: 1rem;
+    }
+
+    .not-animation-text>p {
+        font-size: .8rem;
+    }
+
+    .content-innovation-servis>h1 {
+        font-size: 1.7rem;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+
+    html {
+        font-size: 11px;
+    }
+
+    #header>.phone-headersTop {
+        font-size: .8rem;
+    }
+
+    #header>.phone-headersTop>.top-contact {
+        font-size: .95rem;
+    }
+
+    #header>.language>.lang-header li {
+        font-size: .95rem;
+    }
+
+    .logo>img {
+        height: 45px;
+        width: auto;
+    }
+
+    .logo>p,
+    .phone-headers {
+        font-size: 1.7rem;
+    }
+
+    .logo>p {
+        margin-bottom: 5px;
+        line-height: 60%;
+        color: rgb(0, 113, 212)
+    }
+
+    .top-nav {
+        justify-content: space-between;
+    }
+
+    .top-menu>li {
+        font-size: 1rem;
+    }
+
+    .sub-menu-1>li,
+    .sub-menu-2>li,
+    .sub-menu-3>li {
+        font-size: 1.1rem;
+    }
+
+    .sub-menu-3 {
+        left: -90px;
+        width: 273px;
+    }
+
+    .home-ekran-1-container {
+        height: 435px;
+    }
+
+    .home-ekran-1 {
+        width: 95%;
+    }
+
+    .epigraph-text {
+        font-size: 1.2rem;
+    }
+
+    .content-innovation-servis>h1 {
+        text-align: center;
+        font-size: 1.7rem;
+    }
+
+    .home-ekran-1>.head-innovation h2 {
+        font-size: 1.45rem;
+    }
+
+    .head-innovation h3 {
+        font-size: 1.15rem;
+    }
+
+    .head-innovation-text {
+        font-size: 1.1rem;
+    }
+
+    .head-anons {
+        font-size: 1.18rem;
+    }
+
+    .btn {
+        font-size: 1.3rem;
+    }
+
+    .container-icon>a {
+        width: 45%;
+    }
+
+    a>.icon>p {
+        font-size: 1.43rem;
+    }
+
+    a>.icon>p>span {
+        font-size: 1.2rem;
+    }
+
+    .not-animation-text>p {
+        font-size: .8rem;
+    }
+
+    .not-animation>.icon>p {
+        font-size: 1.6rem;
+    }
+
+    .not-animation>.icon>p>span {
+        font-size: 1.3rem;
+    }
+
+    blockquote {
+        font-size: 1.2rem;
+    }
+
+    .side-podzagolovok {
+        font-size: 1.35rem;
+    }
+
+    .fb-ig {
+        margin-left: 20px;
+    }
+
+    .logo-foot>p {
+        font-size: 1.2rem;
+    }
+
+    .logo-foot>p+p {
+        margin-top: 25px;
+    }
+
+    article {
+        width: 100%;
+    }
+
+    iframe {
+        width: 100%;
+        height: auto;
+    }
+
+    .foot-contacti,
+    .diveloper,
+    .logo-foot>p+p {
+        font-size: .8rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #header {
+        display: none;
+    }
+
+    .logo-nav {
+        display: none;
+    }
+
+    .home-ekran-1 {
+        display: none;
+    }
+
+    #epigraf {
+        display: none;
+    }
+
+    #epigraf-content {
+        display: none;
+    }
+
+    .header-mobil {
+        display: block;
+        margin-top: 40px;
+    }
+
+    .lang-mobil {
+        display: inline-block;
+        font-size: 2rem;
+    }
+
+    header {
+        width: 100%;
+        padding: 10px 0;
+        flex-direction: column;
+        align-content: space-between;
+    }
+
+    nav {
+        height: 40px;
+    }
+
+    .top-nav {
+        width: 100%;
+        height: 40px;
+        justify-content: start;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    .logo {
+        margin: 0;
+    }
+
+    .logo>img {
+        height: 100px;
+        width: auto;
+    }
+
+    .logo>p {
+        line-height: 100%;
+        text-align: center;
+        font-size: 3rem;
+    }
+
+    .phone-headers {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    nav {
+        position: fixed;
+        top: 0
+    }
+
+    .top-menu {
+        height: 40px;
+    }
+
+    .top-menu>li {
+        display: none;
+    }
+
+    .home-ekran-1-container {
+        height: auto;
+        width: 100%;
+        background-image: none;
+    }
+
+    .innovation-head {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+
+    section {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .innovation-head>h1 {
+        display: block;
+        width: 95%;
+        padding: 0 5px 5px 5px;
+        font-size: 4rem;
+        text-align: center;
+        margin-bottom: 15px;
+        color: rgb(0, 5, 65, .85);
+        background-color: rgb(215, 236, 239);
+        border-radius: 3px;
+    }
+
+    .innovation-content {
+        width: 100%;
+        position: relative;
+        border-radius: 3px;
+        box-shadow: 0 0 4px 3px rgba(76, 125, 133, 0.7);
+    }
+
+    .innovation-content>a {
+        width: 100%;
+        border-radius: 3px;
+    }
+
+    .innovation-content>a>img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 3px;
+    }
+
+    .innovation-text {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        padding-left: 5px;
+        font-size: 2rem;
+        text-align: center;
+        font-variant: small-caps;
+        letter-spacing: .8px;
+        color: rgba(255, 255, 255);
+        background-color: rgba(0, 4, 36, .5);
+        border-radius: 3px;
+        z-index: 1;
+    }
+
+    .innovation-photo-text {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: 5px;
+        font-size: 1.75rem;
+        color: rgb(255, 255, 255);
+        background-color: rgba(0, 4, 36, .6);
+        border-radius: 3px;
+    }
+
+    article>h1 {
+        font-size: 3rem;
+        margin-top: 0;
+    }
+
+    .main-content>main>article>h1 {
+        text-align: center;
+        font-size: 3rem;
+    }
+
+    .innovation-content {
+        width: 95%;
+    }
+
+    .innovation-content>img {
+        width: 100%;
+        z-index: -5;
+    }
+
+    .btn {
+        width: 60%;
+        height: 70px;
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    .content-innovation-servis {
+        margin-top: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content-innovation-servis>h1 {
+        margin-top: 10px;
+        text-align: center;
+        font-size: 1.8rem;
+    }
+
+    .title>h2 {
+        font-size: 1.7rem;
+    }
+
+    .contact {
+        margin-top: 30px;
+        font-size: 2.5rem;
+    }
+
+    #vidi-pomoschi,
+    #specializaciya,
+    #pochemu {
+        font-size: 2.2rem;
+    }
+
+    .container-icon>a {
+        width: 45%;
+    }
+
+    a>.icon>p {
+        font-size: 1.7rem;
+    }
+
+    a>.icon>p>span {
+        font-size: 1.3rem;
+    }
+
+    .not-animation-text>p {
+        font-size: .7rem;
+    }
+
+    .not-animation>.icon>p>span {
+        font-size: 1rem;
+    }
+
+    .content-text {
+        font-size: 1.6rem;
+    }
+
+    .content-photo-text {
+        font-size: 1.7rem;
+    }
+
+    article>ul>li {
+        font-size: 1.3rem;
+    }
+
+    .side-head {
+        display: none;
+    }
+
+    .main-content {
+        width: 100%;
+        margin: 0;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    main,
+    article {
+        width: 100%;
+    }
+
+    article>h3 {
+        font-size: 2rem;
+    }
+
+    article>.contact-podzagolovok,
+    .text-contact {
+        text-align: center;
+    }
+
+    aside {
+        width: 100%;
+    }
+
+    #soveti {
+        margin: 0 auto 18px auto;
+        font-size: 2.3rem;
+    }
+
+    .side-podzagolovok {
+        margin-bottom: 5px;
+        font-size: 1.4rem;
+    }
+
+    .side-content>.side-podzagolovok {
+        font-size: 2rem;
+    }
+
+    .side-photo-text {
+        font-size: 1.3rem;
+    }
+
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    h3 {
+        font-size: 2rem;
+    }
+
+    iframe {
+        display: block;
+        max-width: 700px;
+        height: 250px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    footer {
+        position: static;
+    }
+
+    .foot {
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .foot-contacti,
+    .logo-foot,
+    .developer {
+        width: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .fb-ig {
+        margin-left: 0;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .fb-ig>div {
+        display: inline-flex;
+        justify-content: space-around;
+    }
+
+    .foot-contacti>p {
+        font-size: 1.5rem;
+    }
+
+    .logo-foot>img {
+        height: 75px;
+        width: auto;
+        margin-top: 30px;
+    }
+
+    .logo-foot>p {
+        font-size: 2.5rem;
+    }
+
+    .logo-foot>p+p {
+        margin-top: 20px;
+        font-size: 1.5rem;
+    }
+
+    .developer {
+        margin-top: 30px;
+        align-items: center;
+    }
+
+    .developer-text {
+        text-align: center;
+        font-size: 1.3rem;
+    }
+}
+
+@media only screen and (max-width: 736px) {
+    .innovation-photo-text {
+        font-size: 1.3rem;
+    }
+
+    #vidi-pomoschi,
+    #specializaciya,
+    #pochemu,
+    #otzivi,
+    #soveti {
+        font-size: 2.5rem;
+    }
+
+    .not-animation>.icon>p>span,
+    a>.icon>p>span {
+        font-size: 1.3rem;
+    }
+
+    .otzivi {
+        font-size: 1.1rem;
+    }
+
+    .not-animation-text>p {
+        font-size: 1rem;
+    }
+
+    .btn {
+        font-size: 1.9rem;
+    }
+
+    .content-innovation-servis>h1 {
+        font-size: 1.7rem;
+    }
+
+    .title>h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 732px) {
+    .innovation-photo-text {
+        font-size: 1.37rem;
+    }
+
+    .content-innovation-servis>h1 {
+        font-size: 1.6rem;
+    }
+}
+
+@media only screen and (max-width: 667px) {
+    .innovation-head>h1 {
+        font-size: 2.8rem;
+    }
+
+    .innovation-text {
+        font-size: 1.8rem;
+    }
+
+    .innovation-photo-text {
+        font-size: 1.6rem;
+    }
+
+    .btn {
+        font-size: 1.8rem;
+    }
+
+    .not-animation-text>p {
+        font-size: .9rem;
+    }
+
+    .not-animation-text>p>span {
+        font-size: 1.1rem;
+    }
+
+    .side-podzagolovok {
+        font-size: 1.3rem;
+    }
+
+    .content-innovation-servis>h1 {
+        font-size: 1.5rem;
+    }
+
+    .title>h2 {
+        font-size: 1.3rem;
+    }
+
+    .name,
+    .email,
+    .message {
+        width: 90%;
+    }
+
+    .name:hover,
+    .email:hover,
+    .message:hover {
+        width: 100%;
+    }
+
+    .developer-text {
+        font-size: 1.1rem;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .innovation-head>h1 {
+        font-size: 3rem;
+    }
+
+    .innovation-text {
+        font-size: 1.8rem;
+    }
+
+    .innovation-photo-text {
+        font-size: 1.5rem;
+    }
+
+    .btn {
+        font-size: 1.9rem;
+    }
+
+    #vidi-pomoschi,
+    #specializaciya,
+    #pochemu,
+    #otzivi,
+    #soveti {
+        font-size: 2.5rem;
+    }
+
+    #soveti {
+        margin: 0 auto 18px auto;
+    }
+
+    a>.icon>p {
+        font-size: 1.5rem;
+    }
+
+    a>.icon>p>span {
+        font-size: 1.1rem;
+    }
+
+    .not-animation>.icon>p {
+        font-size: 1.5rem;
+    }
+
+    .not-animation>.icon>p>span {
+        font-size: 1.2rem;
+    }
+
+    .not-animation-text>p {
+        font-size: .6rem;
+    }
+
+    blockquote {
+        font-size: 1.1rem;
+    }
+
+    .not-animation-text>p {
+        font-size: .9rem;
+    }
+
+    .otzivi {
+        color: rgb(0, 5, 65, .9);
+    }
+
+    .side-podzagolovok {
+        margin-bottom: 5px;
+        font-size: 1.2rem;
+    }
+
+    .side-photo-text {
+        font-size: 1.1rem;
+    }
+
+    .content-innovation-servis>h1 {
+        font-size: 2rem;
+    }
+
+    .name:hover,
+    .email:hover,
+    .message:hover {
+        width: 100%;
+    }
+
+    .logo-foot>p {
+        font-size: 2.2rem;
+    }
+
+    .logo-foot>p+p {
+        font-size: 1.4rem;
+    }
+
+    .developer-text {
+        font-size: 1.2rem;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #header {
+        display: none;
+    }
+
+    .header-mobil {
+        display: block;
+        margin-top: 40px;
+    }
+
+    header {
+        width: 100%;
+        margin: 0;
+    }
+
+    .top-nav {
+        justify-content: start;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    .logo>img {
+        height: 90px;
+        width: auto;
+    }
+
+    .logo>p {
+        line-height: 100%;
+        text-align: center;
+    }
+
+    .phone-headers {
+        font-size: 2.7rem;
+    }
+
+    nav {
+        position: fixed;
+        top: 0
+    }
+
+    .top-menu>li {
+        margin-left: 5px;
+        display: none;
+    }
+
+    .home-ekran-1-container {
+        height: auto;
+        width: 100%;
+        background-image: none;
+        background-size: auto;
+    }
+
+    section {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .innovation-head {
+        width: 100%;
+        align-items: center;
+    }
+
+    .innovation-head>a {
+        width: 70%;
+    }
+
+    .innovation-head>h1 {
+        width: 100%;
+        margin: 0 0 20px 0;
+        font-size: 3rem;
+    }
+
+    .main-content>article>h1 {
+        text-align: center;
+    }
+
+    .main-content>main>article>h1 {
+        margin-top: 0px;
+    }
+
+    .innovation-content {
+        width: 100%;
+    }
+
+    .innovation-content>img {
+        width: 100%;
+    }
+
+    .innovation-text {
+        width: 100%;
+        font-size: 1.9rem;
+    }
+
+    .innovation-photo-text {
+        font-size: 1.6rem;
+    }
+
+    .btn {
+        width: 60%;
+        height: 60px;
+        font-size: 1.9rem;
+    }
+
+    .btn_contacti {
+        margin-bottom: 0;
+    }
+
+    .home-ekran-1-container>section {
+        width: 100%;
+    }
+
+    .content-innovation-servis {
+        margin-top: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content-innovation-servis>h1 {
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .title>h2 {
+        font-size: 1.8rem;
+    }
+
+    .name,
+    .email,
+    .message {
+        width: 90%;
+    }
+
+    .container-icon>a {
+        width: 45%;
+    }
+
+    .container-icon>.soveti-photo {
+        width: 100%;
+    }
+
+    a>.icon>p {
+        font-size: 1.55rem;
+    }
+
+    a>.icon>p>span {
+        font-size: 1.25rem;
+    }
+
+    .not-animation>.icon>p {
+        font-size: 1.55rem;
+    }
+
+    .not-animation>.icon>p>span {
+        font-size: 1.25rem;
+    }
+
+    .container-icon>.not-animation-text {
+        width: 45%;
+    }
+
+    article>.content-text {
+        font-size: 1.4rem;
+    }
+
+    article>ul>li {
+        font-size: 1.3rem;
+    }
+
+    .side-head {
+        display: none;
+    }
+
+    .main-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    #vidi-pomoschi {
+        margin-top: 50px;
+    }
+
+    main,
+    article {
+        width: 100%;
+    }
+
+    aside {
+        width: 100%;
+    }
+
+    .otzivi {
+        font-size: 1.1rem;
+    }
+
+    .not-animation-text>p {
+        font-size: 1rem;
+    }
+
+    .side-podzagolovok {
+        margin-bottom: 5px;
+        font-size: 2rem;
+    }
+
+    .side-photo-text {
+        font-size: 1.5rem;
+    }
+
+    iframe {
+        width: 100%;
+        height: auto;
+    }
+
+    .foot {
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .foot-contacti,
+    .logo-foot,
+    .diveloper {
+        width: 100%;
+        text-align: center;
+    }
+
+    .diveloper {
+        margin-top: 30px;
+    }
+
+    .logo-foot>p {
+        font-size: 2.5rem;
+    }
+
+    .logo-foot>p+p {
+        margin-top: 20px;
+        font-size: 1.5rem;
+    }
+
+    .developer-text {
+        font-size: 1.3rem;
+    }
+
+    .logo-foot>img {
+        margin-top: 10px;
+    }
+}
+
+@media only screen and (max-width: 533px) {
+
+    .name,
+    .email,
+    .message {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    header {
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-content: space-between;
+    }
+
+    .top-nav {
+        width: 100%;
+        justify-content: start;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    .logo>img {
+        height: 85px;
+        width: auto;
+    }
+
+    .logo>p {
+        line-height: 100%;
+        text-align: center;
+        font-size: 2.5rem;
+    }
+
+    .phone-headers {
+        font-size: 2rem;
+    }
+
+    nav {
+        position: fixed;
+        top: 0
+    }
+
+    .top-menu>li {
+        display: none;
+    }
+
+    .home-ekran-1-container {
+        height: auto;
+        width: 100%;
+        background-image: none;
+        background-size: auto;
+    }
+
+    section {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .innovation-head {
+        width: 100%;
+        align-items: center;
+    }
+
+    .innovation-head>a {
+        width: 100%;
+    }
+
+    .innovation-head>h1 {
+        width: 100%;
+        margin-bottom: 20px;
+        font-size: 2.6rem;
+        text-align: center;
+    }
+
+    .main-content>article>h1,
+    main>article>h1 {
+        text-align: center;
+    }
+
+    main>article>h3 {
+        margin-top: 20px;
+    }
+
+    .innovation-content {
+        width: 100%;
+    }
+
+    .innovation-content>img {
+        width: 100%;
+    }
+
+    .innovation-text {
+        width: 100%;
+        font-size: 1.5rem;
+    }
+
+    .innovation-photo-text {
+        font-size: 1.2rem;
+    }
+
+    .btn {
+        width: 100%;
+        height: 60px;
+        font-size: 1.6rem;
+    }
+
+    .content-innovation-servis {
+        margin-top: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content-innovation-servis>h1 {
+        margin-top: 10px;
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    .container-icon>a {
+        width: 45%;
+    }
+
+    a>.icon>p {
+        font-size: 1rem;
+    }
+
+    a>.icon>p {
+        font-size: 1.5rem;
+    }
+
+    a>.icon>p>span {
+        font-size: 1.3rem;
+    }
+
+    .not-animation>.icon>p {
+        font-size: 1.5rem;
+    }
+
+    .not-animation>.icon>p>span {
+        font-size: 1.2rem;
+    }
+
+    blockquote {
+        font-size: 1rem;
+    }
+
+    .container-icon>.not-animation-text {
+        width: 90%;
+    }
+
+    .not-animation-text>p {
+        font-size: 1.1rem;
+    }
+
+    .otzivi {
+        font-size: 1rem;
+    }
+
+    .side-head {
+        display: none;
+    }
+
+    .main-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    main,
+    article {
+        width: 100%;
+    }
+
+    .content-photo-text {
+        font-size: 1.2rem;
+    }
+
+    aside {
+        width: 100%;
+    }
+
+    .contact {
+        margin-top: 30px;
+    }
+
+    #soveti {
+        margin: 0 auto 18px auto;
+    }
+
+    .side-podzagolovok {
+        margin-bottom: 5px;
+        font-size: 1.6rem;
+    }
+
+    .side-photo-text {
+        font-size: 1.4rem;
+        z-index: 1;
+    }
+
+    iframe {
+        width: 100%;
+        height: auto;
+    }
+
+    .form {
+        width: 100%;
+    }
+
+    .foot {
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .foot-contacti,
+    .logo-foot,
+    .diveloper {
+        width: 100%;
+        text-align: center;
+    }
+
+    .foot-contacti>p {
+        font-size: 1.3rem;
+    }
+
+    .diveloper {
+        margin-top: 30px;
+    }
+
+    .logo-foot>p {
+        font-size: 2rem;
+    }
+
+    .developer-text {
+        font-size: 1.1rem;
+    }
+
+    .logo-foot>img {
+        margin-top: 10px;
+        height: 65px;
+        width: auto;
+    }
+
+    .logo-foot>p+p {
+        margin-top: 20px;
+        font-size: 1.4rem;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    .phone-headers {
+        font-size: 2.3rem;
+    }
+
+    .innovation-head>h1 {
+        font-size: 2.5rem;
+    }
+
+    .innovation-text {
+        font-size: 1.25rem;
+    }
+
+    .innovation-photo-text {
+        font-size: 1.1rem;
+    }
+
+    #vidi-pomoschi,
+    #specializaciya,
+    #pochemu,
+    #otzivi,
+    #soveti {
+        font-size: 2.3rem;
+    }
+
+    a>.icon>p,
+    .not-animation>.icon>p {
+        font-size: 1.3rem;
+    }
+
+    a>.icon>p>span,
+    .not-animation>.icon>p>span {
+        font-size: 1.1rem;
+    }
+
+    blockquote {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 1.1rem;
+    }
+
+    .otzivi {
+        font-size: 1.2rem;
+    }
+
+    .side-podzagolovok {
+        margin-bottom: 5px;
+        font-size: 1.6rem;
+    }
+
+    .content-innovation-servis>h1 {
+        font-size: 1.6rem;
+    }
+
+    .it>h1 {
+        font-size: 1.75rem;
+    }
+
+    .title>h2 {
+        font-size: 1.4rem;
+    }
+
+    .name,
+    .email,
+    .message {
+        width: 90%;
+    }
+
+    .name:hover,
+    .email:hover,
+    .message:hover {
+        width: 100%;
+    }
+
+
+}
+
+@media only screen and (max-width: 384px) {
+    .logo>img {
+        height: 70px;
+        width: auto;
+    }
+
+    .logo>p {
+        font-size: 2.4rem;
+    }
+
+    .innovation-head>h1 {
+        margin-top: 0;
+    }
+
+    .innovation-text {
+        font-size: 1.15rem;
+    }
+
+    .innovation-photo-text {
+        font-size: 1rem;
+    }
+
+    a>.icon>p,
+    .not-animation>.icon>p {
+        font-size: 1.15rem;
+    }
+
+    a>.icon>p>span,
+    .not-animation>.icon>p>span {
+        font-size: 1rem;
+    }
+
+    .side-podzagolovok {
+        font-size: 1.5rem;
+    }
+
+    .content-innovation-servis>h1 {
+        font-size: 1.6rem;
+    }
+
+    .it>h1 {
+        font-size: 1.8rem;
+    }
+
+    .title>h2 {
+        font-size: 1.4rem;
+    }
+
+    .name:hover,
+    .email:hover,
+    .message:hover {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .header-mobil {
+        margin-top: 40px;
+    }
+
+    header {
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-content: space-between;
+    }
+
+    .top-nav {
+        justify-content: start;
+        width: 100%;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    .logo>img {
+        height: 70px;
+        width: auto;
+    }
+
+    .logo>p {
+        line-height: 100%;
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .phone-headers {
+        font-size: 2rem;
+        margin-bottom: 0;
+    }
+
+    nav {
+        position: fixed;
+        top: 0
+    }
+
+    .top-menu>li {
+        margin-left: 5px;
+        display: none;
+    }
+
+    .home-ekran-1-container {
+        height: auto;
+        width: 100%;
+        background-image: none;
+        background-size: auto;
+    }
+
+    section {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .innovation-head {
+        width: 100%;
+        align-items: center;
+    }
+
+    .innovation-head>a {
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .innovation-head>h1 {
+        width: 100%;
+        margin: 0 0 20px 0;
+        font-size: 2.1rem;
+        text-align: center;
+    }
+
+    .main-content>article>h1 {
+        text-align: center;
+    }
+
+    .innovation-content {
+        width: 100%;
+    }
+
+    .innovation-content>img {
+        width: 100%;
+    }
+
+    .innovation-text {
+        width: 100%;
+        font-size: 1.1rem;
+    }
+
+    .innovation-photo-text {
+        font-size: 1.1rem;
+    }
+
+    .btn {
+        width: 100%;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .content-innovation-servis {
+        margin-top: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content-innovation-servis>h1 {
+        margin-top: 10px;
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    #vidi-pomoschi,
+    #specializaciya,
+    #pochemu,
+    #otzivi,
+    #soveti {
+        font-size: 2rem;
+    }
+
+    #vidi-pomoschi {
+        margin-top: 50px;
+    }
+
+    .container-icon>a {
+        width: 45%;
+    }
+
+    .container-icon>.not-animation {
+        width: 45%;
+    }
+
+    a>.icon>p,
+    .not-animation>.icon>p {
+        font-size: 1.1rem;
+    }
+
+    a>.icon>p>span,
+    .not-animation>.icon>p>span {
+        font-size: .95rem;
+    }
+
+    blockquote {
+        width: 85%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .container-icon>.not-animation-text {
+        width: 85%;
+    }
+
+    .not-animation-text>p {
+        font-size: 1.1rem;
+
+    }
+
+    .otzivi {
+        font-size: 1.1rem;
+    }
+
+    .side-head {
+        display: none;
+    }
+
+    .main-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    article {
+        margin-top: 0;
+    }
+
+    main,
+    article {
+        width: 100%;
+    }
+
+    article>h1 {
+        font-size: 2.5rem;
+    }
+
+    aside {
+        width: 100%;
+    }
+
+    #soveti {
+        margin: 0 auto 18px auto;
+    }
+
+    .side-podzagolovok {
+        margin-bottom: 5px;
+        font-size: 1.5rem;
+    }
+
+    .content-photo-text,
+    .side-photo-text {
+        font-size: 1rem;
+    }
+
+    iframe {
+        width: 100%;
+        height: auto;
+    }
+
+    .foot {
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .foot-contacti>p {
+        font-size: 1.1rem;
+    }
+
+    .fb-ig>div>a {
+        width: 100%;
+        height: auto;
+    }
+
+    .foot-contacti,
+    .logo-foot,
+    .diveloper {
+        width: 100%;
+        text-align: center;
+    }
+
+    .diveloper {
+        margin-top: 30px;
+    }
+
+    .logo-foot>p {
+        font-size: 1.9rem;
+    }
+
+    .developer-text {
+        font-size: 1rem;
+    }
+
+    .logo-foot>img {
+        margin-top: 10px;
+    }
+
+    .logo-foot>p+p {
+        margin-top: 20px;
+        font-size: 1.3rem;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .innovation-text {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .innovation-photo-text {
+        width: 100%;
+        font-size: .83rem;
+    }
+
+    .side-photo-text {
+        font-size: 1.5rem;
+    }
+
+    blockquote {
+        font-size: .7rem;
+    }
+
+    .content-innovation-servis>h1 {
+        font-size: 1.5rem;
+    }
+
+    .it>h1 {
+        font-size: 1.7rem;
+    }
+
+    .title>h2 {
+        font-size: 1.4rem;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    header {
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-content: space-between;
+
+    }
+
+    .header-mobil {
+        margin-top: 40px;
+    }
+
+    .top-nav {
+        justify-content: start;
+        width: 100%;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    .logo>img {
+        height: 60px;
+        width: auto;
+    }
+
+    .logo>p {
+        line-height: 100%;
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .phone-headers {
+        font-size: 1.8rem;
+        margin-bottom: 0;
+    }
+
+    nav {
+        position: fixed;
+        top: 0
+    }
+
+    .top-menu>li {
+        margin-left: 5px;
+        display: none;
+    }
+
+    .home-ekran-1-container {
+        height: auto;
+        width: 100%;
+        margin-top: 0;
+        background-image: none;
+    }
+
+    section {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .innovation-head {
+        width: 100%;
+        align-items: center;
+        margin-top: 0;
+    }
+
+    .innovation-head>a {
+        width: 100%;
+    }
+
+    article>a>button {
+        width: 100%;
+    }
+
+    .innovation-head>h1 {
+        width: 100%;
+        margin-bottom: 20px;
+        font-size: 1.9rem;
+        text-align: center;
+    }
+
+    .main-content>article>h1 {
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    .innovation-content {
+        width: 100%;
+    }
+
+    .innovation-text {
+        width: 100%;
+        font-size: .9rem;
+    }
+
+    .innovation-photo-text {
+        font-size: 1.05rem;
+    }
+
+    .btn {
+        width: 100%;
+        height: 60px;
+        font-size: 1.4rem;
+    }
+
+    .content-innovation-servis {
+        margin-top: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content-innovation-servis>h1 {
+        margin-top: 10px;
+        text-align: center;
+        font-size: 1.3rem;
+    }
+
+    .it>h1 {
+        font-size: 1.35rem;
+    }
+
+    .title>h2 {
+        font-size: 1.1rem;
+    }
+
+    .container-icon>a {
+        width: 45%;
+    }
+
+    a>.icon>p {
+        font-size: 1.1rem;
+    }
+
+    a>.icon>p>span {
+        font-size: .6rem;
+    }
+
+    .side-head {
+        display: none;
+    }
+
+    .main-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .main-content>article {
+        margin-top: 0px;
+    }
+
+    article>.text-contact {
+        font-size: 1.3rem;
+    }
+
+    main,
+    article {
+        width: 100%;
+    }
+
+    aside {
+        width: 100%;
+    }
+
+    blockquote {
+        font-size: 1rem;
+    }
+
+    .not-animation-text>p {
+        font-size: 1rem;
+    }
+
+    #soveti {
+        margin: 0 auto 18px auto;
+    }
+
+    .side-podzagolovok {
+        margin-bottom: 5px;
+        font-size: 1.3rem;
+    }
+
+    .content-photo-text,
+    .side-photo-text {
+        font-size: 1rem;
+    }
+
+    .side-podzagolovok,
+    .side-photo,
+    .side-photo-text {
+        z-index: 0;
+    }
+
+    iframe {
+        width: 100%;
+        height: auto;
+    }
+
+    .foot {
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .foot-contacti,
+    .logo-foot,
+    .diveloper {
+        width: 100%;
+        text-align: center;
+    }
+
+    .foot-contacti>p {
+        font-size: 1.3rem;
+    }
+
+    .fb-ig>div>a {
+        width: 100%;
+        height: auto;
+    }
+
+    .developer {
+        margin-top: 30px;
+    }
+
+    .logo-foot>p {
+        font-size: 1.8rem;
+    }
+
+    .developer-text {
+        font-size: 1.2rem;
+    }
+
+    .logo-foot>img {
+        margin-top: 10px;
+    }
+
+    .logo-foot>p+p {
+        margin-top: 20px;
+        font-size: 1.2rem;
+    }
+}
+
+@media only screen and (max-width: 280px) {
+    header {
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-content: space-between;
+    }
+
+    .top-nav {
+        width: 100%;
+        justify-content: start;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    .menu-box {
+        font-size: 1rem;
+    }
+
+    .logo>img {
+        height: 50px;
+        width: auto;
+    }
+
+    .logo>p {
+        font-size: 1.5rem;
+        line-height: 100%;
+        text-align: center;
+    }
+
+    .phone-headers {
+        font-size: 1.4rem;
+    }
+
+    nav {
+        position: fixed;
+        top: 0
+    }
+
+    .top-menu>li {
+        margin-left: 5px;
+        display: none;
+    }
+
+    .menu-item {
+        font-size: .8rem;
+    }
+
+    .home-ekran-1-container {
+        height: auto;
+        width: 100%;
+        background-image: none;
+    }
+
+    section {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .innovation-head {
+        width: 100%;
+        align-items: center;
+    }
+
+    .innovation-head>a {
+        width: 100%;
+    }
+
+    .innovation-head>h1 {
+        width: 100%;
+        margin-bottom: 10px;
+        font-size: 1.6rem;
+        text-align: center;
+    }
+
+    .main-content>article>h1 {
+        text-align: center;
+        font-size: 1.9rem;
+    }
+
+    .innovation-content {
+        width: 100%;
+    }
+
+    .innovation-content>img {
+        width: 100%;
+    }
+
+    .innovation-text {
+        width: 100%;
+        font-size: .8rem;
+    }
+
+    .innovation-photo-text {
+        font-size: 1.21rem;
+        background-color: rgba(0, 4, 36, .6);
+    }
+
+    .btn {
+        width: 100%;
+        height: 60px;
+        font-size: 1.4rem;
+    }
+
+    .content-innovation-servis {
+        margin-top: 10px;
+    }
+
+    .content-innovation-servis>h1 {
+        margin-top: 0;
+        text-align: center;
+        font-size: 1.3rem;
+    }
+
+    #epigraf {
+        display: none;
+    }
+
+    #vidi-pomoschi,
+    #specializaciya,
+    #pochemu,
+    #otzivi,
+    #soveti {
+        font-size: 2rem;
+    }
+
+    .container-icon {
+        width: 100%;
+    }
+
+    .container-icon>a,
+    .container-icon>.not-animation {
+        width: 100%;
+    }
+
+    a>.icon>p,
+    .not-animation>.icon>p {
+        font-size: 1.5rem;
+    }
+
+    a>.icon>p>span,
+    .not-animation>.icon>p>span {
+        font-size: 1.2rem;
+    }
+
+    blockquote {
+        font-size: .8rem;
+    }
+
+    .otzivi {
+        font-size: 1.9rem;
+    }
+
+    .not-animation-text>p {
+        font-size: .9rem;
+    }
+
+    .side-head {
+        display: none;
+    }
+
+    .main-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    main,
+    article {
+        width: 100%;
+    }
+
+    .main-content>main>article>h1 {
+        font-size: 2.5rem;
+    }
+
+    .contact-podzagolovok {
+        font-size: 1.5rem;
+    }
+
+    article>.text-contact {
+        font-size: 1.1rem;
+    }
+
+    .main-content>article>h3 {
+        font-size: 1.3rem;
+    }
+
+    aside {
+        width: 100%;
+    }
+
+    #soveti {
+        margin: 0 auto 18px auto;
+    }
+
+    .side-podzagolovok {
+        margin-bottom: 5px;
+        font-size: 1.1rem;
+    }
+
+    .content-photo-text,
+    .side-photo-text {
+        font-size: 1rem;
+    }
+
+    .review {
+        display: none;
+    }
+
+    iframe {
+        width: 100%;
+        height: auto;
+    }
+
+    .foot {
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .foot-contacti,
+    .logo-foot,
+    .diveloper {
+        width: 100%;
+        text-align: center;
+    }
+
+    .diveloper {
+        margin-top: 30px;
+    }
+
+    .logo-foot>p {
+        font-size: 1.2rem;
+    }
+
+    developer-text {
+        font-size: 1rem;
+    }
+
+    .logo-foot>img {
+        margin-top: 10px;
+    }
+
+    .logo-foot>p+p {
+        margin-top: 20px;
+        font-size: 1rem;
+    }
+}

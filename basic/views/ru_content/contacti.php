@@ -18,14 +18,7 @@ use yii\helpers\Url;
         <a class="btn btn_contacti" href="<?= Url::toRoute(['ru_content/zapis_consultation']) ?>">Получить консультацию</a>
     </main>
     <aside>
-        <h2 class="contact">Адвокаты:</h2>
-        <div class="side-content">
-            <h2 class="side-podzagolovok">Бездоля Александр Викторович</h2>
-            <?= Html::img('@web/img/photo-bezdolya.JPG', ['class' => 'side-photo', 'alt' => 'photo-bezdolya']) ?>
-            <p class="side-photo-text">моб. 050-929-46-24<br>(Viber, WhatsApp, Telegram)<br>e-mail: bezdolya@ukr.net
-            </p>
-        </div>
-        <hr class="line-content">
+        <h2 class="contact">Руководитель:</h2>
         <div class="side-content">
             <h2 class="side-podzagolovok">Дашко Юрий Иванович</h2>
             <?= Html::img('@web/img/photo-dashko.JPG', ['class' => 'side-photo', 'alt' => 'photo-dashko']) ?>

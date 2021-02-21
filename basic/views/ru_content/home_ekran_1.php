@@ -18,13 +18,13 @@ use yii\helpers\Url;
         <a class="btn" href="<?= Url::toRoute(['ru_content/innovation']) ?>" target="_blank">Составить заявление</a>
     </div>
     <div class="head-side">
-        <p class="head-anons">защита в суде</p>
+        <p class="head-anons">Защита в суде</p>
         <br>
-        <p class="head-anons">юридические консультации<br>по всем отраслям права</p>
+        <p class="head-anons">Юридические консультации<br>по всем отраслям права</p>
         <br>
-        <p class="head-anons">правовая помощь участникам ДТП</p>
+        <p class="head-anons">Правовая помощь участникам ДТП</p>
         <br>
-        <p class="head-anons">составление процессуальных документов</p>
+        <p class="head-anons">Составление процессуальных документов</p>
         <a class="btn" href="<?= Url::toRoute(['ru_content/zapis_consultation']) ?>">Получить консультацию</a>
     </div>
 </div>

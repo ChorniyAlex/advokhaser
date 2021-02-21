@@ -14,7 +14,7 @@ use yii\helpers\Url;
                     <a href="<?= yii\helpers\Url::to('https://www.instagram.com/') ?>" target="_blank"><?= Html::img('@web/img/icon-29.svg', ['alt' => 'ig']) ?></a>
                 </div>
             </div>
-            <p>Луганская обл., г. Северодонецк,<br>бул. Дружбы Народов, 14<br>(050) 929-46-24; (066) 073-97-61 <br>(Viber, WhatsApp, Telegram)<br>e-mail: advokhaser@gmail.com</p>
+            <p>Луганская обл., г. Северодонецк,<br>бул. Дружбы Народов, 14 оф.21<br>тел. моб. (066) 073-97-61 <br>(Viber, WhatsApp, Telegram)<br>e-mail: ur_dashko@ukr.net</p>
         </div>
         <a class="logo-foot" href="<?= \yii\helpers\Url::home() ?>">
             <?= Html::img('@web/img/logo.svg', ['alt' => 'логотип Бездоля и Дашко адвокатская компания']) ?>

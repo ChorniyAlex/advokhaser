@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= Html::input('text', 'fromName', $model->fromName, ['class' => 'name entry', 'placeholder' => 'Ваше имя']); ?>
                 <?= Html::input('text', 'fromEmail', $model->fromEmail, ['class' => 'email entry', 'placeholder' => 'Ваш e-mail']); ?>
                 <?= Html::input('text', 'subject', $model->subject, ['class' => 'email entry', 'placeholder' => 'Ваш телефон']); ?>
-                <?= Html::textarea('body', $model->body, $options = ['class' => 'message entry', 'placeholder' => 'Ваш телефон']); ?>
+                <?= Html::textarea('body', $model->body, $options = ['class' => 'message entry', 'placeholder' => 'Ваш вопрос:']); ?>
                 <?= Html::button($content = 'Отправить', $options = ['class' => 'submit entry', 'type' => 'submit', 'name' => 'contact-button']); ?>
                 <?= Html::endForm() ?>
                 <div class="shadow"></div>

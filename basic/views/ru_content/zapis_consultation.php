@@ -31,13 +31,3 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
 </div>
-
-
-
-<!-- <form class="form">
-    <input type="text" class="name entry" placeholder="Ваше имя" />
-    <input type="text" class="email entry" placeholder="Ваш e-mail" />
-    <input type="text" class="email entry" placeholder="Ваш телефон" />
-    <textarea class="message entry" placeholder="Сообщение"></textarea>
-    <button class="submit entry" onclick="thanks()">Отправить</button>
-</form> -->

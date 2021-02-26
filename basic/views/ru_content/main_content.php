@@ -168,10 +168,7 @@ use yii\helpers\Url;
             <hr class="line-content-home">
             <div class="container-icon">
                 <div class="not-animation-text">
-                    <p><span class="otzivi">"Удовлетворён сотрудничеством с Дашко & Ко., которые
-                            доказали мою правоту и помогли взыскать ущерб, причинённый в результате ДТП. Отдельно хочу
-                            отметить такие качества, как порядочность, принципиальность, компетентность."</span><br><br> Е.
-                        Кудрявцев, г. Северодонецк</p>
+                    <p><span class="otzivi">"Удовлетворён сотрудничеством с Дашко & Ко., которые доказали мою правоту и помогли взыскать ущерб, причинённый в результате ДТП. Отдельно хочу отметить такие качества, как порядочность, принципиальность, компетентность."</span><br><br> Е. Кудрявцев, г. Северодонецк</p>
                 </div>
                 <div class="not-animation-text">
                     <p><span class="otzivi">"Огромное спасибо адвокатам Дашко и Ко. за профессионализм. C их помощью я защитила своё имущество от незаконных притязаний."</span><br><br><br>В. Князева, г. Харьков</p>
@@ -196,32 +193,28 @@ use yii\helpers\Url;
                     <div class="side-content">
                         <h2 class="side-podzagolovok">От любви до ненависти... один шаг...</h2>
                         <?= Html::img('@web/img/photo-ot-lubvi.jpg', ['class' => 'side-photo', 'alt' => 'photo-ot-lubvi']) ?>
-                        <p class="side-photo-text">Имущественные отношения
-                            супругов...</p>
+                        <p class="side-photo-text">Имущественные отношения супругов...</p>
                     </div>
                 </a>
                 <a class="soveti-photo" href="<?= Url::toRoute(['ru_content/o_nevinovnosti_dtp']) ?>">
                     <div class="side-content">
                         <h2 class="side-podzagolovok">О невиновности при ДТП</h2>
                         <?= Html::img('@web/img/photo-dtp-nevinovnost.jpg', ['class' => 'side-photo', 'alt' => 'photo-dtp-nevinovnost']) ?>
-                        <p class="side-photo-text">Вопрос: виновен ли водитель,
-                            который...</p>
+                        <p class="side-photo-text">Вопрос: виновен ли водитель, который...</p>
                     </div>
                 </a>
                 <a class="soveti-photo" href="<?= Url::toRoute(['ru_content/pravovoy_obzor_1']) ?>">
                     <div class="side-content">
                         <h2 class="side-podzagolovok">Правовой обзор семейных отношений. ч.І</h2>
                         <?= Html::img('@web/img/photo-razvod-1.jpg', ['class' => 'side-photo', 'alt' => 'photo-razvod-1']) ?>
-                        <p class="side-photo-text">Наиболее часто приходится
-                            сталкиваться супругам при...</p>
+                        <p class="side-photo-text">Наиболее часто приходится сталкиваться супругам при...</p>
                     </div>
                 </a>
                 <a class="soveti-photo" href="<?= Url::toRoute(['ru_content/pravovoy_obzor_2']) ?>">
                     <div class="side-content">
                         <h2 class="side-podzagolovok">Правовой обзор семейных отношений. ч.ІІ</h2>
                         <?= Html::img('@web/img/photo-vospitanie-2.jpg', ['class' => 'side-photo', 'alt' => 'photo-vospitanie-2']) ?>
-                        <p class="side-photo-text">Решение споров об участии в
-                            воспитании ребенка...</p>
+                        <p class="side-photo-text">Решение споров об участии в воспитании ребенка...</p>
                     </div>
                 </a>
                 <a class="soveti-photo" href="<?= Url::toRoute(['ru_content/pravovoy_obzor_3']) ?>">

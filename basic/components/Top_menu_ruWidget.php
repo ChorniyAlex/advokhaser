@@ -13,13 +13,13 @@ class Top_menu_ruWidget extends Widget
 
     public function run()
     {
-        $cacheTopMenuRu = \Yii::$app->cache->get('cacheWidget');
-        if (!$cacheTopMenuRu) {
-            $this->data = Top_menu_ru::find()->indexBy('id')->asArray()->all();
-            $this->tree = $this->getTree();
-            $cacheTopMenuRu = $this->render('top_menu_ru', ['tree' => $this->tree]);
-            \Yii::$app->cache->set('cacheWidget', $cacheTopMenuRu, 18000);
-        }
+        // $cacheTopMenuRu = \Yii::$app->cache->get('cacheWidget');
+        // if (!$cacheTopMenuRu) {
+        $this->data = Top_menu_ru::find()->indexBy('id')->asArray()->all();
+        $this->tree = $this->getTree();
+        $cacheTopMenuRu = $this->render('top_menu_ru', ['tree' => $this->tree]);
+        // \Yii::$app->cache->set('cacheWidget', $cacheTopMenuRu, 180);
+        // }
 
         return $cacheTopMenuRu;
     }

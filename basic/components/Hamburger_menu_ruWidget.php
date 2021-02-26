@@ -11,12 +11,12 @@ class Hamburger_menu_ruWidget extends Widget
 
     public function run()
     {
-        $cacheHamburgerMenuRu = \Yii::$app->cache->get('cachehamburgermenuru');
-        if (!$cacheHamburgerMenuRu) {
-            $this->data = Hamburger_menu_ru::find()->all();
-            $cacheHamburgerMenuRu = $this->render('hamburger_menu_ru', ['data' => $this->data]);
-            \Yii::$app->cache->set('cachehamburgermenuru', $cacheHamburgerMenuRu, 18000);
-        }
+        // $cacheHamburgerMenuRu = \Yii::$app->cache->get('cachehamburgermenuru');
+        // if (!$cacheHamburgerMenuRu) {
+        $this->data = Hamburger_menu_ru::find()->all();
+        $cacheHamburgerMenuRu = $this->render('hamburger_menu_ru', ['data' => $this->data]);
+        // \Yii::$app->cache->set('cachehamburgermenuru', $cacheHamburgerMenuRu, 180);
+        // }
 
         return $cacheHamburgerMenuRu;
     }

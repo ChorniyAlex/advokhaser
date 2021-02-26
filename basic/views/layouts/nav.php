@@ -12,7 +12,7 @@ use yii\helpers\Url;
         <!-- End Lang_mobil widget -->
         <div class="logo-nav">
             <a class="logo" href="<?= Url::home() ?>">
-                <?= Html::img('@web/img/logo.svg', ['alt' => 'логотип Бездоля и Дашко']) ?>
+                <?= Html::img('@web/img/logo.svg', ['alt' => 'логотип Дашко и Ко.']) ?>
                 <p>Адвокатская компания</p>
             </a>
         </div>

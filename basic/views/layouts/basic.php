@@ -17,7 +17,7 @@ $this->registerLinkTag(['rel' => 'shortcut png', 'type' => 'image/png', 'href' =
 <?php $this->beginPage() ?>
 
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
+<html lang="<?= Yii::$app->language = 'ru-RU' ?>">
 
 <head>
     <meta charset="<?= Yii::$app->charset ?>">

@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 
+$current_url = Url::current();
+
 ?>
 
 <footer>
@@ -14,19 +16,37 @@ use yii\helpers\Url;
                     <a href="<?= yii\helpers\Url::to('https://www.instagram.com/') ?>" target="_blank"><?= Html::img('@web/img/icon-29.svg', ['alt' => 'ig']) ?></a>
                 </div>
             </div>
-            <p>Луганская обл., г. Северодонецк,<br>бул. Дружбы Народов, 14 оф.21<br>тел. моб. (066) 073-97-61 <br>(Viber, WhatsApp, Telegram)<br>e-mail: ur_dashko@ukr.net</p>
+            <?php if ($current_url == '/' || $current_url == "/web/" || str_contains($current_url, 'ua_content')) : ?>
+                <p>Луганська обл., м. Сєвєродонецьк,<br>бул. Дружби Народів, 14 оф.21<br>тел. (066) 073-97-61 <br>(Viber, WhatsApp, Telegram)<br>e-mail: ur_dashko@ukr.net</p>
+            <?php else : ?>
+                <p>Луганская обл., г. Северодонецк,<br>бул. Дружбы Народов, 14 оф.21<br>тел. (066) 073-97-61 <br>(Viber, WhatsApp, Telegram)<br>e-mail: ur_dashko@ukr.net</p>
+            <?php endif; ?>
         </div>
-        <a class="logo-foot" href="<?= \yii\helpers\Url::home() ?>">
-            <?= Html::img('@web/img/logo.svg', ['alt' => 'логотип Бездоля и Дашко адвокатская компания']) ?>
-            <p>Адвокатская компания</p>
-            <p>&copy; <?php $today = getdate(); ?>
-                <?= $today['year'] ?> Advokhaser group yuralex
-            </p>
-        </a>
-        <div class="developer">
-            <p class="developer-text">web разработка и техподдержка сайта:<br>Александр Чорнобай<br>e-mail:
-                web.comp.alex@gmail.com
-            </p>
-        </div>
+        <?php if ($current_url == '/' || $current_url == '/web/' || str_contains($current_url, 'ua_content')) : ?>
+            <a class="logo-foot" href="<?= \yii\helpers\Url::home() ?>">
+            <?php else : ?>
+                <a class="logo-foot" href="<?= yii\helpers\Url::toRoute('ru_content/index') ?>">
+                <?php endif; ?>
+                <?= Html::img('@web/img/logo.svg', ['alt' => 'логотип Дашко и Ко. адвокатская компания']) ?>
+                <?php if ($current_url == '/' || $current_url == "/web/" || str_contains($current_url, 'ua_content')) : ?>
+                    <p>Адвокатська компанія</p>
+                <?php else : ?>
+                    <p>Адвокатская компания</p>
+                <?php endif; ?>
+                <p>&copy; <?php $today = getdate(); ?>
+                    <?= $today['year'] ?> Advokhaser group yuralex
+                </p>
+                </a>
+                <div class="developer">
+                    <?php if ($current_url == '/' || $current_url == "/web/" || str_contains($current_url, 'ua_content')) : ?>
+                        <p class="developer-text">web розробка і техпідтримка сайту:<br>Олександр Чорнобай<br>e-mail:
+                            web.comp.alex@gmail.com
+                        </p>
+                    <?php else : ?>
+                        <p class="developer-text">web разработка и техподдержка сайта:<br>Александр Чорнобай<br>e-mail:
+                            web.comp.alex@gmail.com
+                        </p>
+                    <?php endif; ?>
+                </div>
     </div>
 </footer>

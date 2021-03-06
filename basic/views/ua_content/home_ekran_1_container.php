@@ -10,7 +10,7 @@ use yii\helpers\Url;
         <div class="innovation-head">
             <h1>Правова допомога<br>юридичні послуги</h1>
             <div class="innovation-content">
-                <a href="<?= Url::toRoute(['ru_content/innovation']) ?>" target="_blank">
+                <a href="<?= Url::toRoute(['ua_content/innovation']) ?>" target="_blank">
                     <p class="innovation-text">спецпроект: інноваційний IT-сервіс online 24/7</p>
                     <?= Html::img('@web/img/photo-innovation.jpg', ['alt' => 'инновационный сервис']) ?>
                     <p class="innovation-photo-text">Всього кілька кліків дозволять вам: скористуватися нашою
@@ -18,7 +18,7 @@ use yii\helpers\Url;
                         аліментів...</p>
                 </a>
             </div>
-            <a class="btn" href="<?= Url::toRoute(['ru_content/innovation']) ?>" target="_blank">Скласти заяву</a>
+            <a class="btn" href="<?= Url::toRoute(['ua_content/innovation']) ?>" target="_blank">Скласти заяву</a>
         </div>
         <div id="epigraf">
             <p class="epigraph-text">"Своєчасне звернення до адвоката вирішить Ваші проблеми швидче,

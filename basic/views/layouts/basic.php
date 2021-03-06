@@ -17,7 +17,7 @@ $this->registerLinkTag(['rel' => 'shortcut png', 'type' => 'image/png', 'href' =
 <?php $this->beginPage() ?>
 
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language = 'ru-RU' ?>">
+<html lang="<?= Yii::$app->language = 'ukr-UA' ?>">
 
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
@@ -31,31 +31,32 @@ $this->registerLinkTag(['rel' => 'shortcut png', 'type' => 'image/png', 'href' =
 
 <body>
     <?php $this->beginBody() ?>
+    <php echo $relativeBaseUrl=Url::base(); die() ?>
 
-    <!--  Start header area -->
-    <!-- ================== -->
-    <?= $this->render('header') ?>
-    <?= $this->render('header_mobil') ?>
+        <!--  Start header area -->
+        <!-- ================== -->
+        <?= $this->render('header') ?>
+        <?= $this->render('header_mobil') ?>
 
-    <!---  Start nav  --->
-    <?= $this->render('nav') ?>
-    <!---  End nav  --->
+        <!---  Start nav  --->
+        <?= $this->render('nav') ?>
+        <!---  End nav  --->
 
-    <!--  End header area   --->
-    <!-- =================== -->
+        <!--  End header area   --->
+        <!-- =================== -->
 
-    <!----  Start content  ---->
-    <!-- =================== -->
-    <?= $content ?>
-    <!-----  End content  ----->
-    <!-- =================== -->
+        <!----  Start content  ---->
+        <!-- =================== -->
+        <?= $content ?>
+        <!-----  End content  ----->
+        <!-- =================== -->
 
-    <!----  Start footer  ---->
-    <!-- ================== -->
-    <?= $this->render('footer') ?>
-    <!----  End footer  ---->
-    <!-- ================ -->
-    <?php $this->endBody() ?>
+        <!----  Start footer  ---->
+        <!-- ================== -->
+        <?= $this->render('footer') ?>
+        <!----  End footer  ---->
+        <!-- ================ -->
+        <?php $this->endBody() ?>
 </body>
 
 </html>

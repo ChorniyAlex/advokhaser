@@ -15,7 +15,7 @@ class Lang_mobilWidget extends Widget
         if (!$cacheLangMobil) {
             $this->data = Lang_mobil::find()->all();
             $cacheLangMobil = $this->render('lang_mobil', ['data' => $this->data]);
-            \Yii::$app->cache->set('cachelangmobilWidget', $cacheLangMobil, 180);
+            \Yii::$app->cache->set('cachelangmobilWidget', $cacheLangMobil, 1800);
         }
 
         return $cacheLangMobil;

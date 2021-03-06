@@ -3,7 +3,7 @@
 namespace app\controllers;
 
 use yii\web\Controller;
-use \app\models\Top_menu_ru;
+use \app\models\Top_menu;
 use app\models\Ru_content;
 
 class Ru_contentController extends Controller
@@ -12,7 +12,7 @@ class Ru_contentController extends Controller
     public function actionIndex()
     {
         $title = \Yii::$app->request->get('title');
-        $title = top_menu_ru::findOne('title');
+        $title = top_menu::findOne('title');
         $this->view->title = $title;
         $this->view->title = 'Адвокаты Дашко и Ко. | Северодонецк | Правовая помощь, юридические услуги';
 

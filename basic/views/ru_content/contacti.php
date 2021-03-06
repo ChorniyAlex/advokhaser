@@ -24,5 +24,10 @@ use yii\helpers\Url;
             <p class="side-photo-text">моб. 066-073-97-61<br>(Viber, WhatsApp, Telegram)<br>e-mail: ur_dashko@ukr.net</p>
         </div>
         <hr class="line-content">
+        <div class="side-content">
+            <h2 class="side-podzagolovok">Свидетельство о праве на занятие адвокатской деятельностью</h2>
+            <?= Html::img('@web/img/svidotstvo.jpg', ['class' => 'side-photo', 'alt' => 'svidotstvo-dashko']) ?>
+        </div>
+        <hr class="line-content">
     </aside>
 </div>

@@ -4,10 +4,10 @@ namespace app\models;
 
 use yii\db\ActiveRecord;
 
-class Hamburger_menu_ru extends ActiveRecord
+class Hamburger_menu extends ActiveRecord
 {
     public static function tableName()
     {
-        return 'hamburger_menu_ru';
+        return 'hamburger_menu';
     }
 }

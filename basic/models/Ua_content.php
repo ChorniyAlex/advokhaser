@@ -14,6 +14,6 @@
 
             public static function tableName()
             {
-                return 'top_menu_ru';
+                return 'top_menu';
             }
         }

@@ -12,7 +12,7 @@ use yii\helpers\Url;
         <br>
         <p class="head-innovation-text">Всього кілька кліків дозволять вам:<br>скористуватися нашою унікальною IT-технологією і легко скласти заяву про розірвання шлюбу, про стягнення аліментів...</p>
         <br>
-        <a class="btn" href="<?= Url::toRoute(['ru_content/innovation']) ?>" target="_blank">Скласти заяву</a>
+        <a class="btn" href="<?= Url::toRoute(['ua_content/innovation']) ?>" target="_blank">Скласти заяву</a>
     </div>
     <div class="head-side">
         <p class="head-anons">Захист в суді</p>
@@ -22,6 +22,6 @@ use yii\helpers\Url;
         <p class="head-anons">Правова допомога учасникам ДТП</p>
         <br>
         <p class="head-anons">Складання процесуальних документів</p>
-        <a class="btn" href="<?= Url::toRoute(['ru_content/zapis_consultation']) ?>">Отримати консультацію</a>
+        <a class="btn" href="<?= Url::toRoute(['ua_content/zapis_consultation']) ?>">Отримати консультацію</a>
     </div>
 </div>

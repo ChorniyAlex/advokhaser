@@ -13,15 +13,10 @@ class Top_menuWidget extends Widget
 
     public function run()
     {
-        $cacheTopMenu = \Yii::$app->cache->get('cacheWidget');
-        if (!$cacheTopMenu) {
-            $this->data = Top_menu::find()->indexBy('id')->asArray()->all();
-            $this->tree = $this->getTree();
-            $cacheTopMenu = $this->render('top_menu', ['tree' => $this->tree]);
-            \Yii::$app->cache->set('cacheWidget', $cacheTopMenu, 1800);
-        }
-
-        return $cacheTopMenu;
+        $this->data = Top_menu::find()->indexBy('id')->asArray()->all();
+        $this->tree = $this->getTree();
+        $topMenu = $this->render('top_menu', ['tree' => $this->tree]);
+        return $topMenu;
     }
 
     public function getTree()

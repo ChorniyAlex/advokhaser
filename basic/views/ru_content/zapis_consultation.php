@@ -1,11 +1,14 @@
 <?php
 
+/* @var $this yii\web\View */
+/* @var $form yii\bootstrap\ActiveForm */
+/* @var $model app\models\MailerForm */
+
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use yii\bootstrap\ActiveForm;
 
-$this->title = 'Заполните форму | Адвокаты Бездоля и Дашко | Обратная связь | Северодонецк';
+$this->title = 'Заполните форму | Адвокаты Дашко и Чорнобай | Обратная связь | Северодонецк';
 $this->params['breadcrumbs'][] = $this->title;
-
 ?>
 
 <!-- контент формы обратной связи -->
@@ -19,15 +22,17 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="title">
                     <h2>Обратная связь</h2>
                 </div>
-                <?= $form = Html::beginForm(['id' => 'mailer-form'], 'post', ['class' => 'form']); ?>
-                <?= Html::input('text', 'fromName', $model->fromName, ['class' => 'name entry', 'placeholder' => 'Ваше имя']); ?>
-                <?= Html::input('text', 'fromEmail', $model->fromEmail, ['class' => 'email entry', 'placeholder' => 'Ваш e-mail']); ?>
-                <?= Html::input('text', 'subject', $model->subject, ['class' => 'email entry', 'placeholder' => 'Ваш телефон']); ?>
-                <?= Html::textarea('body', $model->body, $options = ['class' => 'message entry', 'placeholder' => 'Ваш вопрос:']); ?>
-                <?= Html::button($content = 'Отправить', $options = ['class' => 'submit entry', 'type' => 'submit', 'name' => 'contact-button']); ?>
-                <?= Html::endForm() ?>
+                <?php $form = ActiveForm::begin(['id' => 'zapis_consultation-form',  'options' => ['class' => 'form']]); ?>
+                <?= $form->field($model, 'fromName')->textInput(['class' => 'name entry', 'placeholder' => 'Ваше имя'])->label(false) ?>
+                <?= $form->field($model, 'subject')->textInput(['class' => 'name entry', 'placeholder' => 'Ваш телефон'])->label(false) ?>
+                <?= $form->field($model, 'body')->textarea(['class' => 'message entry', 'placeholder' => 'Ваш вопрос:'])->label(false) ?>
+                <div class="form-group">
+                    <?= Html::submitButton($content = 'Отправить', ['class' => 'btn submit entry', 'name' => 'contact-button']) ?>
+                </div>
+                <?php ActiveForm::end(); ?>
                 <div class="shadow"></div>
             </div>
         </div>
+        <!-- Конец формы обратной связи -->
     </div>
 </div>

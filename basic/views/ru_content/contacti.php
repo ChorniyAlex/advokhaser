@@ -17,7 +17,7 @@ use yii\helpers\Url;
         <a class="btn btn_contacti" href="<?= Url::toRoute(['ru_content/zapis_consultation']) ?>">Получить консультацию</a>
     </main>
     <aside>
-        <h2 class="contact">Руководитель:</h2>
+        <h2 class="contact">Адвокаты:</h2>
         <div class="side-content">
             <h2 class="side-podzagolovok">Дашко Юрий Иванович</h2>
             <?= Html::img('@web/img/photo-dashko.JPG', ['class' => 'side-photo', 'alt' => 'photo-dashko']) ?>
@@ -25,8 +25,9 @@ use yii\helpers\Url;
         </div>
         <hr class="line-content">
         <div class="side-content">
-            <h2 class="side-podzagolovok">Свидетельство о праве на занятие адвокатской деятельностью</h2>
-            <?= Html::img('@web/img/svidotstvo.jpg', ['class' => 'side-photo', 'alt' => 'svidotstvo-dashko']) ?>
+            <h2 class="side-podzagolovok">Чорнобай Александр Евгеньевич</h2>
+            <?= Html::img('@web/img/photo-chornobay.JPG', ['class' => 'side-photo', 'alt' => 'photo-chornobay']) ?>
+            <p class="side-photo-text">моб. 095-459-69-83<br>(Viber, WhatsApp, Telegram)<br>e-mail: chornobay@ukr.net</p>
         </div>
         <hr class="line-content">
     </aside>

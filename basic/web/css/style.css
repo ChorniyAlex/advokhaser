@@ -56,7 +56,7 @@ header {
 }
 
 .logo>img {
-    height: 60px;
+    height: 58px;
     width: auto;
 }
 
@@ -587,6 +587,7 @@ article {
 }
 
 article>div,
+.content-innovation-servis>div,
 article>.o-bezdolya {
     position: relative;
 }
@@ -630,7 +631,6 @@ article>.o-bezdolya {
 
 .content-text,
 .spisok {
-    /* width: 450px; */
     font-size: 1.2rem;
     line-height: 150%;
     margin: 30px 0;
@@ -794,7 +794,7 @@ a>.icon>p>span {
 blockquote {
     margin-top: 20px;
     text-align: center;
-    font-size: .9rem;
+    font-size: 1.1rem;
     color: rgb(0, 5, 65, .65);
 }
 
@@ -878,7 +878,7 @@ a>:hover .side-photo-text {
     margin: 0 auto;
     width: 80%;
     text-align: center;
-    /* padding-bottom: 10px; */
+    padding-bottom: 10px;
     font-size: 2.5rem;
     color: rgb(0, 7, 87);
 }
@@ -906,6 +906,7 @@ a>:hover .side-photo-text {
     padding: 10px 10px;
     -webkit-animation: bounce 1.5s infinite;
     animation: bounce 1.5s infinite;
+    color: red;
 }
 
 .name {
@@ -1169,6 +1170,10 @@ footer {
         font-size: 1.5rem;
     }
 
+    .side-podzagolovok {
+        height: 1.6rem;
+    }
+
     .logo-foot>p+p {
         margin-top: 55px;
     }
@@ -1226,6 +1231,7 @@ footer {
 }
 
 @media only screen and (max-width: 1366px) {
+
     .header-top {
         width: 90%;
     }
@@ -1266,6 +1272,7 @@ footer {
 }
 
 @media only screen and (max-width: 1280px) {
+
     .header-top {
         width: 90%;
     }
@@ -1321,6 +1328,7 @@ footer {
 }
 
 @media only screen and (max-width: 1100px) {
+
     #header {
         width: 100%;
     }
@@ -1540,6 +1548,7 @@ footer {
 }
 
 @media only screen and (max-width: 854px) {
+
     #header>.phone-headersTop>.top-contact {
         font-size: 1rem;
     }
@@ -1583,7 +1592,8 @@ footer {
     }
 
     .side-podzagolovok {
-        font-size: .85rem;
+        height: 1.4rem;
+        font-size: 1.1rem;
     }
 
     .logo-foot>p {
@@ -1658,6 +1668,7 @@ footer {
     .content-innovation-servis>h1 {
         font-size: 1.7rem;
     }
+
 }
 
 @media only screen and (max-width: 800px) {
@@ -1699,7 +1710,7 @@ footer {
     }
 
     .top-menu>li {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 
     .sub-menu-1>li,
@@ -1722,7 +1733,7 @@ footer {
     }
 
     .epigraph-text {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
 
     .content-innovation-servis>h1 {
@@ -1738,12 +1749,9 @@ footer {
         font-size: 1.15rem;
     }
 
-    .head-innovation-text {
-        font-size: 1.1rem;
-    }
-
+    .head-innovation-text,
     .head-anons {
-        font-size: 1.18rem;
+        font-size: 1.25rem;
     }
 
     .btn {
@@ -1754,8 +1762,15 @@ footer {
         width: 45%;
     }
 
+    #vidi-pomoschi,
+    #specializaciya,
+    #pochemu,
+    #soveti {
+        font-size: 2.2rem;
+    }
+
     a>.icon>p {
-        font-size: 1.43rem;
+        font-size: 1.5rem;
     }
 
     a>.icon>p>span {
@@ -1775,11 +1790,20 @@ footer {
     }
 
     blockquote {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
 
     .side-podzagolovok {
-        font-size: 1.35rem;
+        height: 1.7rem;
+        font-size: 1.55rem;
+    }
+
+    .side-photo-text {
+        font-size: 1.3rem;
+    }
+
+    .contactBody {
+        margin: 0 0 50px 0;
     }
 
     .fb-ig {
@@ -1797,6 +1821,8 @@ footer {
     article {
         width: 100%;
     }
+
+
 
     iframe {
         width: 100%;
@@ -2034,12 +2060,13 @@ footer {
         width: 45%;
     }
 
-    a>.icon>p {
-        font-size: 1.7rem;
+    a>.icon>p,
+    .not-animation>.icon>p {
+        font-size: 1.85rem;
     }
 
     a>.icon>p>span {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
     }
 
     .not-animation-text>p {
@@ -2047,7 +2074,7 @@ footer {
     }
 
     .not-animation>.icon>p>span {
-        font-size: 1rem;
+        font-size: 1.4rem;
     }
 
     .content-text {
@@ -2100,16 +2127,17 @@ footer {
     }
 
     .side-podzagolovok {
-        margin-bottom: 5px;
-        font-size: 1.4rem;
+        height: 1.7rem;
+        font-size: 1.55rem;
     }
 
-    .side-content>.side-podzagolovok {
-        font-size: 2rem;
+    aside>.side-content>.side-podzagolovok {
+        height: 2.2rem;
+        font-size: 1.9rem;
     }
 
     .side-photo-text {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
     }
 
     h2 {
@@ -2194,7 +2222,7 @@ footer {
 
 @media only screen and (max-width: 736px) {
     .innovation-photo-text {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
     }
 
     #vidi-pomoschi,
@@ -2233,7 +2261,7 @@ footer {
 
 @media only screen and (max-width: 732px) {
     .innovation-photo-text {
-        font-size: 1.37rem;
+        font-size: 1.4rem;
     }
 
     .content-innovation-servis>h1 {
@@ -2267,7 +2295,8 @@ footer {
     }
 
     .side-podzagolovok {
-        font-size: 1.3rem;
+        height: 1.7rem;
+        font-size: 1.4rem;
     }
 
     .content-innovation-servis>h1 {
@@ -2329,7 +2358,7 @@ footer {
     }
 
     a>.icon>p>span {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
     }
 
     .not-animation>.icon>p {
@@ -2337,7 +2366,7 @@ footer {
     }
 
     .not-animation>.icon>p>span {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
 
     .not-animation-text>p {
@@ -2345,7 +2374,7 @@ footer {
     }
 
     blockquote {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
     }
 
     .not-animation-text>p {
@@ -2357,12 +2386,12 @@ footer {
     }
 
     .side-podzagolovok {
-        margin-bottom: 5px;
-        font-size: 1.2rem;
+        /* height: 1.6rem; */
+        font-size: 1.5rem;
     }
 
     .side-photo-text {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
     }
 
     .content-innovation-servis>h1 {
@@ -2649,6 +2678,10 @@ footer {
 
 @media only screen and (max-width: 533px) {
 
+    blockquote {
+        font-size: 1.1rem;
+    }
+
     .name,
     .email,
     .message {
@@ -2757,7 +2790,7 @@ footer {
     }
 
     .innovation-photo-text {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
 
     .btn {
@@ -2853,8 +2886,7 @@ footer {
     }
 
     .side-podzagolovok {
-        margin-bottom: 5px;
-        font-size: 1.6rem;
+        font-size: 1.8rem;
     }
 
     .side-photo-text {
@@ -2927,7 +2959,7 @@ footer {
     }
 
     .innovation-photo-text {
-        font-size: 1.1rem;
+        font-size: 1.23rem;
     }
 
     #vidi-pomoschi,
@@ -2940,7 +2972,7 @@ footer {
 
     a>.icon>p,
     .not-animation>.icon>p {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
     }
 
     a>.icon>p>span,
@@ -2966,6 +2998,10 @@ footer {
 
     .content-innovation-servis>h1 {
         font-size: 1.6rem;
+    }
+
+    .content-innovation-servis>h2 {
+        font-size: 1.5rem;
     }
 
     .it>h1 {
@@ -3010,17 +3046,21 @@ footer {
     }
 
     .innovation-photo-text {
-        font-size: 1rem;
+        font-size: 1.3rem;
+    }
+
+    .it>div>.content-photo-text {
+        font-size: 1.1rem;
     }
 
     a>.icon>p,
     .not-animation>.icon>p {
-        font-size: 1.15rem;
+        font-size: 1.25rem;
     }
 
     a>.icon>p>span,
     .not-animation>.icon>p>span {
-        font-size: 1rem;
+        font-size: 1.05rem;
     }
 
     .side-podzagolovok {
@@ -3151,6 +3191,10 @@ footer {
         font-size: 1.1rem;
     }
 
+    .it>div>.content-photo-text {
+        font-size: 1.1rem;
+    }
+
     .btn {
         width: 100%;
         height: 60px;
@@ -3192,12 +3236,12 @@ footer {
 
     a>.icon>p,
     .not-animation>.icon>p {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
     }
 
     a>.icon>p>span,
     .not-animation>.icon>p>span {
-        font-size: .95rem;
+        font-size: 1.1rem;
     }
 
     blockquote {
@@ -3248,18 +3292,23 @@ footer {
         width: 100%;
     }
 
+    aside>.side-content>.side-podzagolovok {
+        font-size: 1.7rem;
+        height: 3.5rem;
+    }
+
     #soveti {
         margin: 0 auto 18px auto;
     }
 
     .side-podzagolovok {
-        margin-bottom: 5px;
-        font-size: 1.5rem;
+        height: 1.9rem;
+        font-size: 1.65rem;
     }
 
     .content-photo-text,
     .side-photo-text {
-        font-size: 1rem;
+        font-size: 1.3rem;
     }
 
     iframe {
@@ -3315,24 +3364,32 @@ footer {
 @media only screen and (max-width: 360px) {
     .innovation-text {
         width: 100%;
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 
     .innovation-photo-text {
         width: 100%;
-        font-size: .83rem;
+        font-size: 1.2rem;
     }
 
     .side-photo-text {
         font-size: 1.5rem;
     }
 
+    .content-photo-text {
+        font-size: 1.4rem;
+    }
+
     blockquote {
-        font-size: .7rem;
+        font-size: 1.5rem;
     }
 
     .content-innovation-servis>h1 {
         font-size: 1.5rem;
+    }
+
+    article>h3 {
+        font-size: 1.75rem;
     }
 
     .it>h1 {
@@ -3441,7 +3498,7 @@ footer {
 
     .innovation-text {
         width: 100%;
-        font-size: .9rem;
+        font-size: 1.1rem;
     }
 
     .innovation-photo-text {
@@ -3480,11 +3537,11 @@ footer {
     }
 
     a>.icon>p {
-        font-size: 1.1rem;
+        font-size: 1.15rem;
     }
 
     a>.icon>p>span {
-        font-size: .6rem;
+        font-size: 1rem;
     }
 
     .side-head {
@@ -3517,7 +3574,7 @@ footer {
     }
 
     blockquote {
-        font-size: 1rem;
+        font-size: 1.05rem;
     }
 
     .not-animation-text>p {
@@ -3529,13 +3586,17 @@ footer {
     }
 
     .side-podzagolovok {
-        margin-bottom: 5px;
-        font-size: 1.3rem;
+        font-size: 1.5rem;
+    }
+
+    aside>.side-content>.side-podzagolovok {
+        font-size: 1.5rem;
+        height: 3rem;
     }
 
     .content-photo-text,
     .side-photo-text {
-        font-size: 1rem;
+        font-size: 1.3rem;
     }
 
     .side-podzagolovok,
@@ -3641,7 +3702,7 @@ footer {
     }
 
     .menu-item {
-        font-size: .8rem;
+        font-size: 1rem;
     }
 
     .home-ekran-1-container {
@@ -3691,7 +3752,7 @@ footer {
 
     .innovation-text {
         width: 100%;
-        font-size: .8rem;
+        font-size: 1rem;
     }
 
     .innovation-photo-text {
@@ -3747,7 +3808,7 @@ footer {
     }
 
     blockquote {
-        font-size: .8rem;
+        font-size: 1.25rem;
     }
 
     .otzivi {
@@ -3800,13 +3861,12 @@ footer {
     }
 
     .side-podzagolovok {
-        margin-bottom: 5px;
-        font-size: 1.1rem;
+        font-size: 1.3rem;
     }
 
     .content-photo-text,
     .side-photo-text {
-        font-size: 1rem;
+        font-size: 1.15rem;
     }
 
     .review {
@@ -3851,5 +3911,15 @@ footer {
     .logo-foot>p+p {
         margin-top: 20px;
         font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 240px) {
+    .menu-box {
+        font-size: .9rem;
+    }
+
+    aside>.side-content>.side-podzagolovok {
+        font-size: 1.2rem;
     }
 }

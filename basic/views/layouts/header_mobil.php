@@ -21,6 +21,6 @@ $current_url = Url::current();
                     <p>Адвокатская компания</p>
                 <?php endif; ?>
                 </a>
-                <div class="phone-headers">+38(066) 073-97-61</div>
+                <div class="phone-headers">+38(066) 073-97-61<br>+38(095) 459-69-83</div>
     </header>
 </div>

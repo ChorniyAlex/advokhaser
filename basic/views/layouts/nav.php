@@ -34,6 +34,5 @@ $current_url = Url::current();
         <!--  Start hamburger-menu widget  -->
         <?= app\components\Hamburger_menuWidget::widget() ?>
         <!--  End hamburger-menu widget  -->
-
     </div>
 </nav>

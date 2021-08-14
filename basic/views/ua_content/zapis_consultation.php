@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
-$this->title = 'Заполните форму | Адвокаты Бездоля и Дашко | Обратная связь | Северодонецк';
+$this->title = 'Заповніть форму | Адвокат Дашко і Чорнобай | Зворотній зв’язок | Сєвєродонецьк';
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
@@ -19,13 +19,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="title">
                     <h2>Зворотній зв’язок</h2>
                 </div>
-                <?= $form = Html::beginForm(['id' => 'mailer-form'], 'post', ['class' => 'form']); ?>
-                <?= Html::input('text', 'fromName', $model->fromName, ['class' => 'name entry', 'placeholder' => 'Ваше ім’я']); ?>
-                <?= Html::input('text', 'fromEmail', $model->fromEmail, ['class' => 'email entry', 'placeholder' => 'Ваш e-mail']); ?>
-                <?= Html::input('text', 'subject', $model->subject, ['class' => 'email entry', 'placeholder' => 'Ваш телефон']); ?>
-                <?= Html::textarea('body', $model->body, $options = ['class' => 'message entry', 'placeholder' => 'Ваше питання:']); ?>
-                <?= Html::button($content = 'Відправити', $options = ['class' => 'submit entry', 'type' => 'submit', 'name' => 'contact-button']); ?>
-                <?= Html::endForm() ?>
+                <?php $form = ActiveForm::begin(['id' => 'zapis_consultation-form',  'options' => ['class' => 'form']]); ?>
+                <?= $form->field($model, 'fromName')->textInput(['class' => 'name entry', 'placeholder' => 'Ваше ім’я'])->label(false) ?>
+                <?= $form->field($model, 'subject')->textInput(['class' => 'name entry', 'placeholder' => 'Ваш телефон'])->label(false) ?>
+                <?= $form->field($model, 'body')->textarea(['class' => 'message entry', 'placeholder' => 'Ваше питання:'])->label(false) ?>
+                <div class="form-group">
+                    <?= Html::submitButton($content = 'Надіслати', ['class' => 'btn submit entry', 'name' => 'contact-button']) ?>
+                </div>
+                <?php ActiveForm::end(); ?>
                 <div class="shadow"></div>
             </div>
         </div>

@@ -11,13 +11,8 @@ class Lang_headerWidget extends Widget
 
     public function run()
     {
-        $cacheLangHeader = \Yii::$app->cache->get('cachelangheaderWidget');
-        if (!$cacheLangHeader) {
-            $this->data = Lang_header::find()->all();
-            $cacheLangHeader = $this->render('lang_header', ['data' => $this->data]);
-            \Yii::$app->cache->set('cachelangheaderWidget', $cacheLangHeader, 1800);
-        }
-
+        $this->data = Lang_header::find()->all();
+        $cacheLangHeader = $this->render('lang_header', ['data' => $this->data]);
         return $cacheLangHeader;
     }
 }

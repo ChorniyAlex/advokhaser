@@ -1,39 +1,46 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 ?>
 
 <!-- контент инновационный IT-сервис online -->
 <div class="main-content">
     <div class="content-innovation-servis it">
-        <h1>Инновационный IT-сервис online 24/7: автоматизированное составление заявлений о расторжении брака, взыскании алиментов при помощи нашей уникальной IT-технологии</h1>
-        <p class="content-text">В данный момент сервис не доступен в связи с проведением технических работ. Ориентировочное время доступности сервиса - декабрь 2020 года.</p>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <p class="content-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae itaque nisi veniam
-            repellendus magnam pariatur quasi fugiat, reprehenderit voluptatibus exercitationem, deserunt quos
-            velit! Quod quisquam corrupti nam, alias repudiandae adipisci ad iusto error accusamus? Rerum sequi ad,
-            repudiandae temporibus doloremque hic modi obcaecati illo! Accusantium rem doloremque optio illo minus
-            incidunt vero libero tenetur excepturi, nemo debitis fugiat sequi error sunt fugit expedita voluptatum
-            architecto a autem commodi est dolores. Est perspiciatis ab reprehenderit cupiditate, quae amet corporis
-            asperiores debitis veritatis omnis non ut, earum a quo! Officia molestias doloremque exercitationem, aut
-            adipisci necessitatibus non, accusamus quae vel explicabo in enim perferendis maiores, quis quasi beatae
-            maxime odio culpa. Commodi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae itaque nisi veniam
-            repellendus magnam pariatur quasi fugiat, reprehenderit voluptatibus exercitationem, deserunt quos
-            velit! Quod quisquam corrupti nam, alias repudiandae adipisci ad iusto error accusamus? Rerum sequi ad,
-            repudiandae temporibus doloremque hic modi obcaecati illo! Accusantium rem doloremque optio illo minus
-            incidunt vero libero tenetur excepturi, nemo debitis fugiat sequi error sunt fugit expedita voluptatum
-            architecto a autem commodi est dolores. Est perspiciatis ab reprehenderit cupiditate, quae amet corporis
-            asperiores debitis veritatis omnis non ut, earum a quo! Officia molestias doloremque exercitationem, aut
-            adipisci necessitatibus non, accusamus quae vel explicabo in enim perferendis maiores, quis quasi beatae
-            maxime odio culpa. Commodi.</p>
+        <h1>Инновационный IT-сервис online 24/7: автоматизированное составление заявлений о расторжении брака, взыскании алиментов и др. при помощи уникальной IT-технологии</h1>
     </div>
+</div>
+<div class="main-content">
+    <article>
+        <div><?= Html::img('@web/img/photo-chornobay.JPG', ['class' => 'content-photo', 'alt' => 'photo-chornobay']) ?>
+            <p class="content-photo-text">Адвокат Чорнобай Александр Евгеньевич<br>Управляющий партнёр, web-разработчик<br>Опыт работы в юриспруденции: с 1993 г.</p>
+        </div>
+    </article>
+</div>
+<div class="main-content">
+    <article>
+        <h3>Приветствую вас, уважаемые клиенты!</h3>
+        <p class="content-text">На этой web-странице моего инновационного IT-сервиса online 24/7 вам предлагается услуга автоматизированного составления заявлений: о расторжении брака, о взыскании алиментов и др. при помощи моей уникальной IT-технологии. Для этого вам необходимо иметь минимальные навыки работы на компьютере и, следуя моим подсказкам, всего лишь заполнить необходимые поля (ответить на поставленные вопросы), оплатить небольшую стоимость, которая значительно меньше, чем при посещении офиса адвоката, и сгенерированный файл, который будет в формате PDF, сохранить на своём устройстве (смартфон, ПК), а в дальнейшем распечатать на принтере и, следуя инструкции, которая предлагается для скачивания, подготовить пакет документов для подачи их в суд, а также оплатить судебный сбор. Ваше заявление (в т.ч. все ваши личные данные) сайтом не сохраняются и остаются только в вашем сохранённом файле на вашем устройстве, поскольку в код программы заложено строгое соблюдение адвокатской тайны и недопущение разглашения персональных данных клиента. В случае возникновения каких-либо трудностей при составлении заявления я всегда на связи (кроме случаев нахождения в судебном заседании) и готов помочь вам подсказками в телефонном режиме либо при помощи подключения через программу TeamViewer или AnyDesk. Далее, после выбора сервиса, вам будет предоставлена подробная инструкция о том, как после составления заявления подготовить пакет документов для подачи их в суд. Надеюсь, данный сервис будет полезен многим, у кого возникла необходимость в таких заявлениях, так как воспользовавшись им вы в любое время у себя дома (или на работе) в несколько кликов можете легко составить необходимое вам заявление, получить подробную письменную консультацию (инструкцию) и сэкономить свои средства и время.</p>
+        <div class="content-innovation-servis it">
+            <h2 id="vidi-pomoschi">Выберите сервис:</h2>
+        </div>
+        <div class="container-icon">
+            <a href="<?= Url::toRoute(['ru_content/divorce']) ?>" target="_blank">
+                <div class="icon"><?= Html::img('@web/img/icon-7.svg', ['alt' => 'сервис онлайн заявлений']) ?>
+                    <p><span>исковое заявление</span><br>о расторжении брака</p>
+                </div>
+            </a>
+            <a href="<?= Url::toRoute(['ru_content/aliment']) ?>" target="_blank">
+                <div class="icon"><?= Html::img('@web/img/icon-6.svg', ['alt' => 'сервис онлайн заявлений']) ?>
+                    <p><span>заявление</span><br>о взыскании алиментов</p>
+                </div>
+            </a>
+            <a href="<?= Url::toRoute(['ru_content/fact_death']) ?>" target="_blank">
+                <div class="icon"><?= Html::img('@web/img/icon-17.svg', ['alt' => 'сервис онлайн заявлений']) ?>
+                    <p><span>заявление</span><br>об установлении<br>факта смерти</p>
+                </div>
+            </a>
+        </div>
+    </article>
 </div>

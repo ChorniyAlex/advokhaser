@@ -11,13 +11,8 @@ class Lang_mobilWidget extends Widget
 
     public function run()
     {
-        $cacheLangMobil = \Yii::$app->cache->get('cachelangmobilWidget');
-        if (!$cacheLangMobil) {
-            $this->data = Lang_mobil::find()->all();
-            $cacheLangMobil = $this->render('lang_mobil', ['data' => $this->data]);
-            \Yii::$app->cache->set('cachelangmobilWidget', $cacheLangMobil, 1800);
-        }
-
+        $this->data = Lang_mobil::find()->all();
+        $cacheLangMobil = $this->render('lang_mobil', ['data' => $this->data]);
         return $cacheLangMobil;
     }
 }

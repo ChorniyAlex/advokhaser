@@ -1,39 +1,46 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 ?>
 
 <!-- контент инновационный IT-сервис online -->
 <div class="main-content">
     <div class="content-innovation-servis it">
-        <h1>Інноваційний IT-сервіс online 24/7: автоматизоване складання заяв про розірвання шлюбу, стягненню аліментів за допомогою нашої унікальної IT-технології</h1>
-        <p class="content-text">В данный момент сервис не доступен в связи с проведением технических работ. Ориентировочное время доступности сервиса - декабрь 2020 года.</p>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <p class="content-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae itaque nisi veniam
-            repellendus magnam pariatur quasi fugiat, reprehenderit voluptatibus exercitationem, deserunt quos
-            velit! Quod quisquam corrupti nam, alias repudiandae adipisci ad iusto error accusamus? Rerum sequi ad,
-            repudiandae temporibus doloremque hic modi obcaecati illo! Accusantium rem doloremque optio illo minus
-            incidunt vero libero tenetur excepturi, nemo debitis fugiat sequi error sunt fugit expedita voluptatum
-            architecto a autem commodi est dolores. Est perspiciatis ab reprehenderit cupiditate, quae amet corporis
-            asperiores debitis veritatis omnis non ut, earum a quo! Officia molestias doloremque exercitationem, aut
-            adipisci necessitatibus non, accusamus quae vel explicabo in enim perferendis maiores, quis quasi beatae
-            maxime odio culpa. Commodi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae itaque nisi veniam
-            repellendus magnam pariatur quasi fugiat, reprehenderit voluptatibus exercitationem, deserunt quos
-            velit! Quod quisquam corrupti nam, alias repudiandae adipisci ad iusto error accusamus? Rerum sequi ad,
-            repudiandae temporibus doloremque hic modi obcaecati illo! Accusantium rem doloremque optio illo minus
-            incidunt vero libero tenetur excepturi, nemo debitis fugiat sequi error sunt fugit expedita voluptatum
-            architecto a autem commodi est dolores. Est perspiciatis ab reprehenderit cupiditate, quae amet corporis
-            asperiores debitis veritatis omnis non ut, earum a quo! Officia molestias doloremque exercitationem, aut
-            adipisci necessitatibus non, accusamus quae vel explicabo in enim perferendis maiores, quis quasi beatae
-            maxime odio culpa. Commodi.</p>
+        <h1>Інноваційний IT-сервіс online 24/7: автоматизоване складання заяв про: розірвання шлюбу, стягнення аліментів та ін. за допомогою унікальної IT-технології</h1>
     </div>
+</div>
+<div class="main-content">
+    <article>
+        <div><?= Html::img('@web/img/photo-chornobay.JPG', ['class' => 'content-photo', 'alt' => 'photo-chornobay']) ?>
+            <p class="content-photo-text">Адвокат Чорнобай Олександр Євгенович<br>Керуючий партнер, web-розробник<br>Досвід роботи в юриспруденції: з 1993 р.</p>
+        </div>
+    </article>
+</div>
+<div class="main-content">
+    <article>
+        <h3>Вітаю вас, шановні клієнти!</h3>
+        <p class="content-text">На цій web-сторінці мого інноваційного IT-сервісу online 24/7 вам пропонується послуга автоматизованого складання заяв: про розірвання шлюбу, про стягнення аліментів та ін. за допомогою моєї унікальної IT-технології. Для цього вам необхідно мати мінімальні навички роботи на комп'ютері та, слідуючи моїм підказкам, всього лише заповнити необхідні поля (відповісти на поставлені питання), оплатити невелику вартість, яка значно менше, ніж при відвідуванні офісу адвоката, і згенерований файл, який буде в форматі PDF, зберегти на своєму пристрої (смартфон, ПК), а в подальшому роздрукувати на принтері і, слідуючи інструкції, яка пропонується для завантаження, підготувати пакет документів для подачі їх до суду, а також оплатити судовий збір. Ваша заява (в т.ч. усі ваші особисті дані) сайтом не зберігаються і залишаються тільки у вашому збереженому файлі на вашому пристрої, оскільки в код програми закладено суворе дотримання адвокатської таємниці та недопущення розголошення персональних даних клієнта. У разі виникнення будь-яких труднощів при складанні заяви я завжди на зв'язку (крім випадків знаходження в судовому засіданні) і готовий допомогти вам підказками у телефонному режимі або за допомогою підключення через програму TeamViewer або AnyDesk. Далі, після вибору сервісу, вам буде надана докладна інструкція про те, як після складання заяви підготувати пакет документів для подачі їх до суду. Сподіваюся, даний сервіс буде корисний багатьом, у кого виникла необхідність в таких заявах, так як скориставшись ним ви в будь-який час у себе вдома (або на роботі) в кілька кліків можете легко скласти необхідну вам заяву, отримати детальну письмову консультацію (інструкцію) і заощадити свої кошти і час.</p>
+        <div class="content-innovation-servis it">
+            <h2 id="vidi-pomoschi">Оберіть сервіс:</h2>
+        </div>
+        <div class="container-icon">
+            <a href="<?= Url::toRoute(['ua_content/divorce']) ?>" target="_blank">
+                <div class="icon"><?= Html::img('@web/img/icon-7.svg', ['alt' => 'сервіс онлайн заяв']) ?>
+                    <p><span>позовна заява</span><br>про розірвання шлюбу</p>
+                </div>
+            </a>
+            <a href="<?= Url::toRoute(['ua_content/aliment']) ?>" target="_blank">
+                <div class="icon"><?= Html::img('@web/img/icon-6.svg', ['alt' => 'сервіс онлайн заяв']) ?>
+                    <p><span>заява</span><br>про стягнення аліментів</p>
+                </div>
+            </a>
+            <a href="<?= Url::toRoute(['ua_content/fact_death']) ?>" target="_blank">
+                <div class="icon"><?= Html::img('@web/img/icon-17.svg', ['alt' => 'сервіс онлайн заяв']) ?>
+                    <p><span>заява</span><br>про встановлення<br>факту смерті</p>
+                </div>
+            </a>
+        </div>
+    </article>
 </div>

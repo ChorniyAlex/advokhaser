@@ -11,13 +11,8 @@ class Hamburger_menuWidget extends Widget
 
     public function run()
     {
-        $cacheHamburgerMenu = \Yii::$app->cache->get('cachehamburgermenu');
-        if (!$cacheHamburgerMenu) {
-            $this->data = Hamburger_menu::find()->all();
-            $cacheHamburgerMenu = $this->render('hamburger_menu', ['data' => $this->data]);
-            \Yii::$app->cache->set('cachehamburgermenu', $cacheHamburgerMenu, 1800);
-        }
-
+        $this->data = Hamburger_menu::find()->all();
+        $cacheHamburgerMenu = $this->render('hamburger_menu', ['data' => $this->data]);
         return $cacheHamburgerMenu;
     }
 }

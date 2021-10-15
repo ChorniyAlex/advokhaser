@@ -45,6 +45,36 @@ $config = [
                 'encryption' => 'tls',
             ],
         ],
+        'assetManager' => [
+            'bundles' => [
+                'yii\web\JqueryAsset' => [
+                    'sourcePath' => null,
+                    'basePath' => '@webroot',
+                    'baseUrl' => '@web',
+                    'js' => [
+                        'js/jquery.js',
+                    ]
+                ],
+            ],
+        ],
+        'response' => [
+            'formatters' => [
+                'pdf' => [
+                    'class' => 'robregonm\pdf\PdfResponseFormatter',
+                    'mode' => '',
+                    'format' => 'A4',
+                    'defaultFontSize' => 0,
+                    'defaultFont' => 'Arial',
+                    'marginLeft' => 18,
+                    'marginRight' => 12,
+                    'marginTop' => 15,
+                    'marginBottom' => 15,
+                    'marginHeader' => 9,
+                    'marginFooter' => 9,
+                ],
+            ]
+        ],
+
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [

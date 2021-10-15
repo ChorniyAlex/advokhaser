@@ -1,2 +1,8 @@
 User-agent: *
-Disallow:
+Disallow: /layouts/pdf_aliment_instruction_ru.php
+Disallow: /layouts/pdf_aliment_instruction_ua.php
+Disallow: /layouts/pdf_divorce_instruction_ru.php
+Disallow: /layouts/pdf_divorce_instruction_ua.php
+Disallow: /layouts/pdf_fact_death_instruction_ru.php
+Disallow: /layouts/pdf_fact_death_instruction_ua.php
+Sitemap: https://advokhaser.online/sitemap.xml

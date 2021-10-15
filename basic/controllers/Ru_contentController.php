@@ -2,12 +2,17 @@
 
 namespace app\controllers;
 
+use Yii;
 use yii\web\Controller;
 use \app\models\Top_menu;
 use app\models\Ru_content;
 use app\models\MailerForm;
 use app\models\Zapis_consultationForm;
-use Yii;
+use app\models\DivorceForm;
+use app\models\Region;
+use app\models\Court;
+use yii\helpers\Url;
+
 
 class Ru_contentController extends Controller
 {
@@ -194,7 +199,42 @@ class Ru_contentController extends Controller
     public function actionDivorce()
     {
         $this->view->title = 'Брак расторжение | Адвокаты Дашко и Чорнобай | Северодонецк';
-        return $this->render('divorce');
+        $model = new DivorceForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            Yii::$app->response->redirect(Url::to('divorce_claim'));
+        }
+        return $this->render('divorce', compact('model'));
+    }
+
+    public function actionDivorce_instruction()
+    {
+        Yii::$app->response->format = 'pdf';
+        $this->layout = 'pdf_divorce_instruction_ru';
+        return $this->render('divorce_instruction', []);
+    }
+
+    public function actionDivorce_claim()
+    {
+        $model = new DivorceForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            // echo '<pre>';
+            // print_r($model);
+            // exit;
+            Yii::$app->response->format = 'pdf';
+            $this->layout = false;
+            return $this->render('divorce_claim', ['model' => $model]);
+        } else
+            return $this->render('divorce', ['model' => $model]);
+    }
+
+    public function actionCourt($id)
+    {
+        $results = Court::find()
+            ->select('name')
+            ->where(['id_region' => $id])
+            ->asArray()
+            ->all();
+        return json_encode($results);
     }
 
     public function actionAliment()
@@ -203,9 +243,23 @@ class Ru_contentController extends Controller
         return $this->render('aliment');
     }
 
+    public function actionAliment_instruction()
+    {
+        Yii::$app->response->format = 'pdf';
+        $this->layout = 'pdf_aliment_instruction_ru';
+        return $this->render('aliment_instruction', []);
+    }
+
     public function actionFact_death()
     {
         $this->view->title = 'Факт смерти установить | Адвокаты Дашко и Чорнобай | Северодонецк';
         return $this->render('fact_death');
+    }
+
+    public function actionFact_death_instruction()
+    {
+        Yii::$app->response->format = 'pdf';
+        $this->layout = 'pdf_fact_death_instruction_ru';
+        return $this->render('fact_death_instruction', []);
     }
 }

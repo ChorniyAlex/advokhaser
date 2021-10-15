@@ -904,21 +904,34 @@ a>:hover .side-photo-text {
     height: 400px;
     margin: 30px auto 0 auto;
     padding: 10px 10px;
-    -webkit-animation: bounce 1.5s infinite;
-    animation: bounce 1.5s infinite;
+    /* -webkit-animation: bounce 1.5s infinite; */
+    /* animation: bounce 1.5s infinite; */
+    color: red;
+}
+
+.divorce {
+    background: #f1f1f1;
+    text-align: center;
+    box-shadow: 0px 0px 20px 5px rgb(76, 125, 133, 0.7);
+    border-radius: 10px;
+    width: 80%;
+    height: auto;
+    margin: 30px auto 0 auto;
+    padding: 10px 10px;
     color: red;
 }
 
 .name {
-    background-color: rgb(0, 167, 218);
+    background-color: rgb(155, 170, 193);
     border-bottom: 5px solid rgb(0, 128, 167);
     color: white;
-    width: 300px;
+    width: 360px;
+    font-size: 16px;
 }
 
 ::-webkit-input-placeholder {
     color: white;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .name:hover {
@@ -929,7 +942,7 @@ a>:hover .side-photo-text {
 }
 
 .email {
-    background-color: rgb(0, 167, 218);
+    background-color: rgb(155, 170, 193);
     border-bottom: 5px solid rgb (0, 128, 167);
     height: 40px;
     width: 300px;
@@ -943,7 +956,7 @@ a>:hover .side-photo-text {
 }
 
 .message {
-    background-color: rgb(0, 167, 218);
+    background-color: rgb(155, 170, 193);
     border-bottom: 5px solid rgb(0, 128, 167);
     overflow: hidden;
     height: 100px;
@@ -979,7 +992,8 @@ a>:hover .side-photo-text {
     border-radius: 5px;
     border: none;
     transition: all 0.5s ease 0s;
-    box-shadow: 0px 0px 25px 2px #aaa;
+    background-color: rgb(155, 170, 193);
+    box-shadow: 0px 0px 25px 2px #aaa
 }
 
 /* Shadow to make it look like form is floating  */
@@ -1005,7 +1019,7 @@ a>:hover .side-photo-text {
     margin-top: 150px;
 }
 
-@-webkit-keyframes bounce {
+/* @-webkit-keyframes bounce {
     0% {}
 
     50% {
@@ -1015,33 +1029,33 @@ a>:hover .side-photo-text {
         -ms-transform: translate(0, 8px);
         -o-transform: translate(0, 8px);
     }
-}
+} */
 
-@keyframes bounce {
+/* @keyframes bounce {
     0% {}
 
     50% {
         transform: translate(0, 8px);
     }
-}
+} */
 
-@-webkit-keyframes shadow {
+/* @-webkit-keyframes shadow {
     0% {}
 
     50% {
         opacity: 0.8;
         width: 50%;
     }
-}
+} */
 
-@keyframes shadow {
+/* @keyframes shadow {
     0% {}
 
     50% {
         opacity: 0.8;
         width: 50%;
     }
-}
+} */
 
 
 /*--------------- подвал --------------*/

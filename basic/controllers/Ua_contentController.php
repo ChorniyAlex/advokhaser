@@ -6,6 +6,9 @@ use yii\web\Controller;
 use \app\models\Top_menu;
 use app\models\Ua_content;
 use app\models\Zapis_consultationForm;
+use app\models\DivorceForm;
+use yii\helpers\Url;
+use app\models\Court;
 use Yii;
 
 class Ua_contentController extends Controller
@@ -193,7 +196,42 @@ class Ua_contentController extends Controller
     public function actionDivorce()
     {
         $this->view->title = 'Шлюб розірвання | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
-        return $this->render('divorce');
+        $model = new DivorceForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            Yii::$app->response->redirect(Url::to('divorce_claim'));
+        }
+        return $this->render('divorce', compact('model'));
+    }
+
+    public function actionDivorce_instruction()
+    {
+        Yii::$app->response->format = 'pdf';
+        $this->layout = 'pdf_divorce_instruction_ua';
+        return $this->render('divorce_instruction', []);
+    }
+
+    public function actionDivorce_claim()
+    {
+        $model = new DivorceForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            // echo '<pre>';
+            // print_r($model);
+            // exit;
+            Yii::$app->response->format = 'pdf';
+            $this->layout = false;
+            return $this->render('divorce_claim', ['model' => $model]);
+        } else
+            return $this->render('divorce', ['model' => $model]);
+    }
+
+    public function actionCourt($id)
+    {
+        $results = Court::find()
+            ->select('name')
+            ->where(['id_region' => $id])
+            ->asArray()
+            ->all();
+        return json_encode($results);
     }
 
     public function actionAliment()
@@ -206,5 +244,19 @@ class Ua_contentController extends Controller
     {
         $this->view->title = 'Факт смерті встановити | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
         return $this->render('fact_death');
+    }
+
+    public function actionAliment_instruction()
+    {
+        Yii::$app->response->format = 'pdf';
+        $this->layout = 'pdf_aliment_instruction_ua';
+        return $this->render('aliment_instruction', []);
+    }
+
+    public function actionFact_death_instruction()
+    {
+        Yii::$app->response->format = 'pdf';
+        $this->layout = 'pdf_fact_death_instruction_ua';
+        return $this->render('fact_death_instruction', []);
     }
 }

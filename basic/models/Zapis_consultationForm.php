@@ -23,7 +23,6 @@ class Zapis_consultationForm extends Model
                 ['fromName', 'required', 'message' => 'пожалуйста укажите ваше имя'],
                 ['subject', 'required', 'message' => 'пожалуйста укажите ваш телефон'],
                 ['body', 'required', 'message' => 'пожалуйста укажите ваш вопрос'],
-                [['fromEmail', 'fromName', 'toEmail', 'subject', 'body'], 'required'],
                 ['fromEmail', 'email'],
                 ['toEmail', 'email'],
             ];
@@ -31,7 +30,6 @@ class Zapis_consultationForm extends Model
             ['fromName', 'required', 'message' => 'будь ласка зазначте ваше ім’я'],
             ['subject', 'required', 'message' => 'будь ласка зазначте ваш телефон'],
             ['body', 'required', 'message' => 'будь ласка зазначте ваше питання'],
-            [['fromEmail', 'fromName', 'toEmail', 'subject', 'body'], 'required'],
             ['fromEmail', 'email'],
             ['toEmail', 'email'],
         ];

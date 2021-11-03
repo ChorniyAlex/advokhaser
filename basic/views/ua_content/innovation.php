@@ -26,12 +26,12 @@ use yii\helpers\Url;
         <div class="container-icon">
             <a href="<?= Url::toRoute(['ua_content/divorce']) ?>" target="_blank">
                 <div class="icon"><?= Html::img('@web/img/icon-7.svg', ['alt' => 'сервіс онлайн заяв']) ?>
-                    <p><span>позовна заява</span><br>про розірвання шлюбу</p>
+                    <p><span>позовна заява</span><br>про розірвання шлюбу<br><span>за наявності неповнолітніх дітей</span></p>
                 </div>
             </a>
             <a href="<?= Url::toRoute(['ua_content/aliment']) ?>" target="_blank">
                 <div class="icon"><?= Html::img('@web/img/icon-6.svg', ['alt' => 'сервіс онлайн заяв']) ?>
-                    <p><span>заява</span><br>про стягнення аліментів</p>
+                    <p><span>заява</span><br>про стягнення аліментів<br><span>на дитину (дітей)</span></p>
                 </div>
             </a>
             <a href="<?= Url::toRoute(['ua_content/fact_death']) ?>" target="_blank">

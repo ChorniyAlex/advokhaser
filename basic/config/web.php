@@ -52,7 +52,8 @@ $config = [
                     'basePath' => '@webroot',
                     'baseUrl' => '@web',
                     'js' => [
-                        'js/jquery.js',
+                        'js/main.js',
+                        'js/jQuery.js',
                     ]
                 ],
             ],

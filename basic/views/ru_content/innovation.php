@@ -31,7 +31,7 @@ use yii\helpers\Url;
             </a>
             <a href="<?= Url::toRoute(['ru_content/aliment']) ?>" target="_blank">
                 <div class="icon"><?= Html::img('@web/img/icon-6.svg', ['alt' => 'сервис онлайн заявлений']) ?>
-                    <p><span>заявление</span><br>о взыскании алиментов</p>
+                    <p><span>заявление</span><br>о взыскании алиментов<br><span>на ребёнка (детей)</span></p>
                 </div>
             </a>
             <a href="<?= Url::toRoute(['ru_content/fact_death']) ?>" target="_blank">

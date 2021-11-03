@@ -10,7 +10,7 @@ use yii\helpers\Html;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Позов про розірвання шлюбу</title>
+    <title>Иск о расторжении брака</title>
 </head>
 
 <body>
@@ -41,8 +41,7 @@ use yii\helpers\Html;
                 <p style="text-align: right">номер засобу зв’язку: <?= Html::encode($model->phone_defendant); ?></p>
                 <h2 style="text-align: center">Позовна заява</h2>
                 <h3 style="text-align: center">про розірвання шлюбу</h3>
-                <p><?= Html::encode($model->date_marriage); ?> р. ми з відповідачем уклали шлюб, який було зареєстровано: <?= Html::encode($model->marriage_registration); ?>, актовий запис №<?= Html::encode($model->marriage_number); ?>.</p>
-                <p>Починаючи з <?= Html::encode($model->date_termin_marriage); ?> р. шлюбні та сімейні відносини між нами припинені. Спільне господарство не ведеться.</p>
+                <p><?= Html::encode($model->date_marriage); ?> р. ми з відповідачем уклали шлюб, який зареєстрував: <?= Html::encode($model->marriage_registration); ?>, актовий запис №<?= Html::encode($model->marriage_number); ?>.</p>
                 <p><?= $model->number_children; ?>: <?= Html::encode($model->children); ?>, місце проживання - <?= $model->residence_child; ?>.</p>
                 <p>Спільне сімейне життя з відповідачем не склалося з причини: <?= $model->reason_divorce; ?>
                     <?php if ($model->reason_divorce1) echo ', ' . $model->reason_divorce1;
@@ -51,19 +50,25 @@ use yii\helpers\Html;
                     if ($model->user_reason_divorce) echo ', ' . Html::encode($model->user_reason_divorce) . '.';
                     else echo '.'; ?>
                 </p>
+                <p>Час фактичного припинення між нами шлюбних та сімейних відносин: <?= Html::encode($model->date_termin_marriage); ?> р. Спільне господарство не ведеться.</p>
                 <p>Подальше спільне життя та зберігання сім’ї не можливе.</p>
-                <p>Примирення з відповідачем я не бажаю, тому зберігання шлюбу суперечить моїм інтересам.Спору про поділ майна, що є нашою спільною сумісною власністю, наразі немає. Спору про місце проживання, утримання та виховання дитини (дітей) немає.</p>
+                <p>Примирення з відповідачем я не бажаю, тому зберігання шлюбу суперечить моїм інтересам. Спору про поділ майна, що є нашою спільною сумісною власністю, наразі немає. Спору про місце проживання, утримання та виховання
+                    <?php if ($model->number_children == 'Від шлюбу маємо неповнолітню дитину') : echo 'дитини';
+                    else : echo 'дітей';
+                    endif; ?> немає.</p>
                 <p>Попередній (орієнтовний) розрахунок суми судових витрат, які позивач поніс і які очікує понести у зв'язку із розглядом справи: так як дана позовна заява є заявою про розірвання шлюбу, то, відповідно до ЗУ "Про судовий збір", мною було сплачено судовий збір, розмір якого становить: 0,4 розміру прожиткового мінімуму на одну працездатну особу, що є судовими витратами у справі, і в подальшому додатково я не очікую понесення інших судових витрат у зв’язку із розглядом справи.</p>
                 <p>Також я підтверджую те, що мною не подано іншого позову (позовів) до цього самого відповідача з тим самим предметом та з тих самих підстав.</p>
                 <p>Відповідно до ст.ст. 110, 112 Сімейного Кодексу України і ст.ст. 3, 4, 5, 19, 23, 43, 49, 76, 83, 95, 174, 175, 177 ЦПК України, –</p>
                 <h2 style="text-align: center">Прошу:</h2>
-                <h3>Розірвати шлюб, укладений між мною: <?= Html::encode($model->username); ?> <?= Html::encode($model->date_birth_user); ?> р.н., та відповідачем: <?= Html::encode($model->defendant_name); ?> <?= Html::encode($model->date_birth_defendant); ?> р.н., зареєстрований: <?= Html::encode($model->date_marriage); ?> р. <?= Html::encode($model->marriage_registration); ?>, актовий запис №<?= Html::encode($model->marriage_number); ?>.</h3>
+                <h3>Розірвати шлюб, який уклали: <?= Html::encode($model->username); ?> <?= Html::encode($model->date_birth_user); ?> р.н., та: <?= Html::encode($model->defendant_name); ?> <?= Html::encode($model->date_birth_defendant); ?> р.н., який зареєстрував: <?= Html::encode($model->marriage_registration); ?> <?= Html::encode($model->date_marriage); ?> р., актовий запис №<?= Html::encode($model->marriage_number); ?>.</h3>
                 <br>
                 <h4>Перелік документів та інших доказів, що додаються до заяви:</h4>
                 <ul>
                     <li>копії паспорта і довідки про РНОКПП позивача</li>
                     <li>свідоцтво про шлюб</li>
-                    <li>копія свідоцтва про народження дитини (дітей)</li>
+                    <?php if ($model->number_children == 'Від шлюбу маємо неповнолітню дитину') : echo '<li>копія свідоцтва про народження дитини</li>';
+                    else : echo '<li>копії свідоцтв про народження дітей</li>';
+                    endif ?>
                     <li>довідка про склад сім’ї</li>
                     <li>копія позовної заяви з додатками для відповідача</li>
                     <li>квитанція про сплату судового збору</li>

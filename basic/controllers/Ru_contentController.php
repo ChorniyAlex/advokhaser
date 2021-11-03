@@ -9,6 +9,7 @@ use app\models\Ru_content;
 use app\models\MailerForm;
 use app\models\Zapis_consultationForm;
 use app\models\DivorceForm;
+use app\models\AlimentForm;
 use app\models\Region;
 use app\models\Court;
 use yii\helpers\Url;
@@ -209,7 +210,7 @@ class Ru_contentController extends Controller
     public function actionDivorce_instruction()
     {
         Yii::$app->response->format = 'pdf';
-        $this->layout = 'pdf_divorce_instruction_ru';
+        $this->layout = false;
         return $this->render('divorce_instruction', []);
     }
 
@@ -240,14 +241,32 @@ class Ru_contentController extends Controller
     public function actionAliment()
     {
         $this->view->title = 'Алименты взыскание | Адвокаты Дашко и Чорнобай | Северодонецк';
-        return $this->render('aliment');
+        $model = new AlimentForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            Yii::$app->response->redirect(Url::to('aliment_claim'));
+        }
+        return $this->render('aliment', compact('model'));
     }
 
     public function actionAliment_instruction()
     {
         Yii::$app->response->format = 'pdf';
-        $this->layout = 'pdf_aliment_instruction_ru';
+        $this->layout = false;
         return $this->render('aliment_instruction', []);
+    }
+
+    public function actionAliment_claim()
+    {
+        $model = new AlimentForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            // echo '<pre>';
+            // print_r($model);
+            // exit;
+            Yii::$app->response->format = 'pdf';
+            $this->layout = false;
+            return $this->render('aliment_claim', ['model' => $model]);
+        } else
+            return $this->render('aliment', ['model' => $model]);
     }
 
     public function actionFact_death()
@@ -259,7 +278,7 @@ class Ru_contentController extends Controller
     public function actionFact_death_instruction()
     {
         Yii::$app->response->format = 'pdf';
-        $this->layout = 'pdf_fact_death_instruction_ru';
+        $this->layout = false;
         return $this->render('fact_death_instruction', []);
     }
 }

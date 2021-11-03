@@ -10,7 +10,6 @@ use yii\bootstrap\ActiveForm;
 use yii\helpers\ArrayHelper;
 use app\models\Region;
 use app\models\Сourt;
-use app\models\Сhildren;
 
 $this->title = 'Заявление расторжение брака | Адвокаты Дашко и Чорнобай | Составление заявления | Северодонецк';
 $this->params['breadcrumbs'][] = $this->title;
@@ -41,10 +40,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 <h4>Прежде чем приступать к составлению заявления, вам необходимо собрать следующие документы и информацию:</h4>
                 <ul class="spisok">
                     <li>Свой паспорт и идентификационный код</li>
+                    <li>Идентификационный код ответчика алиментов (если известно)</li>
                     <li>Свидетельство о браке</li>
                     <li>Свидетельство о рождении ребёнка (детей)</li>
                     <li>Справку о составе семьи</li>
-                    <li>Адрес регистрации и номер телефона ответчика (супруг, супруга)</li>
+                    <li>Адрес регистрации ответчика (супруг, супруга)</li>
+                    <li>Номер телефона и e-mail ответчика (супруг, супруга) (если известно)</li>
                 </ul>
                 <h4>Итак, начинаем (далее всё только на украинском языке!):</h4>
             </article>
@@ -107,7 +108,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= $form->field($model, 'apartment_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Відповідач: номер квартири'])->label(false) ?>
         <?= $form->field($model, 'email_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Відповідач: електронна адреса (e-mail)'])->label(false) ?>
         <?= $form->field($model, 'phone_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Відповідач: номер телефону'])->label(false) ?>
-        <?= $form->field($model, 'date_marriage')->textInput(['class' => 'name entry', 'placeholder' => 'Дата укладання шлюбу'])->label(false) ?>
+        <?= $form->field($model, 'date_marriage')->textInput(['class' => 'name entry', 'placeholder' => 'Дата реєстрації шлюбу дд.мм.рррр'])->label(false) ?>
         <?= $form->field($model, 'marriage_registration')->textInput(['class' => 'name entry', 'placeholder' => 'Назва органу реєстрації шлюбу'])->label(false) ?>
         <?= $form->field($model, 'marriage_number')->textInput(['class' => 'name entry', 'placeholder' => 'Номер актового запису реєстрації шлюбу'])->label(false) ?>
         <?= $form->field($model, 'date_termin_marriage')->textInput(['class' => 'name entry', 'placeholder' => 'Припинення шлюбних відносин (місяць і рік)'])->label(false) ?>

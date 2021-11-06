@@ -24,9 +24,14 @@ use yii\helpers\Url;
             <h2 id="vidi-pomoschi">Оберіть сервіс:</h2>
         </div>
         <div class="container-icon">
-            <a href="<?= Url::toRoute(['ua_content/divorce']) ?>" target="_blank">
+            <a href="<?= Url::toRoute(['ua_content/divorce_children']) ?>" target="_blank">
                 <div class="icon"><?= Html::img('@web/img/icon-7.svg', ['alt' => 'сервіс онлайн заяв']) ?>
-                    <p><span>позовна заява</span><br>про розірвання шлюбу<br><span>за наявності неповнолітніх дітей</span></p>
+                    <p><span>позовна заява</span><br>про розірвання шлюбу<br><span>від шлюбу є неповнолітні діти</span></p>
+                </div>
+            </a>
+            <a href="<?= Url::toRoute(['ua_content/divorce']) ?>" target="_blank">
+                <div class="icon"><?= Html::img('@web/img/icon-15.svg', ['alt' => 'сервіс онлайн заяв']) ?>
+                    <p><span>позовна заява</span><br>про розірвання шлюбу<br><span>від шлюбу немає неповнолітніх дітей</span></p>
                 </div>
             </a>
             <a href="<?= Url::toRoute(['ua_content/aliment']) ?>" target="_blank">

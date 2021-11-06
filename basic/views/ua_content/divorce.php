@@ -9,15 +9,16 @@ use yii\helpers\Url;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\ArrayHelper;
 use app\models\Region;
+use app\models\Сourt;
 
-$this->title = 'Заява розірвання шлюбу | Адвокати Дашко і Чорнобай | Складання заяв | Сєвєродонецьк';
+$this->title = 'Заява про розірвання шлюбу | Адвокати Дашко і Чорнобай | Складання заяви | Сєвєродонецьк';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <!-- контент сервиса расторжение брака -->
 <div class="main-content">
     <div class="content-innovation-servis it">
-        <h1>Складання позовної заяви про розірвання шлюбу</h1>
+        <h1>Складання позовної заяви про розірвання шлюбу<br>(якщо від шлюбу немає неповнолітніх дітей)</h1>
         <div class="title">
             <br>
             <h2>Дійте згідно нижче розміщеним підказкам і уважно заповнюйте поля українською мовою, а також завантажте інструкцію, яка відкриється в новому вікні, після її завантаження ознайомтеся із нею і перейдіть назад на цю сторінку для продовження</h2>
@@ -40,19 +41,17 @@ $this->params['breadcrumbs'][] = $this->title;
                 <ul class="spisok">
                     <li>Свій паспорт та ідентифікаційний код</li>
                     <li>Свідоцтво про шлюб</li>
-                    <li>Свідоцтво про народження дитини (дітей)</li>
                     <li>Адреса проживання і номер телефону відповідача (чоловік, дружина)</li>
                 </ul>
                 <h4>Тож, починаємо:</h4>
             </article>
         </div>
-
         <!-- Начало формы сервиса расторжение брака -->
         <?php $form = ActiveForm::begin(['id' => 'divorce-form', 'action' => "divorce_claim", 'options' => ['method' => "post", 'class' => 'divorce']]) ?>
         <?php $court_region = Region::find()->select('id, name')->all();
         $listData = ArrayHelper::map($court_region, 'id', 'name');
         $regionData = ArrayHelper::map($court_region, 'name', 'name');
-        $url_court = Url::toRoute(['ua_content/court']);
+        $url_court = Url::toRoute(['ru_content/court']);
         ?>
         <?= $form->field($model, 'court_region')->dropDownList(
             $listData,
@@ -109,15 +108,6 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= $form->field($model, 'marriage_registration')->textInput(['class' => 'name entry', 'placeholder' => 'Назва органу реєстрації шлюбу'])->label(false) ?>
         <?= $form->field($model, 'marriage_number')->textInput(['class' => 'name entry', 'placeholder' => 'Номер актового запису реєстрації шлюбу'])->label(false) ?>
         <?= $form->field($model, 'date_termin_marriage')->textInput(['class' => 'name entry', 'placeholder' => 'Припинення шлюбних відносин (місяць і рік)'])->label(false) ?>
-        <?= $form->field($model, 'number_children')->dropDownList(
-            ['Від шлюбу маємо неповнолітню дитину' => 'Від шлюбу маємо неповнолітню дитину', 'Від шлюбу маємо неповнолітніх дітей' => 'Від шлюбу маємо неповнолітніх дітей'],
-            ['prompt' => 'Чи маєте спільних неповнолітніх дітей', 'class' => 'name entry'],
-        )->label(false); ?>
-        <?= $form->field($model, 'children')->textInput(['class' => 'name entry', 'placeholder' => 'ПІБ, дата народження дитини (дітей)'])->label(false) ?>
-        <?= $form->field($model, 'residence_child')->dropDownList(
-            ['зі мною' => 'зі мною', 'з відповідачем' => 'з відповідачем'],
-            ['prompt' => 'З ким проживає дитина (діти)', 'class' => 'name entry'],
-        )->label(false); ?>
         <?= $form->field($model, 'reason_divorce')->dropDownList(
             ['розбіжності характерів та втрати почуття любові і поваги один до одного' => 'розбіжності характерів та втрати почуття любові і поваги один до одного', 'застосування насильства в сім’ї' => 'застосування насильства в сім’ї', 'нехтування відповідачем своїми сімейними обов’язками' => 'нехтування відповідачем своїми сімейними обов’язками', 'подружня зрада' => 'подружня зрада'],
             ['prompt' => 'Основна причина розірвання шлюбу', 'class' => 'name entry'],

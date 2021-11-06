@@ -55,13 +55,14 @@ use yii\helpers\Html;
                     <?= Html::encode($model->defendant_name); ?> не надає і в добровільному порядку надавати відмовляється.</p>
                 <p>Я в теперішній час <?php if ($model->do_work_user == 'працюю') echo $model->do_work_user . ', моє місце роботи: ' . Html::encode($model->job_user) . ' на посаді: ' . Html::encode($model->position_user) . ', ' . $model->have_income_user . ' в розмірі: ' . Html::encode($model->income_user) . ' грн';
                                         elseif ($model->do_work_user == 'не працюю' && $model->have_income_user == 'щомісячного доходу не маю') echo $model->do_work_user . ', ' . $model->have_income_user;
+                                        elseif ($model->do_work_user == 'не працюю' && $model->have_income_user == 'маю щомісячний дохід') echo $model->do_work_user . ', ' . ' але ' . $model->have_income_user . ' в розмірі: ' . Html::encode($model->income_user) . ' грн';
                                         elseif ($model->do_work_user == 'не працюю, знаходжусь у відпрустці по догляду за дитиною' && $model->have_income_user == 'маю щомісячний дохід') echo $model->do_work_user . ', ' . $model->have_income_user . ' в розмірі: ' . Html::encode($model->income_user) . ' грн';
                                         elseif ($model->do_work_user == 'не працюю, знаходжусь у відпрустці по догляду за дитиною' && $model->have_income_user == 'щомісячного доходу не маю') echo $model->do_work_user . ', ' . $model->have_income_user; ?>.</p>
                 <p>Місце роботи боржника, яким є: <?= Html::encode($model->defendant_name) . ' - ' . Html::encode($model->job_defendant); ?>, його щомісячний дохід -
-                    <?php if ($model->have_income_defendant == 'я знаю розмір доходу боржника') : echo Html::encode($model->income_defendant) . ' грн';
+                    <?php if ($model->have_income_defendant == 'я знаю розмір доходу боржника') : echo Html::encode($model->income_defendant) . ' грн,';
                     else : echo 'мені не відомо, ';
                     endif ?>
-                    <?php if ($model->other_children == 'інших дітей на утриманні не має') : echo 'інших осіб, в т.ч. неповнолітніх дітей, на утриманні Боржник не має, ';
+                    <?php if ($model->other_children == 'інших дітей на утриманні не має') : echo 'інших осіб, в т.ч. неповнолітніх дітей, на утриманні боржник не має, ';
                     elseif ($model->other_children == 'має на утримуванні іншу дитину (дітей)') : echo 'має на утримуванні інших дітей' . ', але ';
                     else : echo 'чи є у нього на утриманні інші особи, в т.ч. неповнолітні діти - мені не відомо, але ';
                     endif; ?>

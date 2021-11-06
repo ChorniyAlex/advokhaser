@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <!-- контент сервиса расторжение брака -->
 <div class="main-content">
     <div class="content-innovation-servis it">
-        <h1>Составление искового заявления о расторжении брака<br>(если от брака нет несовершеннолетних детей)</h1>
+        <h1>Составление искового заявления о расторжении брака<br>(если от брака имеются несовершеннолетние дети)</h1>
         <div class="title">
             <br>
             <h2>Следуйте нижеуказанным подсказкам и внимательно заполняйте поля на украинском языке, а также скачайте инструкцию, которая откроется в новом окне, после её скачивания ознакомьтесь с ней и перейдите обратно на эту страницу для продолжения</h2>
@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
         <div class="home-ekran-2">
             <div class="container-icon">
-                <a href="<?= Url::toRoute(['ru_content/divorce_instruction']) ?>" target="_blank">
+                <a href="<?= Url::toRoute(['ru_content/divorce_children_instruction']) ?>" target="_blank">
                     <div class="icon"><?= Html::img('@web/img/icon-5.svg', ['title' => 'Откроет сгенерированный PDF-файл в новом окне', 'alt' => 'сервис онлайн заявлений']) ?>
                         <p>инструкция<br><span>(бесплатно)<br><span>скачать</span></p>
                     </div>
@@ -42,6 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <li>Свой паспорт и идентификационный код</li>
                     <li>Идентификационный код ответчика алиментов (если известно)</li>
                     <li>Свидетельство о браке</li>
+                    <li>Свидетельство о рождении ребёнка (детей)</li>
                     <li>Справку о составе семьи</li>
                     <li>Адрес регистрации ответчика (супруг, супруга)</li>
                     <li>Номер телефона и e-mail ответчика (супруг, супруга) (если известно)</li>
@@ -50,7 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
             </article>
         </div>
         <!-- Начало формы сервиса расторжение брака -->
-        <?php $form = ActiveForm::begin(['id' => 'divorce-form', 'action' => "divorce_claim", 'options' => ['method' => "post", 'class' => 'divorce']]) ?>
+        <?php $form = ActiveForm::begin(['id' => 'divorce-form', 'action' => "divorce_children_claim", 'options' => ['method' => "post", 'class' => 'divorce']]) ?>
         <?php $court_region = Region::find()->select('id, name')->all();
         $listData = ArrayHelper::map($court_region, 'id', 'name');
         $regionData = ArrayHelper::map($court_region, 'name', 'name');
@@ -111,6 +112,15 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= $form->field($model, 'marriage_registration')->textInput(['class' => 'name entry', 'placeholder' => 'Назва органу реєстрації шлюбу'])->label(false) ?>
         <?= $form->field($model, 'marriage_number')->textInput(['class' => 'name entry', 'placeholder' => 'Номер актового запису реєстрації шлюбу'])->label(false) ?>
         <?= $form->field($model, 'date_termin_marriage')->textInput(['class' => 'name entry', 'placeholder' => 'Припинення шлюбних відносин (місяць і рік)'])->label(false) ?>
+        <?= $form->field($model, 'number_children')->dropDownList(
+            ['Від шлюбу маємо неповнолітню дитину' => 'Від шлюбу маємо неповнолітню дитину', 'Від шлюбу маємо неповнолітніх дітей' => 'Від шлюбу маємо неповнолітніх дітей'],
+            ['prompt' => 'Оберіть кількість неповнолітніх дітей', 'class' => 'name entry'],
+        )->label(false); ?>
+        <?= $form->field($model, 'children')->textInput(['class' => 'name entry', 'placeholder' => 'ПІБ, дата народження дитини (дітей)'])->label(false) ?>
+        <?= $form->field($model, 'residence_child')->dropDownList(
+            ['зі мною' => 'зі мною', 'з відповідачем' => 'з відповідачем'],
+            ['prompt' => 'З ким проживає дитина (діти)', 'class' => 'name entry'],
+        )->label(false); ?>
         <?= $form->field($model, 'reason_divorce')->dropDownList(
             ['розбіжності характерів та втрати почуття любові і поваги один до одного' => 'розбіжності характерів та втрати почуття любові і поваги один до одного', 'застосування насильства в сім’ї' => 'застосування насильства в сім’ї', 'нехтування відповідачем своїми сімейними обов’язками' => 'нехтування відповідачем своїми сімейними обов’язками', 'подружня зрада' => 'подружня зрада'],
             ['prompt' => 'Основна причина розірвання шлюбу', 'class' => 'name entry'],

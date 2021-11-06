@@ -6,6 +6,7 @@ use yii\web\Controller;
 use \app\models\Top_menu;
 use app\models\Ua_content;
 use app\models\Zapis_consultationForm;
+use app\models\Divorce_childrenForm;
 use app\models\DivorceForm;
 use app\models\AlimentForm;
 use yii\helpers\Url;
@@ -194,6 +195,16 @@ class Ua_contentController extends Controller
         return $this->render('send_email', compact('model'));
     }
 
+    public function actionCourt($id)
+    {
+        $results = Court::find()
+            ->select('name')
+            ->where(['id_region' => $id])
+            ->asArray()
+            ->all();
+        return json_encode($results);
+    }
+
     public function actionDivorce()
     {
         $this->view->title = 'Шлюб розірвання | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
@@ -225,14 +236,35 @@ class Ua_contentController extends Controller
             return $this->render('divorce', ['model' => $model]);
     }
 
-    public function actionCourt($id)
+    public function actionDivorce_children()
     {
-        $results = Court::find()
-            ->select('name')
-            ->where(['id_region' => $id])
-            ->asArray()
-            ->all();
-        return json_encode($results);
+        $this->view->title = 'Шлюб розірвання | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
+        $model = new Divorce_childrenForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            Yii::$app->response->redirect(Url::to('divorce_children_claim'));
+        }
+        return $this->render('divorce_children', compact('model'));
+    }
+
+    public function actionDivorce_children_instruction()
+    {
+        Yii::$app->response->format = 'pdf';
+        $this->layout = false;
+        return $this->render('divorce_children_instruction', []);
+    }
+
+    public function actionDivorce_children_claim()
+    {
+        $model = new Divorce_childrenForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            // echo '<pre>';
+            // print_r($model);
+            // exit;
+            Yii::$app->response->format = 'pdf';
+            $this->layout = false;
+            return $this->render('divorce_children_claim', ['model' => $model]);
+        } else
+            return $this->render('divorce_children', ['model' => $model]);
     }
 
     public function actionAliment()

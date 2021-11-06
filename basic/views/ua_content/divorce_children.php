@@ -9,52 +9,50 @@ use yii\helpers\Url;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\ArrayHelper;
 use app\models\Region;
-use app\models\Сourt;
 
-$this->title = 'Заявление расторжение брака | Адвокаты Дашко и Чорнобай | Составление заявления | Северодонецк';
+$this->title = 'Заява розірвання шлюбу | Адвокати Дашко і Чорнобай | Складання заяв | Сєвєродонецьк';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <!-- контент сервиса расторжение брака -->
 <div class="main-content">
     <div class="content-innovation-servis it">
-        <h1>Составление искового заявления о расторжении брака<br>(если от брака нет несовершеннолетних детей)</h1>
+        <h1>Складання позовної заяви про розірвання шлюбу<br>(у разі наявності від шлюбу неповнолітніх дітей)</h1>
         <div class="title">
             <br>
-            <h2>Следуйте нижеуказанным подсказкам и внимательно заполняйте поля на украинском языке, а также скачайте инструкцию, которая откроется в новом окне, после её скачивания ознакомьтесь с ней и перейдите обратно на эту страницу для продолжения</h2>
+            <h2>Дійте згідно нижче розміщеним підказкам і уважно заповнюйте поля українською мовою, а також завантажте інструкцію, яка відкриється в новому вікні, після її завантаження ознайомтеся із нею і перейдіть назад на цю сторінку для продовження</h2>
             <br>
-            <!-- <h4>Стоимость - 500 грн, оплата онлайн через банковскую платёжную систему по окончанию составления заявления</h4> -->
-            <h4>В настоящее время вы можете воспользоваться этой услугой бесплатно. Начиная с января 2022 г. услуга будет платной.</h4>
+            <!-- <h4>Вартість - 500 грн, оплата онлайн через банківську платіжну систему по закінченню складання заяви</h4> -->
+            <h4>На даний час ви можете скористуватися цією послугою безкоштовно. Починаючи з січня 2022 р. ця послуга буде платною</h4>
         </div>
         <div class="home-ekran-2">
             <div class="container-icon">
-                <a href="<?= Url::toRoute(['ru_content/divorce_instruction']) ?>" target="_blank">
-                    <div class="icon"><?= Html::img('@web/img/icon-5.svg', ['title' => 'Откроет сгенерированный PDF-файл в новом окне', 'alt' => 'сервис онлайн заявлений']) ?>
-                        <p>инструкция<br><span>(бесплатно)<br><span>скачать</span></p>
+                <a href="<?= Url::toRoute(['ua_content/divorce_children_instruction']) ?>" target="_blank">
+                    <div class="icon"><?= Html::img('@web/img/icon-5.svg', ['title' => 'Відкриє згенерований PDF-файл в новому вікні', 'alt' => 'сервіс онлайн заяв']) ?>
+                        <p>інструкція<br><span><span>(безкоштовно)<br>завантажити</span></p>
                     </div>
                 </a>
             </div>
         </div>
         <div class="main-content">
             <article>
-                <h4>Прежде чем приступать к составлению заявления, вам необходимо собрать следующие документы и информацию:</h4>
+                <h4>Перш ніж приступати до написання заяви, вам необхідно зібрати наступні документи та інформацію:</h4>
                 <ul class="spisok">
-                    <li>Свой паспорт и идентификационный код</li>
-                    <li>Идентификационный код ответчика алиментов (если известно)</li>
-                    <li>Свидетельство о браке</li>
-                    <li>Справку о составе семьи</li>
-                    <li>Адрес регистрации ответчика (супруг, супруга)</li>
-                    <li>Номер телефона и e-mail ответчика (супруг, супруга) (если известно)</li>
+                    <li>Свій паспорт та ідентифікаційний код</li>
+                    <li>Свідоцтво про шлюб</li>
+                    <li>Свідоцтво про народження дитини (дітей)</li>
+                    <li>Адреса проживання і номер телефону відповідача (чоловік, дружина)</li>
                 </ul>
-                <h4>Итак, начинаем (далее всё только на украинском языке!):</h4>
+                <h4>Тож, починаємо:</h4>
             </article>
         </div>
+
         <!-- Начало формы сервиса расторжение брака -->
-        <?php $form = ActiveForm::begin(['id' => 'divorce-form', 'action' => "divorce_claim", 'options' => ['method' => "post", 'class' => 'divorce']]) ?>
+        <?php $form = ActiveForm::begin(['id' => 'divorce-form', 'action' => "divorce_children_claim", 'options' => ['method' => "post", 'class' => 'divorce']]) ?>
         <?php $court_region = Region::find()->select('id, name')->all();
         $listData = ArrayHelper::map($court_region, 'id', 'name');
         $regionData = ArrayHelper::map($court_region, 'name', 'name');
-        $url_court = Url::toRoute(['ru_content/court']);
+        $url_court = Url::toRoute(['ua_content/court']);
         ?>
         <?= $form->field($model, 'court_region')->dropDownList(
             $listData,
@@ -111,6 +109,15 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= $form->field($model, 'marriage_registration')->textInput(['class' => 'name entry', 'placeholder' => 'Назва органу реєстрації шлюбу'])->label(false) ?>
         <?= $form->field($model, 'marriage_number')->textInput(['class' => 'name entry', 'placeholder' => 'Номер актового запису реєстрації шлюбу'])->label(false) ?>
         <?= $form->field($model, 'date_termin_marriage')->textInput(['class' => 'name entry', 'placeholder' => 'Припинення шлюбних відносин (місяць і рік)'])->label(false) ?>
+        <?= $form->field($model, 'number_children')->dropDownList(
+            ['Від шлюбу маємо неповнолітню дитину' => 'Від шлюбу маємо неповнолітню дитину', 'Від шлюбу маємо неповнолітніх дітей' => 'Від шлюбу маємо неповнолітніх дітей'],
+            ['prompt' => 'Чи маєте спільних неповнолітніх дітей', 'class' => 'name entry'],
+        )->label(false); ?>
+        <?= $form->field($model, 'children')->textInput(['class' => 'name entry', 'placeholder' => 'ПІБ, дата народження дитини (дітей)'])->label(false) ?>
+        <?= $form->field($model, 'residence_child')->dropDownList(
+            ['зі мною' => 'зі мною', 'з відповідачем' => 'з відповідачем'],
+            ['prompt' => 'З ким проживає дитина (діти)', 'class' => 'name entry'],
+        )->label(false); ?>
         <?= $form->field($model, 'reason_divorce')->dropDownList(
             ['розбіжності характерів та втрати почуття любові і поваги один до одного' => 'розбіжності характерів та втрати почуття любові і поваги один до одного', 'застосування насильства в сім’ї' => 'застосування насильства в сім’ї', 'нехтування відповідачем своїми сімейними обов’язками' => 'нехтування відповідачем своїми сімейними обов’язками', 'подружня зрада' => 'подружня зрада'],
             ['prompt' => 'Основна причина розірвання шлюбу', 'class' => 'name entry'],
@@ -129,7 +136,7 @@ $this->params['breadcrumbs'][] = $this->title;
         )->label(false); ?>
         <?= $form->field($model, 'user_reason_divorce')->textInput(['class' => 'name entry', 'placeholder' => 'Зазначте свою причину (у разі наявності)'])->label(false) ?>
         <div class="form-group">
-            <?= Html::submitButton($content = 'Составить', ['class' => 'btn submit entry', 'name' => 'divorce-button']) ?>
+            <?= Html::submitButton($content = 'Скласти', ['class' => 'btn submit entry', 'name' => 'divorce-button']) ?>
         </div>
         <?php $form = ActiveForm::end() ?>
         <!-- Конец формы сервиса расторжение брака -->

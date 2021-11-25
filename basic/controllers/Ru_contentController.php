@@ -11,6 +11,7 @@ use app\models\Zapis_consultationForm;
 use app\models\Divorce_childrenForm;
 use app\models\DivorceForm;
 use app\models\AlimentForm;
+use app\models\Aliment_studentForm;
 use app\models\Region;
 use app\models\Court;
 use yii\helpers\Url;
@@ -299,6 +300,37 @@ class Ru_contentController extends Controller
             return $this->render('aliment_claim', ['model' => $model]);
         } else
             return $this->render('aliment', ['model' => $model]);
+    }
+
+    public function actionAliment_student()
+    {
+        $this->view->title = 'Алименты на студента | Адвокаты Дашко и Чорнобай | Северодонецк';
+        $model = new Aliment_studentForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            Yii::$app->response->redirect(Url::to('aliment_student_claim'));
+        }
+        return $this->render('aliment_student', compact('model'));
+    }
+
+    public function actionAliment_student_instruction()
+    {
+        Yii::$app->response->format = 'pdf';
+        $this->layout = false;
+        return $this->render('aliment_student_instruction', []);
+    }
+
+    public function actionAliment_student_claim()
+    {
+        $model = new Aliment_studentForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            // echo '<pre>';
+            // print_r($model);
+            // exit;
+            Yii::$app->response->format = 'pdf';
+            $this->layout = false;
+            return $this->render('aliment_student_claim', ['model' => $model]);
+        } else
+            return $this->render('aliment_student', ['model' => $model]);
     }
 
     public function actionFact_death()

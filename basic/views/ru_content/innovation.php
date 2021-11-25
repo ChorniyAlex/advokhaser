@@ -39,6 +39,11 @@ use yii\helpers\Url;
                     <p><span>заявление</span><br>о взыскании алиментов<br><span>на ребёнка (детей)</span></p>
                 </div>
             </a>
+            <a href="<?= Url::toRoute(['ru_content/aliment_student']) ?>" target="_blank">
+                <div class="icon"><?= Html::img('@web/img/icon-1.svg', ['alt' => 'сервис онлайн заявлений']) ?>
+                    <p><span>исковое заявление</span><br>о взыскании алиментов<br><span>на совершеннолетнего студента</span></p>
+                </div>
+            </a>
             <a href="<?= Url::toRoute(['ru_content/fact_death']) ?>" target="_blank">
                 <div class="icon"><?= Html::img('@web/img/icon-17.svg', ['alt' => 'сервис онлайн заявлений']) ?>
                     <p><span>заявление</span><br>об установлении<br>факта смерти</p>

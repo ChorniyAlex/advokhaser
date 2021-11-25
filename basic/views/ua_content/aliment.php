@@ -53,16 +53,16 @@ $this->params['breadcrumbs'][] = $this->title;
             </article>
         </div>
 
-        <!-- Начало формы сервиса взыскание алиментов -->
+        <!-- Начало формы сервиса взыскания алиментов -->
         <?php $form = ActiveForm::begin(['id' => 'aliment-form', 'action' => "aliment_claim", 'options' => ['method' => "post", 'class' => 'aliment']]) ?>
         <?php $court_region = Region::find()->select('id, name')->all();
         $listData = ArrayHelper::map($court_region, 'id', 'name');
         $regionData = ArrayHelper::map($court_region, 'name', 'name');
-        $url_court = Url::toRoute(['ru_content/court']);
+        $url_court = Url::toRoute(['ua_content/court']);
         ?>
         <?= $form->field($model, 'court_region')->dropDownList(
             $listData,
-            ['prompt' => 'Оберіть регіон суду', 'class' => 'name entry',  'onchange' => '
+            ['prompt' => 'Оберіть регіон суду', 'title' => 'Оберіть регіон суду', 'class' => 'name entry',  'onchange' => '
             $.get( "' .  $url_court . '", { id: $(this).val() } )
                 .done(function(data) {
                     var list = JSON.parse(data);
@@ -80,72 +80,72 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= $form->field($model, 'court')
             ->dropDownList(
                 ['prompt' => 'Оберіть суд, до якого подається заява'],
-                ['class' => 'name entry', 'id' => 'court', 'placeholder' => 'Оберіть суд']
+                ['class' => 'name entry', 'id' => 'court', 'placeholder' => 'Оберіть суд', 'title' => 'Оберіть суд, до якого подається заява']
             )->label(false);
         ?>
-        <?= $form->field($model, 'username')->textInput(['class' => 'name entry', 'placeholder' => 'Ваше прізвище, ім\'я, по батькові'])->label(false) ?>
-        <?= $form->field($model, 'date_birth_user')->textInput(['class' => 'name entry', 'placeholder' => 'Дата Вашого народження дд.мм.рррр'])->label(false) ?>
-        <?= $form->field($model, 'ident_number_user')->textInput(['class' => 'name entry', 'placeholder' => 'Ваш ідентифікаційний номер'])->label(false) ?>
-        <?= $form->field($model, 'postcode_user')->textInput(['class' => 'name entry', 'placeholder' => 'Ваш поштовий індекс'])->label(false) ?>
+        <?= $form->field($model, 'username')->textInput(['class' => 'name entry', 'placeholder' => 'Ваше прізвище, ім\'я, по батькові', 'title' => 'Ваше прізвище, ім\'я, по батькові'])->label(false) ?>
+        <?= $form->field($model, 'date_birth_user')->textInput(['class' => 'name entry', 'placeholder' => 'Дата Вашого народження дд.мм.рррр', 'title' => 'Дата Вашого народження дд.мм.рррр'])->label(false) ?>
+        <?= $form->field($model, 'ident_number_user')->textInput(['class' => 'name entry', 'placeholder' => 'Ваш ідентифікаційний номер', 'title' => 'Ваш ідентифікаційний номер'])->label(false) ?>
+        <?= $form->field($model, 'postcode_user')->textInput(['class' => 'name entry', 'placeholder' => 'Ваш поштовий індекс', 'title' => 'Ваш поштовий індекс'])->label(false) ?>
         <?= $form->field($model, 'region_user')->dropDownList(
             $regionData,
-            ['prompt' => 'Ваша область', 'class' => 'name entry'],
+            ['prompt' => 'Ваш регіон (область)', 'title' => 'Ваш регіон (область)', 'class' => 'name entry'],
         )->label(false); ?>
-        <?= $form->field($model, 'town_user')->textInput(['class' => 'name entry', 'placeholder' => 'Ваше місто (селище, село), район'])->label(false) ?>
-        <?= $form->field($model, 'street_user')->textInput(['class' => 'name entry', 'placeholder' => 'Ваша вулиця (пров., просп.)'])->label(false) ?>
-        <?= $form->field($model, 'house_user')->textInput(['class' => 'name entry', 'placeholder' => 'Номер Вашого будинку'])->label(false) ?>
-        <?= $form->field($model, 'apartment_user')->textInput(['class' => 'name entry', 'placeholder' => 'Номер Вашої квартири'])->label(false) ?>
-        <?= $form->field($model, 'email_user')->textInput(['class' => 'name entry', 'placeholder' => 'Ваша електронна адреса: e-mail'])->label(false) ?>
-        <?= $form->field($model, 'phone_user')->textInput(['class' => 'name entry', 'placeholder' => 'Номер Вашого телефону'])->label(false) ?>
-        <?= $form->field($model, 'defendant_name')->textInput(['class' => 'name entry', 'placeholder' => 'Боржник: прізвище, ім\'я, по батькові'])->label(false) ?>
-        <?= $form->field($model, 'date_birth_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Боржник: дата народження дд.мм.рррр'])->label(false) ?>
-        <?= $form->field($model, 'ident_number_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Боржник: ідентифікаційний номер'])->label(false) ?>
-        <?= $form->field($model, 'postcode_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Боржник: поштовий індекс'])->label(false) ?>
+        <?= $form->field($model, 'town_user')->textInput(['class' => 'name entry', 'placeholder' => 'Ваше місто (селище, село), район', 'title' => 'Ваше місто (селище, село), район'])->label(false) ?>
+        <?= $form->field($model, 'street_user')->textInput(['class' => 'name entry', 'placeholder' => 'Ваша вулиця (пров., просп.)', 'title' => 'Ваша вулиця (пров., просп.)'])->label(false) ?>
+        <?= $form->field($model, 'house_user')->textInput(['class' => 'name entry', 'placeholder' => 'Номер Вашого будинку', 'title' => 'Номер Вашого будинку'])->label(false) ?>
+        <?= $form->field($model, 'apartment_user')->textInput(['class' => 'name entry', 'placeholder' => 'Номер Вашої квартири', 'title' => 'Номер Вашої квартири'])->label(false) ?>
+        <?= $form->field($model, 'email_user')->textInput(['class' => 'name entry', 'placeholder' => 'Ваша електронна адреса: e-mail', 'title' => 'Ваша електронна адреса: e-mail'])->label(false) ?>
+        <?= $form->field($model, 'phone_user')->textInput(['class' => 'name entry', 'placeholder' => 'Номер Вашого телефону', 'title' => 'Номер Вашого телефону'])->label(false) ?>
+        <?= $form->field($model, 'defendant_name')->textInput(['class' => 'name entry', 'placeholder' => 'Боржник: прізвище, ім\'я, по батькові', 'title' => 'Боржник: прізвище, ім\'я, по батькові'])->label(false) ?>
+        <?= $form->field($model, 'date_birth_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Боржник: дата народження дд.мм.рррр', 'title' => 'Боржник: дата народження дд.мм.рррр'])->label(false) ?>
+        <?= $form->field($model, 'ident_number_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Боржник: ідентифікаційний номер', 'title' => 'Боржник: ідентифікаційний номер'])->label(false) ?>
+        <?= $form->field($model, 'postcode_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Боржник: поштовий індекс', 'title' => 'Боржник: поштовий індекс'])->label(false) ?>
         <?= $form->field($model, 'region_defendant')->dropDownList(
             $regionData,
-            ['prompt' => 'Боржник: область', 'class' => 'name entry'],
+            ['prompt' => 'Боржник: регіон (область)', 'title' => 'Боржник: регіон (область)', 'class' => 'name entry'],
         )->label(false); ?>
-        <?= $form->field($model, 'town_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Боржник: місто (селище, село), район'])->label(false) ?>
-        <?= $form->field($model, 'street_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Боржник: вулиця (пров., просп.)'])->label(false) ?>
-        <?= $form->field($model, 'house_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Боржник: номер будинку'])->label(false) ?>
-        <?= $form->field($model, 'apartment_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Боржник: номер квартири'])->label(false) ?>
-        <?= $form->field($model, 'email_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Боржник: електронна адреса (e-mail)'])->label(false) ?>
-        <?= $form->field($model, 'phone_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Боржник: номер телефону'])->label(false) ?>
+        <?= $form->field($model, 'town_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Боржник: місто (селище, село), район', 'title' => 'Боржник: місто (селище, село), район'])->label(false) ?>
+        <?= $form->field($model, 'street_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Боржник: вулиця (пров., просп.)', 'title' => 'Боржник: вулиця (пров., просп.)'])->label(false) ?>
+        <?= $form->field($model, 'house_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Боржник: номер будинку', 'title' => 'Боржник: номер будинку'])->label(false) ?>
+        <?= $form->field($model, 'apartment_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Боржник: номер квартири', 'title' => 'Боржник: номер квартири'])->label(false) ?>
+        <?= $form->field($model, 'email_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Боржник: електронна адреса (e-mail)', 'title' => 'Боржник: електронна адреса (e-mail)'])->label(false) ?>
+        <?= $form->field($model, 'phone_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Боржник: номер телефону', 'title' => 'Боржник: номер телефону'])->label(false) ?>
         <?= $form->field($model, 'whom_alimony')->dropDownList(
             ['на одну дитину' => 'на одну дитину', 'на двох дітей' => 'на двох дітей', 'на трьох і більше дітей' => 'на трьох і більше дітей'],
-            ['prompt' => 'Зазначте: на кого аліменти?', 'class' => 'name entry'],
+            ['prompt' => 'Зазначте: на кого аліменти?', 'title' => 'Зазначте: на кого аліменти?', 'class' => 'name entry'],
         )->label(false); ?>
-        <?= $form->field($model, 'children')->textInput(['class' => 'name entry', 'placeholder' => 'ПІБ, дата народження дитини (дітей)'])->label(false) ?>
-        <?= $form->field($model, 'date_marriage')->textInput(['class' => 'name entry', 'placeholder' => 'Дата укладання шлюбу дд.мм.рррр'])->label(false) ?>
+        <?= $form->field($model, 'children')->textInput(['class' => 'name entry', 'placeholder' => 'ПІБ, дата народження дитини (дітей)', 'title' => 'ПІБ, дата народження дитини (дітей)'])->label(false) ?>
+        <?= $form->field($model, 'date_marriage')->textInput(['class' => 'name entry', 'placeholder' => 'Дата укладання шлюбу дд.мм.рррр', 'title' => 'Дата укладання шлюбу дд.мм.рррр'])->label(false) ?>
         <?= $form->field($model, 'marriage_dissolved')->dropDownList(
             ['припинено' => 'припинено', 'не припинено' => 'не припинено'],
-            ['prompt' => 'Чи припинено шлюб з боржником?', 'class' => 'name entry'],
+            ['prompt' => 'Чи припинено шлюб з боржником?', 'title' => 'Чи припинено шлюб з боржником?', 'class' => 'name entry'],
         )->label(false); ?>
         <?= $form->field($model, 'do_work_user')->dropDownList(
             ['працюю' => 'працюю', 'не працюю' => 'не працюю', 'не працюю, знаходжусь у відпрустці по догляду за дитиною' => 'не працюю, знаходжусь у відпрустці по догляду за дитиною'],
-            ['prompt' => 'Зазначте: чи працюєте Ви?', 'class' => 'name entry'],
+            ['prompt' => 'Зазначте: чи працюєте Ви?', 'title' => 'Зазначте: чи працюєте Ви?', 'class' => 'name entry'],
         )->label(false); ?>
-        <?= $form->field($model, 'job_user')->textInput(['class' => 'name entry', 'placeholder' => 'Ваше місце роботи (у разі наявності)'])->label(false) ?>
-        <?= $form->field($model, 'position_user')->textInput(['class' => 'name entry', 'placeholder' => 'Ваша посада (у разі наявності)'])->label(false) ?>
+        <?= $form->field($model, 'job_user')->textInput(['class' => 'name entry', 'placeholder' => 'Ваше місце роботи (у разі наявності)', 'title' => 'Ваше місце роботи (у разі наявності)'])->label(false) ?>
+        <?= $form->field($model, 'position_user')->textInput(['class' => 'name entry', 'placeholder' => 'Ваша посада (у разі наявності)', 'title' => 'Ваша посада (у разі наявності)'])->label(false) ?>
         <?= $form->field($model, 'have_income_user')->dropDownList(
             ['маю щомісячний дохід' => 'маю щомісячний дохід', 'щомісячного доходу не маю' => 'щомісячного доходу не маю'],
-            ['prompt' => 'Чи маєте щомісячний дохід?', 'class' => 'name entry'],
+            ['prompt' => 'Чи маєте щомісячний дохід?', 'title' => 'Чи маєте щомісячний дохід?', 'class' => 'name entry'],
         )->label(false); ?>
-        <?= $form->field($model, 'income_user')->textInput(['class' => 'name entry', 'placeholder' => 'Ваш щомісячний дохід (у разі наявності)'])->label(false) ?>
-        <?= $form->field($model, 'job_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Боржник: робота, посада (якщо відомо)'])->label(false) ?>
+        <?= $form->field($model, 'income_user')->textInput(['class' => 'name entry', 'placeholder' => 'Ваш щомісячний дохід (у разі наявності)', 'title' => 'Ваш щомісячний дохід (у разі наявності)'])->label(false) ?>
+        <?= $form->field($model, 'job_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Боржник: робота, посада (якщо відомо)', 'title' => 'Боржник: робота, посада (якщо відомо)'])->label(false) ?>
         <?= $form->field($model, 'have_income_defendant')->dropDownList(
             ['я знаю розмір доходу боржника' => 'я знаю розмір доходу боржника', 'розмір доходу боржника мені не відомо' => 'розмір доходу боржника мені не відомо'],
-            ['prompt' => 'Чи відомо розмір доходу боржника?', 'class' => 'name entry'],
+            ['prompt' => 'Чи відомо розмір доходу боржника?', 'title' => 'Чи відомо розмір доходу боржника?', 'class' => 'name entry'],
         )->label(false); ?>
-        <?= $form->field($model, 'income_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Щомісячний дохід боржника (якщо відомо)'])->label(false); ?>
+        <?= $form->field($model, 'income_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Щомісячний дохід боржника (якщо відомо)', 'title' => 'Щомісячний дохід боржника (якщо відомо)'])->label(false); ?>
         <?= $form->field($model, 'other_children')->dropDownList(
             ['інших дітей на утриманні не має' => 'інших дітей на утриманні не має', 'має на утримуванні іншу дитину (дітей)' => 'має на утримуванні іншу дитину (дітей)', 'мені не відомо' => 'мені не відомо'],
-            ['prompt' => 'Чи є на утриманні у боржника інші діти?', 'class' => 'name entry'],
+            ['prompt' => 'Чи є на утриманні у боржника інші діти?', 'title' => 'Чи є на утриманні у боржника інші діти?', 'class' => 'name entry'],
         )->label(false); ?>
         <div class="form-group">
-            <?= Html::submitButton($content = 'Скласти', ['class' => 'btn submit entry', 'name' => 'divorce-button']) ?>
+            <?= Html::submitButton($content = 'Составить', ['class' => 'btn submit entry', 'name' => 'divorce-button']) ?>
         </div>
         <?php $form = ActiveForm::end() ?>
-        <!-- Конец формы сервиса взыскание алиментов -->
+        <!-- Конец формы сервиса взыскания алиментов -->
     </div>
 </div>

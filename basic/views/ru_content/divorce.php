@@ -40,11 +40,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 <h4>Прежде чем приступать к составлению заявления, вам необходимо собрать следующие документы и информацию:</h4>
                 <ul class="spisok">
                     <li>Свой паспорт и идентификационный код</li>
-                    <li>Идентификационный код ответчика алиментов (если известно)</li>
                     <li>Свидетельство о браке</li>
                     <li>Справку о составе семьи</li>
-                    <li>Адрес регистрации ответчика (супруг, супруга)</li>
-                    <li>Номер телефона и e-mail ответчика (супруг, супруга) (если известно)</li>
+                    <li>Идентификационный код ответчика (если известно)</li>
+                    <li>Адрес регистрации ответчика (мужа, жены)</li>
+                    <li>Номер телефона и e-mail ответчика (мужа, жены) (если известно)</li>
                 </ul>
                 <h4>Итак, начинаем (далее всё только на украинском языке!):</h4>
             </article>
@@ -58,7 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ?>
         <?= $form->field($model, 'court_region')->dropDownList(
             $listData,
-            ['prompt' => 'Оберіть регіон суду', 'class' => 'name entry',  'onchange' => '
+            ['prompt' => 'Оберіть регіон суду', 'title' => 'Оберіть регіон суду', 'class' => 'name entry',  'onchange' => '
             $.get( "' .  $url_court . '", { id: $(this).val() } )
                 .done(function(data) {
                     var list = JSON.parse(data);
@@ -76,58 +76,58 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= $form->field($model, 'court')
             ->dropDownList(
                 ['prompt' => 'Оберіть суд, до якого подається позов'],
-                ['class' => 'name entry', 'id' => 'court', 'placeholder' => 'Оберіть суд']
+                ['class' => 'name entry', 'id' => 'court', 'placeholder' => 'Оберіть суд', 'title' => 'Оберіть суд, до якого подається позов']
             )->label(false);
         ?>
-        <?= $form->field($model, 'username')->textInput(['class' => 'name entry', 'placeholder' => 'Ваше прізвище, ім\'я, по батькові'])->label(false) ?>
-        <?= $form->field($model, 'date_birth_user')->textInput(['class' => 'name entry', 'placeholder' => 'Дата Вашого народження дд.мм.рррр'])->label(false) ?>
-        <?= $form->field($model, 'ident_number_user')->textInput(['class' => 'name entry', 'placeholder' => 'Ваш ідентифікаційний номер'])->label(false) ?>
-        <?= $form->field($model, 'postcode_user')->textInput(['class' => 'name entry', 'placeholder' => 'Ваш поштовий індекс'])->label(false) ?>
+        <?= $form->field($model, 'username')->textInput(['class' => 'name entry', 'placeholder' => 'Ваше прізвище, ім\'я, по батькові', 'title' => 'Ваше прізвище, ім\'я, по батькові'])->label(false) ?>
+        <?= $form->field($model, 'date_birth_user')->textInput(['class' => 'name entry', 'placeholder' => 'Дата Вашого народження дд.мм.рррр', 'title' => 'Дата Вашого народження дд.мм.рррр'])->label(false) ?>
+        <?= $form->field($model, 'ident_number_user')->textInput(['class' => 'name entry', 'placeholder' => 'Ваш ідентифікаційний номер', 'title' => 'Ваш ідентифікаційний номер'])->label(false) ?>
+        <?= $form->field($model, 'postcode_user')->textInput(['class' => 'name entry', 'placeholder' => 'Ваш поштовий індекс', 'title' => 'Ваш поштовий індекс'])->label(false) ?>
         <?= $form->field($model, 'region_user')->dropDownList(
             $regionData,
-            ['prompt' => 'Ваша область', 'class' => 'name entry'],
+            ['prompt' => 'Ваш регіон (область)', 'title' => 'Ваш регіон (область)', 'class' => 'name entry'],
         )->label(false); ?>
-        <?= $form->field($model, 'town_user')->textInput(['class' => 'name entry', 'placeholder' => 'Ваше місто (селище, село), район'])->label(false) ?>
-        <?= $form->field($model, 'street_user')->textInput(['class' => 'name entry', 'placeholder' => 'Ваша вулиця (пров., просп.)'])->label(false) ?>
-        <?= $form->field($model, 'house_user')->textInput(['class' => 'name entry', 'placeholder' => 'Номер Вашого будинку'])->label(false) ?>
-        <?= $form->field($model, 'apartment_user')->textInput(['class' => 'name entry', 'placeholder' => 'Номер Вашої квартири'])->label(false) ?>
-        <?= $form->field($model, 'email_user')->textInput(['class' => 'name entry', 'placeholder' => 'Ваша електронна адреса: e-mail'])->label(false) ?>
-        <?= $form->field($model, 'phone_user')->textInput(['class' => 'name entry', 'placeholder' => 'Номер Вашого телефону'])->label(false) ?>
-        <?= $form->field($model, 'defendant_name')->textInput(['class' => 'name entry', 'placeholder' => 'Відповідач: прізвище, ім\'я, по батькові'])->label(false) ?>
-        <?= $form->field($model, 'date_birth_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Відповідач: дата народження дд.мм.рррр'])->label(false) ?>
-        <?= $form->field($model, 'ident_number_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Відповідач: ідентифікаційний номер'])->label(false) ?>
-        <?= $form->field($model, 'postcode_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Відповідач: поштовий індекс'])->label(false) ?>
+        <?= $form->field($model, 'town_user')->textInput(['class' => 'name entry', 'placeholder' => 'Ваше місто (селище, село), район', 'title' => 'Ваше місто (селище, село), район'])->label(false) ?>
+        <?= $form->field($model, 'street_user')->textInput(['class' => 'name entry', 'placeholder' => 'Ваша вулиця (пров., просп.)', 'title' => 'Ваша вулиця (пров., просп.)'])->label(false) ?>
+        <?= $form->field($model, 'house_user')->textInput(['class' => 'name entry', 'placeholder' => 'Номер Вашого будинку', 'title' => 'Номер Вашого будинку'])->label(false) ?>
+        <?= $form->field($model, 'apartment_user')->textInput(['class' => 'name entry', 'placeholder' => 'Номер Вашої квартири', 'title' => 'Номер Вашої квартири'])->label(false) ?>
+        <?= $form->field($model, 'email_user')->textInput(['class' => 'name entry', 'placeholder' => 'Ваша електронна адреса: e-mail', 'title' => 'Ваша електронна адреса: e-mail'])->label(false) ?>
+        <?= $form->field($model, 'phone_user')->textInput(['class' => 'name entry', 'placeholder' => 'Номер Вашого телефону', 'title' => 'Номер Вашого телефону'])->label(false) ?>
+        <?= $form->field($model, 'defendant_name')->textInput(['class' => 'name entry', 'placeholder' => 'Відповідач: прізвище, ім\'я, по батькові', 'title' => 'Відповідач: прізвище, ім\'я, по батькові'])->label(false) ?>
+        <?= $form->field($model, 'date_birth_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Відповідач: дата народження дд.мм.рррр', 'title' => 'Відповідач: дата народження дд.мм.рррр'])->label(false) ?>
+        <?= $form->field($model, 'ident_number_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Відповідач: ідентифікаційний номер', 'title' => 'Відповідач: ідентифікаційний номер'])->label(false) ?>
+        <?= $form->field($model, 'postcode_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Відповідач: поштовий індекс', 'title' => 'Відповідач: поштовий індекс'])->label(false) ?>
         <?= $form->field($model, 'region_defendant')->dropDownList(
             $regionData,
-            ['prompt' => 'Відповідач: область', 'class' => 'name entry'],
+            ['prompt' => 'Відповідач: регіон (область)', 'title' => 'Відповідач: регіон (область)', 'class' => 'name entry'],
         )->label(false); ?>
-        <?= $form->field($model, 'town_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Відповідач: місто (селище, село), район'])->label(false) ?>
-        <?= $form->field($model, 'street_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Відповідач: вулиця (пров., просп.)'])->label(false) ?>
-        <?= $form->field($model, 'house_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Відповідач: номер будинку'])->label(false) ?>
-        <?= $form->field($model, 'apartment_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Відповідач: номер квартири'])->label(false) ?>
-        <?= $form->field($model, 'email_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Відповідач: електронна адреса (e-mail)'])->label(false) ?>
-        <?= $form->field($model, 'phone_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Відповідач: номер телефону'])->label(false) ?>
-        <?= $form->field($model, 'date_marriage')->textInput(['class' => 'name entry', 'placeholder' => 'Дата реєстрації шлюбу дд.мм.рррр'])->label(false) ?>
-        <?= $form->field($model, 'marriage_registration')->textInput(['class' => 'name entry', 'placeholder' => 'Назва органу реєстрації шлюбу'])->label(false) ?>
-        <?= $form->field($model, 'marriage_number')->textInput(['class' => 'name entry', 'placeholder' => 'Номер актового запису реєстрації шлюбу'])->label(false) ?>
-        <?= $form->field($model, 'date_termin_marriage')->textInput(['class' => 'name entry', 'placeholder' => 'Припинення шлюбних відносин (місяць і рік)'])->label(false) ?>
+        <?= $form->field($model, 'town_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Відповідач: місто (селище, село), район', 'title' => 'Відповідач: місто (селище, село), район'])->label(false) ?>
+        <?= $form->field($model, 'street_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Відповідач: вулиця (пров., просп.)', 'title' => 'Відповідач: вулиця (пров., просп.)'])->label(false) ?>
+        <?= $form->field($model, 'house_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Відповідач: номер будинку', 'title' => 'Відповідач: номер будинку'])->label(false) ?>
+        <?= $form->field($model, 'apartment_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Відповідач: номер квартири', 'title' => 'Відповідач: номер квартири'])->label(false) ?>
+        <?= $form->field($model, 'email_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Відповідач: електронна адреса (e-mail)', 'title' => 'Відповідач: електронна адреса (e-mail)'])->label(false) ?>
+        <?= $form->field($model, 'phone_defendant')->textInput(['class' => 'name entry', 'placeholder' => 'Відповідач: номер телефону', 'title' => 'Відповідач: номер телефону'])->label(false) ?>
+        <?= $form->field($model, 'date_marriage')->textInput(['class' => 'name entry', 'placeholder' => 'Дата реєстрації шлюбу дд.мм.рррр', 'title' => 'Дата реєстрації шлюбу дд.мм.рррр'])->label(false) ?>
+        <?= $form->field($model, 'marriage_registration')->textInput(['class' => 'name entry', 'placeholder' => 'Назва органу реєстрації шлюбу', 'title' => 'Назва органу реєстрації шлюбу'])->label(false) ?>
+        <?= $form->field($model, 'marriage_number')->textInput(['class' => 'name entry', 'placeholder' => 'Номер актового запису реєстрації шлюбу', 'title' => 'Номер актового запису реєстрації шлюбу'])->label(false) ?>
+        <?= $form->field($model, 'date_termin_marriage')->textInput(['class' => 'name entry', 'placeholder' => 'Припинення шлюбних відносин (місяць і рік)', 'title' => 'Припинення шлюбних відносин (місяць і рік)'])->label(false) ?>
         <?= $form->field($model, 'reason_divorce')->dropDownList(
             ['розбіжності характерів та втрати почуття любові і поваги один до одного' => 'розбіжності характерів та втрати почуття любові і поваги один до одного', 'застосування насильства в сім’ї' => 'застосування насильства в сім’ї', 'нехтування відповідачем своїми сімейними обов’язками' => 'нехтування відповідачем своїми сімейними обов’язками', 'подружня зрада' => 'подружня зрада'],
-            ['prompt' => 'Основна причина розірвання шлюбу', 'class' => 'name entry'],
+            ['prompt' => 'Основна причина розірвання шлюбу', 'title' => 'Основна причина розірвання шлюбу', 'class' => 'name entry'],
         )->label(false); ?>
         <?= $form->field($model, 'reason_divorce1')->dropDownList(
             ['розбіжності характерів та втрати почуття любові і поваги один до одного' => 'розбіжності характерів та втрати почуття любові і поваги один до одного', 'застосування насильства в сім’ї' => 'застосування насильства в сім’ї', 'нехтування відповідачем своїми сімейними обов’язками' => 'нехтування відповідачем своїми сімейними обов’язками', 'подружня зрада' => 'подружня зрада'],
-            ['prompt' => 'Додаткова причина-1 (у разі наявності)', 'class' => 'name entry'],
+            ['prompt' => 'Додаткова причина-1 (у разі наявності)', 'title' => 'Додаткова причина-1 (у разі наявності)', 'class' => 'name entry'],
         )->label(false); ?>
         <?= $form->field($model, 'reason_divorce2')->dropDownList(
             ['розбіжності характерів та втрати почуття любові і поваги один до одного' => 'розбіжності характерів та втрати почуття любові і поваги один до одного', 'застосування насильства в сім’ї' => 'застосування насильства в сім’ї', 'нехтування відповідачем своїми сімейними обов’язками' => 'нехтування відповідачем своїми сімейними обов’язками', 'подружня зрада' => 'подружня зрада'],
-            ['prompt' => 'Додаткова причина-2 (у разі наявності)', 'class' => 'name entry'],
+            ['prompt' => 'Додаткова причина-2 (у разі наявності)', 'title' => 'Додаткова причина-2 (у разі наявності)', 'class' => 'name entry'],
         )->label(false); ?>
         <?= $form->field($model, 'reason_divorce3')->dropDownList(
             ['розбіжності характерів та втрати почуття любові і поваги один до одного' => 'розбіжності характерів та втрати почуття любові і поваги один до одного', 'застосування насильства в сім’ї' => 'застосування насильства в сім’ї', 'нехтування відповідачем своїми сімейними обов’язками' => 'нехтування відповідачем своїми сімейними обов’язками', 'подружня зрада' => 'подружня зрада'],
-            ['prompt' => 'Додаткова причина-3 (у разі наявності)', 'class' => 'name entry'],
+            ['prompt' => 'Додаткова причина-3 (у разі наявності)', 'title' => 'Додаткова причина-3 (у разі наявності)', 'class' => 'name entry'],
         )->label(false); ?>
-        <?= $form->field($model, 'user_reason_divorce')->textInput(['class' => 'name entry', 'placeholder' => 'Зазначте свою причину (у разі наявності)'])->label(false) ?>
+        <?= $form->field($model, 'user_reason_divorce')->textInput(['class' => 'name entry', 'placeholder' => 'Зазначте свою причину (у разі наявності)', 'title' => 'Зазначте свою причину (у разі наявності)'])->label(false) ?>
         <div class="form-group">
             <?= Html::submitButton($content = 'Составить', ['class' => 'btn submit entry', 'name' => 'divorce-button']) ?>
         </div>

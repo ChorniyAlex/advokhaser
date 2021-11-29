@@ -23,9 +23,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     <h2>Обратная связь</h2>
                 </div>
                 <?php $form = ActiveForm::begin(['id' => 'zapis_consultation-form',  'options' => ['class' => 'form']]); ?>
-                <?= $form->field($model, 'fromName')->textInput(['class' => 'name entry', 'placeholder' => 'Ваше имя'])->label(false) ?>
-                <?= $form->field($model, 'subject')->textInput(['class' => 'name entry', 'placeholder' => 'Ваш телефон'])->label(false) ?>
-                <?= $form->field($model, 'body')->textarea(['class' => 'message entry', 'placeholder' => 'Ваш вопрос:'])->label(false) ?>
+                <?= $form->field($model, 'fromName')->textInput(['class' => 'name entry', 'placeholder' => 'Ваше имя', 'title' => 'Ваше имя'])->label(false) ?>
+                <?= $form->field($model, 'subject')->textInput(['class' => 'name entry', 'placeholder' => 'Ваш телефон', 'title' => 'Ваш телефон'])->label(false) ?>
+                <?= $form->field($model, 'body')->textarea(['class' => 'message entry', 'placeholder' => 'Ваш вопрос:', 'title' => 'Ваш вопрос'])->label(false) ?>
                 <div class="form-group">
                     <?= Html::submitButton($content = 'Отправить', ['class' => 'btn submit entry', 'name' => 'contact-button']) ?>
                 </div>

@@ -44,6 +44,11 @@ use yii\helpers\Url;
                     <p><span>позовна заява</span><br>про стягнення аліментів<br><span>на повнолітнього студента</span></p>
                 </div>
             </a>
+            <a href="<?= Url::toRoute(['ua_content/aliment_wife']) ?>" target="_blank">
+                <div class="icon"><?= Html::img('@web/img/icon-24.svg', ['alt' => 'сервіс онлайн заяв']) ?>
+                    <p><span>позовна заява</span><br>про стягнення аліментів<br><span>на утримання дружини</span></p>
+                </div>
+            </a>
             <a href="<?= Url::toRoute(['ua_content/fact_death']) ?>" target="_blank">
                 <div class="icon"><?= Html::img('@web/img/icon-17.svg', ['alt' => 'сервіс онлайн заяв']) ?>
                     <p><span>заява</span><br>про встановлення<br>факту смерті</p>

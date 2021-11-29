@@ -12,6 +12,7 @@ use app\models\Divorce_childrenForm;
 use app\models\DivorceForm;
 use app\models\AlimentForm;
 use app\models\Aliment_studentForm;
+use app\models\Aliment_wifeForm;
 use app\models\Region;
 use app\models\Court;
 use yii\helpers\Url;
@@ -331,6 +332,37 @@ class Ru_contentController extends Controller
             return $this->render('aliment_student_claim', ['model' => $model]);
         } else
             return $this->render('aliment_student', ['model' => $model]);
+    }
+
+    public function actionAliment_wife()
+    {
+        $this->view->title = 'Алименты на жену | Адвокаты Дашко и Чорнобай | Северодонецк';
+        $model = new Aliment_wifeForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            Yii::$app->response->redirect(Url::to('aliment_wife_claim'));
+        }
+        return $this->render('aliment_wife', compact('model'));
+    }
+
+    public function actionAliment_wife_instruction()
+    {
+        Yii::$app->response->format = 'pdf';
+        $this->layout = false;
+        return $this->render('aliment_wife_instruction', []);
+    }
+
+    public function actionAliment_wife_claim()
+    {
+        $model = new Aliment_wifeForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            // echo '<pre>';
+            // print_r($model);
+            // exit;
+            Yii::$app->response->format = 'pdf';
+            $this->layout = false;
+            return $this->render('aliment_wife_claim', ['model' => $model]);
+        } else
+            return $this->render('aliment_wife', ['model' => $model]);
     }
 
     public function actionFact_death()

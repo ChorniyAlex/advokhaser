@@ -20,9 +20,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     <h2>Зворотній зв’язок</h2>
                 </div>
                 <?php $form = ActiveForm::begin(['id' => 'zapis_consultation-form',  'options' => ['class' => 'form']]); ?>
-                <?= $form->field($model, 'fromName')->textInput(['class' => 'name entry', 'placeholder' => 'Ваше ім’я'])->label(false) ?>
-                <?= $form->field($model, 'subject')->textInput(['class' => 'name entry', 'placeholder' => 'Ваш телефон'])->label(false) ?>
-                <?= $form->field($model, 'body')->textarea(['class' => 'message entry', 'placeholder' => 'Ваше питання:'])->label(false) ?>
+                <?= $form->field($model, 'fromName')->textInput(['class' => 'name entry', 'placeholder' => 'Ваше ім’я', 'title' => 'Ваше ім’я'])->label(false) ?>
+                <?= $form->field($model, 'subject')->textInput(['class' => 'name entry', 'placeholder' => 'Ваш телефон', 'title' => 'Ваш телефон'])->label(false) ?>
+                <?= $form->field($model, 'body')->textarea(['class' => 'message entry', 'placeholder' => 'Ваше питання:', 'title' => 'Ваше питання'])->label(false) ?>
                 <div class="form-group">
                     <?= Html::submitButton($content = 'Надіслати', ['class' => 'btn submit entry', 'name' => 'contact-button']) ?>
                 </div>

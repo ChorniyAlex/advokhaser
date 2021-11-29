@@ -143,7 +143,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['prompt' => 'Чи є на утриманні у боржника інші діти?', 'title' => 'Чи є на утриманні у боржника інші діти?', 'class' => 'name entry'],
         )->label(false); ?>
         <div class="form-group">
-            <?= Html::submitButton($content = 'Составить', ['class' => 'btn submit entry', 'name' => 'divorce-button']) ?>
+            <?= Html::submitButton($content = 'Скласти', ['class' => 'btn submit entry', 'name' => 'divorce-button']) ?>
         </div>
         <?php $form = ActiveForm::end() ?>
         <!-- Конец формы сервиса взыскания алиментов -->

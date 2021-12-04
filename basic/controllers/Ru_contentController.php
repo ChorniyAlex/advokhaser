@@ -13,6 +13,7 @@ use app\models\DivorceForm;
 use app\models\AlimentForm;
 use app\models\Aliment_studentForm;
 use app\models\Aliment_wifeForm;
+use app\models\Fact_deathForm;
 use app\models\Region;
 use app\models\Court;
 use yii\helpers\Url;
@@ -368,7 +369,11 @@ class Ru_contentController extends Controller
     public function actionFact_death()
     {
         $this->view->title = 'Факт смерти установить | Адвокаты Дашко и Чорнобай | Северодонецк';
-        return $this->render('fact_death');
+        $model = new Fact_deathForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            Yii::$app->response->redirect(Url::to('fact_death_claim'));
+        }
+        return $this->render('fact_death', compact('model'));
     }
 
     public function actionFact_death_instruction()
@@ -376,5 +381,19 @@ class Ru_contentController extends Controller
         Yii::$app->response->format = 'pdf';
         $this->layout = false;
         return $this->render('fact_death_instruction', []);
+    }
+
+    public function actionFact_death_claim()
+    {
+        $model = new Fact_deathForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            // echo '<pre>';
+            // print_r($model);
+            // exit;
+            Yii::$app->response->format = 'pdf';
+            $this->layout = false;
+            return $this->render('fact_death_claim', ['model' => $model]);
+        } else
+            return $this->render('fact_death', ['model' => $model]);
     }
 }

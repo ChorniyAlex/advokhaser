@@ -51,7 +51,7 @@ use yii\helpers\Url;
             </a>
             <a href="<?= Url::toRoute(['ru_content/fact_death']) ?>" target="_blank">
                 <div class="icon"><?= Html::img('@web/img/icon-17.svg', ['alt' => 'сервис онлайн заявлений']) ?>
-                    <p><span>заявление</span><br>об установлении<br>факта смерти</p>
+                    <p><span>заявление</span><br>об установлении<br>факта смерти<br><span>на неподконтрольной власти Украины территории</span></p>
                 </div>
             </a>
         </div>

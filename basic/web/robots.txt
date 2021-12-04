@@ -1,2 +1,14 @@
 User-agent: *
+Disallow: /ru_content/aliment_instruction.php
+Disallow: /ru_content/aliment_student_instruction.php
+Disallow: /ru_content/aliment_wife_instruction.php
+Disallow: /ru_content/divorce_children_instruction.php
+Disallow: /ru_content/divorce_instruction.php
+Disallow: /ru_content/fact_death_instruction.php
+Disallow: /ua_content/aliment_instruction.php
+Disallow: /ua_content/aliment_student_instruction.php
+Disallow: /ua_content/aliment_wife_instruction.php
+Disallow: /ua_content/divorce_children_instruction.php
+Disallow: /ua_content/divorce_instruction.php
+Disallow: /ua_content/fact_death_instruction.php
 Sitemap: https://advokhaser.online/sitemap.xml

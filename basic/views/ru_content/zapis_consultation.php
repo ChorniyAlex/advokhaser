@@ -7,8 +7,6 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = 'Заполните форму | Адвокаты Дашко и Чорнобай | Обратная связь | Северодонецк';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <!-- контент формы обратной связи -->

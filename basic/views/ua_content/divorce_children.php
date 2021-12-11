@@ -10,8 +10,6 @@ use yii\bootstrap\ActiveForm;
 use yii\helpers\ArrayHelper;
 use app\models\Region;
 
-$this->title = 'Заява розірвання шлюбу | Адвокати Дашко і Чорнобай | Складання заяв | Сєвєродонецьк';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <!-- контент сервиса расторжение брака -->

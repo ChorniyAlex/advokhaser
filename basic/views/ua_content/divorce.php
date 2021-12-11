@@ -11,8 +11,6 @@ use yii\helpers\ArrayHelper;
 use app\models\Region;
 use app\models\Сourt;
 
-$this->title = 'Заява про розірвання шлюбу | Адвокати Дашко і Чорнобай | Складання заяви | Сєвєродонецьк';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <!-- контент сервиса расторжение брака -->

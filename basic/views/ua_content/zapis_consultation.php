@@ -3,7 +3,6 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
-$this->title = 'Заповніть форму | Адвокат Дашко і Чорнобай | Зворотній зв’язок | Сєвєродонецьк';
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>

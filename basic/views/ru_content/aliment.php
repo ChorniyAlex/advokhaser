@@ -11,8 +11,6 @@ use yii\helpers\ArrayHelper;
 use app\models\Region;
 use app\models\Сourt;
 
-$this->title = 'Заявление алименты | Адвокаты Дашко и Чорнобай | Составление заявления | Северодонецк';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <!-- контент сервиса взыскание алиментов -->

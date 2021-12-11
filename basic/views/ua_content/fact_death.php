@@ -11,8 +11,6 @@ use yii\helpers\ArrayHelper;
 use app\models\Region;
 use app\models\Сourt;
 
-$this->title = 'Заява факт смерті | Адвокати Дашко і Чорнобай | Складання заяв | Сєвєродонецьк';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <!-- контент сервиса установление факта смерти -->

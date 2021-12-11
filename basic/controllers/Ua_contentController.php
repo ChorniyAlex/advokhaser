@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use yii\web\Controller;
 use \app\models\Top_menu;
+use \app\models\Innovation;
 use app\models\Ua_content;
 use app\models\Zapis_consultationForm;
 use app\models\Divorce_childrenForm;
@@ -18,173 +19,299 @@ use Yii;
 
 class Ua_contentController extends Controller
 {
+    public $action;
+    public function getTitle($action)
+    {
+        $title = Top_menu::find()->where(['action' => $action])->one();
+        $title = $title->title_ua;
+        return $this->view->title = $title;
+    }
+
+    public function getDescription($action)
+    {
+        $description = Top_menu::find()->where(['action' => $action])->one();
+        $description = $description->descriptions_ua;
+        return $this->view->registerMetaTag(['name' => 'description', 'content' => $description]);
+    }
+
+    public function getKeywords($action)
+    {
+        $keywords = Top_menu::find()->where(['action' => $action])->one();
+        $keywords = $keywords->keywords;
+        return $this->view->registerMetaTag(['name' => 'keywords', 'content' => $keywords]);
+    }
+
     public function actionIndex()
     {
-        $title = \Yii::$app->request->get('title');
-        $title = top_menu::findOne('title');
-        $this->view->title = $title;
-        $this->view->title = 'Адвокати Дашко і Чорнобай | Сєвєродонецьк | Правова допомога, юридичні послуги';
+        $action = 'Index';
+        $this->getTitle($action);
+        $this->getKeywords($action);
+        $this->getDescription($action);
         return $this->render('index');
     }
 
     public function actionO_nas()
     {
-        $this->view->title = 'Про нас | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
+        $action = 'O_nas';
+        $this->getTitle($action);
+        $this->getKeywords($action);
+        $this->getDescription($action);
         return $this->render('o_nas');
     }
 
     public function actionLawyer_consultation()
     {
-        $this->view->title = 'Юридичні консультації | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
+        $action = 'Lawyer_consultation';
+        $this->getTitle($action);
+        $this->getKeywords($action);
+        $this->getDescription($action);
         return $this->render('lawyer_consultation');
     }
 
     public function actionInnovation()
     {
-        $this->view->title = 'Інноваційний IT-сервіс online | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
+        $action = 'Innovation';
+        $this->getTitle($action);
+        $this->getKeywords($action);
+        $this->getDescription($action);
         return $this->render('innovation');
     }
 
     public function actionSostavlenye_document()
     {
-        $this->view->title = 'Складання документів | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
+        $action = 'Sostavlenye_document';
+        $this->getTitle($action);
+        $this->getKeywords($action);
+        $this->getDescription($action);
         return $this->render('sostavlenye_document');
     }
 
     public function actionZaschita_predstavitelstvo()
     {
-        $this->view->title = 'Представництво в суді | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
+        $action = 'Zaschita_predstavitelstvo';
+        $this->getTitle($action);
+        $this->getKeywords($action);
+        $this->getDescription($action);
         return $this->render('zaschita_predstavitelstvo');
     }
 
     public function actionPomosch_dtp()
     {
-        $this->view->title = 'Допомога по ДТП | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
+        $action = 'Pomosch_dtp';
+        $this->getTitle($action);
+        $this->getKeywords($action);
+        $this->getDescription($action);
         return $this->render('pomosch_dtp');
     }
 
     public function actionZaschita_po_ugolovnim()
     {
-        $this->view->title = 'Захист по кримінальним справам | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
+        $action = 'Zaschita_po_ugolovnim';
+        $this->getTitle($action);
+        $this->getKeywords($action);
+        $this->getDescription($action);
         return $this->render('zaschita_po_ugolovnim');
     }
 
     public function actionSemeynoye_pravo()
     {
-        $this->view->title = 'Сімейне право | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
+        $action = 'Semeynoye_pravo';
+        $this->getTitle($action);
+        $this->getKeywords($action);
+        $this->getDescription($action);
         return $this->render('semeynoye_pravo');
     }
 
     public function actionNasledstvo_pravo()
     {
-        $this->view->title = 'Спадкове право | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
+        $action = 'Nasledstvo_pravo';
+        $this->getTitle($action);
+        $this->getKeywords($action);
+        $this->getDescription($action);
         return $this->render('nasledstvo_pravo');
     }
 
     public function actionZhilishnoye_pravo()
     {
-        $this->view->title = 'Житлові спори | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
+        $action = 'Zhilishnoye_pravo';
+        $this->getTitle($action);
+        $this->getKeywords($action);
+        $this->getDescription($action);
         return $this->render('zhilishnoye_pravo');
     }
 
     public function actionTrud_spor()
     {
-        $this->view->title = 'Трудові спори | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
+        $action = 'Trud_spor';
+        $this->getTitle($action);
+        $this->getKeywords($action);
+        $this->getDescription($action);
         return $this->render('trud_spor');
     }
 
     public function actionNedvizhimost()
     {
-        $this->view->title = 'Пенсійні спори | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
+        $action = 'Nedvizhimost';
+        $this->getTitle($action);
+        $this->getKeywords($action);
+        $this->getDescription($action);
         return $this->render('nedvizhimost');
     }
 
     public function actionZemelnoye_pravo()
     {
-        $this->view->title = 'Земельні спори | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
+        $action = 'Zemelnoye_pravo';
+        $this->getTitle($action);
+        $this->getKeywords($action);
+        $this->getDescription($action);
         return $this->render('zemelnoye_pravo');
     }
 
     public function actionZaschita_sobstvenosti()
     {
-        $this->view->title = 'Захист права власності | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
+        $action = 'Zaschita_sobstvenosti';
+        $this->getTitle($action);
+        $this->getKeywords($action);
+        $this->getDescription($action);
         return $this->render('zaschita_sobstvenosti');
     }
 
     public function actionUgolovnoe_pravo()
     {
-        $this->view->title = 'Кримінальне право | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
+        $action = 'Ugolovnoe_pravo';
+        $this->getTitle($action);
+        $this->getKeywords($action);
+        $this->getDescription($action);
         return $this->render('ugolovnoe_pravo');
     }
 
     public function actionHozyaystvenie_spori()
     {
-        $this->view->title = 'Господарські спори | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
+        $action = 'Hozyaystvenie_spori';
+        $this->getTitle($action);
+        $this->getKeywords($action);
+        $this->getDescription($action);
         return $this->render('hozyaystvenie_spori');
     }
 
     public function actionNalog_spor()
     {
-        $this->view->title = 'Податкові спори | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
+        $action = 'Nalog_spor';
+        $this->getTitle($action);
+        $this->getKeywords($action);
+        $this->getDescription($action);
         return $this->render('nalog_spor');
     }
 
     public function actionAdmin_spor()
     {
-        $this->view->title = 'Спори з органами влади | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
+        $action = 'Admin_spor';
+        $this->getTitle($action);
+        $this->getKeywords($action);
+        $this->getDescription($action);
         return $this->render('admin_spor');
     }
 
     public function actionPravo_business()
     {
-        $this->view->title = 'Спори по кредитам | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
+        $action = 'Pravo_business';
+        $this->getTitle($action);
+        $this->getKeywords($action);
+        $this->getDescription($action);
         return $this->render('pravo_business');
     }
 
     public function actionOt_lubvi_do_nenavisti()
     {
-        $this->view->title = 'Від любові до ненависти | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
+        $action = 'Ot_lubvi_do_nenavisti';
+        $this->getTitle($action);
+        $this->getKeywords($action);
+        $this->getDescription($action);
         return $this->render('ot_lubvi_do_nenavisti');
     }
 
     public function actionO_nevinovnosti_dtp()
     {
-        $this->view->title = 'Про невинуватість при ДТП | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
+        $action = 'O_nevinovnosti_dtp';
+        $this->getTitle($action);
+        $this->getKeywords($action);
+        $this->getDescription($action);
         return $this->render('o_nevinovnosti_dtp');
     }
 
     public function actionPravovoy_obzor_1()
     {
-        $this->view->title = 'ч.1 Правовий огляд сімейних відносин | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
+        $action = 'Pravovoy_obzor_1';
+        $this->getTitle($action);
+        $this->getKeywords($action);
+        $this->getDescription($action);
         return $this->render('pravovoy_obzor_1');
     }
 
     public function actionPravovoy_obzor_2()
     {
-        $this->view->title = 'ч.2 Правовий огляд сімейних відносин | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
+        $action = 'Pravovoy_obzor_2';
+        $this->getTitle($action);
+        $this->getKeywords($action);
+        $this->getDescription($action);
         return $this->render('pravovoy_obzor_2');
     }
 
     public function actionPravovoy_obzor_3()
     {
-        $this->view->title = 'ч.3 Правовий огляд сімейних відносин | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
+        $action = 'Pravovoy_obzor_3';
+        $this->getTitle($action);
+        $this->getKeywords($action);
+        $this->getDescription($action);
         return $this->render('pravovoy_obzor_3');
     }
 
     public function actionAnekdoti()
     {
-        $this->view->title = 'Юмор, анекдоти про юриспруденцію';
+        $action = 'Anekdoti';
+        $this->getTitle($action);
+        $this->getKeywords($action);
+        $this->getDescription($action);
         return $this->render('anekdoti');
     }
 
     public function actionContacti()
     {
-        $this->view->title = 'Контакти | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
+        $action = 'Contacti';
+        $this->getTitle($action);
+        $this->getKeywords($action);
+        $this->getDescription($action);
         return $this->render('contacti');
+    }
+
+    public $action_innovation;
+    public function getTitle_innovation($action_innovation)
+    {
+        $title = Innovation::find()->where(['action' => $action_innovation])->one();
+        $title = $title->title_ua;
+        return $this->view->title = $title;
+    }
+
+    public function getDescription_innovation($action_innovation)
+    {
+        $description = Innovation::find()->where(['action' => $action_innovation])->one();
+        $description = $description->descriptions_ua;
+        return $this->view->registerMetaTag(['name' => 'description', 'content' => $description]);
+    }
+
+    public function getKeywords_innovation($action_innovation)
+    {
+        $keywords = Innovation::find()->where(['action' => $action_innovation])->one();
+        $keywords = $keywords->keywords;
+        return $this->view->registerMetaTag(['name' => 'keywords', 'content' => $keywords]);
     }
 
     public function actionZapis_consultation()
     {
+        $action_innovation = 'Zapis_consultation';
+        $this->getTitle_innovation($action_innovation);
+        $this->getKeywords_innovation($action_innovation);
+        $this->getDescription_innovation($action_innovation);
         $model = new Zapis_consultationForm();
         if ($model->load(Yii::$app->request->post()) && $model->sendEmail()) {
             return $this->render('send_email', compact('model'));
@@ -208,40 +335,12 @@ class Ua_contentController extends Controller
         return json_encode($results);
     }
 
-    public function actionDivorce()
-    {
-        $this->view->title = 'Шлюб розірвання | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
-        $model = new DivorceForm();
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            Yii::$app->response->redirect(Url::to('divorce_claim'));
-        }
-        return $this->render('divorce', compact('model'));
-    }
-
-    public function actionDivorce_instruction()
-    {
-        Yii::$app->response->format = 'pdf';
-        $this->layout = false;
-        return $this->render('divorce_instruction', []);
-    }
-
-    public function actionDivorce_claim()
-    {
-        $model = new DivorceForm();
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            // echo '<pre>';
-            // print_r($model);
-            // exit;
-            Yii::$app->response->format = 'pdf';
-            $this->layout = false;
-            return $this->render('divorce_claim', ['model' => $model]);
-        } else
-            return $this->render('divorce', ['model' => $model]);
-    }
-
     public function actionDivorce_children()
     {
-        $this->view->title = 'Шлюб розірвання | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
+        $action_innovation = 'Divorce_children';
+        $this->getTitle_innovation($action_innovation);
+        $this->getKeywords_innovation($action_innovation);
+        $this->getDescription_innovation($action_innovation);
         $model = new Divorce_childrenForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             Yii::$app->response->redirect(Url::to('divorce_children_claim'));
@@ -270,9 +369,46 @@ class Ua_contentController extends Controller
             return $this->render('divorce_children', ['model' => $model]);
     }
 
+    public function actionDivorce()
+    {
+        $action_innovation = 'Divorce';
+        $this->getTitle_innovation($action_innovation);
+        $this->getKeywords_innovation($action_innovation);
+        $this->getDescription_innovation($action_innovation);
+        $model = new DivorceForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            Yii::$app->response->redirect(Url::to('divorce_claim'));
+        }
+        return $this->render('divorce', compact('model'));
+    }
+
+    public function actionDivorce_instruction()
+    {
+        Yii::$app->response->format = 'pdf';
+        $this->layout = false;
+        return $this->render('divorce_instruction', []);
+    }
+
+    public function actionDivorce_claim()
+    {
+        $model = new DivorceForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            // echo '<pre>';
+            // print_r($model);
+            // exit;
+            Yii::$app->response->format = 'pdf';
+            $this->layout = false;
+            return $this->render('divorce_claim', ['model' => $model]);
+        } else
+            return $this->render('divorce', ['model' => $model]);
+    }
+
     public function actionAliment()
     {
-        $this->view->title = 'Аліменти стягнення | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
+        $action_innovation = 'Aliment';
+        $this->getTitle_innovation($action_innovation);
+        $this->getKeywords_innovation($action_innovation);
+        $this->getDescription_innovation($action_innovation);
         $model = new AlimentForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             Yii::$app->response->redirect(Url::to('aliment_claim'));
@@ -303,7 +439,10 @@ class Ua_contentController extends Controller
 
     public function actionAliment_student()
     {
-        $this->view->title = 'Аліменти на студента | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
+        $action_innovation = 'Aliment_student';
+        $this->getTitle_innovation($action_innovation);
+        $this->getKeywords_innovation($action_innovation);
+        $this->getDescription_innovation($action_innovation);
         $model = new Aliment_studentForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             Yii::$app->response->redirect(Url::to('aliment_student_claim'));
@@ -334,7 +473,10 @@ class Ua_contentController extends Controller
 
     public function actionAliment_wife()
     {
-        $this->view->title = 'Аліменти на дружину | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
+        $action_innovation = 'Aliment_wife';
+        $this->getTitle_innovation($action_innovation);
+        $this->getKeywords_innovation($action_innovation);
+        $this->getDescription_innovation($action_innovation);
         $model = new Aliment_wifeForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             Yii::$app->response->redirect(Url::to('aliment_wife_claim'));
@@ -365,7 +507,10 @@ class Ua_contentController extends Controller
 
     public function actionFact_death()
     {
-        $this->view->title = 'Факт смерті встановити | Адвокати Дашко і Чорнобай | Сєвєродонецьк';
+        $action_innovation = 'Fact_death';
+        $this->getTitle_innovation($action_innovation);
+        $this->getKeywords_innovation($action_innovation);
+        $this->getDescription_innovation($action_innovation);
         $model = new Fact_deathForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             Yii::$app->response->redirect(Url::to('fact_death_claim'));

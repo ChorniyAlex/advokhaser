@@ -22,7 +22,7 @@ use yii\helpers\Html;
                 <h4 style="text-align: right"><?= Html::encode($model->username); ?> <?= $model->date_birth_user; ?> р.н.</h4>
                 <p style="text-align: right">РНОКПП: <?= Html::encode($model->ident_number_user); ?></p>
                 <p style="text-align: right">місце проживання: <?= Html::encode($model->postcode_user); ?>, <?= $model->region_user; ?></p>
-                <p style="text-align: right"><?= Html::encode($model->town_user); ?>, <?= Html::encode($model->street_user); ?>, буд.<?= Html::encode($model->house_user); ?>
+                <p style="text-align: right">місто (сел., район): <?= Html::encode($model->town_user); ?>, вул. <?= Html::encode($model->street_user); ?>, буд.<?= Html::encode($model->house_user); ?>
                     <?php if ($model->apartment_user) echo 'кв.' . Html::encode($model->apartment_user); ?></p>
                 <p style="text-align: right">офіційна електронна адреса: відсутня</p>
                 <p style="text-align: right">адреса електронної пошти: <?= $model->email_user; ?></p>
@@ -31,7 +31,7 @@ use yii\helpers\Html;
                 <h4 style="text-align: right"><?= Html::encode($model->defendant_name); ?> <?= Html::encode($model->date_birth_defendant); ?> р.н.</h4>
                 <p style="text-align: right">РНОКПП: <?= Html::encode($model->ident_number_defendant); ?></p>
                 <p style="text-align: right">місце реєстрації: <?= Html::encode($model->postcode_defendant); ?>, <?= $model->region_defendant; ?></p>
-                <p style="text-align: right"><?= Html::encode($model->town_defendant); ?>, <?= Html::encode($model->street_defendant); ?>, буд.<?= Html::encode($model->house_defendant); ?>
+                <p style="text-align: right">місто (сел., район): <?= Html::encode($model->town_defendant); ?>, вул. <?= Html::encode($model->street_defendant); ?>, буд.<?= Html::encode($model->house_defendant); ?>
                     <?php if ($model->apartment_defendant) echo 'кв.' . Html::encode($model->apartment_defendant); ?></p>
                 <p style="text-align: right">офіційна електронна адреса: відсутня</p>
                 <p style="text-align: right">адреса електронної пошти:
@@ -42,7 +42,7 @@ use yii\helpers\Html;
                 <h4 style="text-align: right"><?= Html::encode($model->third_person_name); ?> <?= Html::encode($model->date_birth_third_person); ?> р.н.</h4>
                 <p style="text-align: right">РНОКПП: <?= Html::encode($model->ident_number_third_person); ?></p>
                 <p style="text-align: right">місце реєстрації: <?= Html::encode($model->postcode_third_person); ?>, <?= $model->region_third_person; ?></p>
-                <p style="text-align: right"><?= Html::encode($model->town_third_person); ?>, <?= Html::encode($model->street_third_person); ?>, буд.<?= Html::encode($model->house_third_person); ?>
+                <p style="text-align: right">місто (сел., район): <?= Html::encode($model->town_third_person); ?>, вул. <?= Html::encode($model->street_third_person); ?>, буд.<?= Html::encode($model->house_third_person); ?>
                     <?php if ($model->apartment_third_person) echo 'кв.' . Html::encode($model->apartment_third_person); ?></p>
                 <p style="text-align: right">офіційна електронна адреса: відсутня</p>
                 <p style="text-align: right">адреса електронної пошти:
@@ -79,7 +79,7 @@ use yii\helpers\Html;
                 <p>
                     Отже, в теперішній час я продовжую навчання і у зв'язку з цим потребую матеріальної допомоги від свого батька, ким є – відповідач <?= Html::encode($model->defendant_name); ?>, який <?= $model->do_work_defendant; ?>
                     <?php if ($model->do_work_defendant == 'працює' && $model->where_defendant_works == 'відомо' && $model->job_defendant) echo ' його місце роботи: ' . Html::encode($model->job_defendant);
-                    elseif ($model->do_work_defendant == 'працює' && $model->where_defendant_works == 'не відомо') echo ' його місце роботи: ' . $model->where_defendant_works; ?>.
+                    elseif ($model->do_work_defendant == 'працює' && $model->where_defendant_works == 'не відомо') echo ', його місце роботи: ' . $model->where_defendant_works; ?>.
                     <?php if ($model->do_work_defendant == 'працює' && $model->have_income_defendant == 'я знаю розмір доходу Батька' && $model->income_defendant) echo 'Його розмір щомісячного доходу складає:' . $model->income_defendant . ' грн,';
                     elseif ($model->have_income_defendant == 'розмір доходу Батька мені не відомо') echo 'Його розмір доходу мені не відомо, але'; ?>
                     він має гарний стан здоров’я і нормальне матеріальне становище, тож може надавати мені матеріальну допомогу, тому я маю право на звернення до суду з цим позовом про стягнення аліментів на своє утримання.

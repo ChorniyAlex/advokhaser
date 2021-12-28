@@ -22,7 +22,7 @@ use yii\helpers\Html;
                 <h4 style="text-align: right"><?= Html::encode($model->username); ?> <?= $model->date_birth_user; ?> р.н.</h4>
                 <p style="text-align: right">РНОКПП: <?= Html::encode($model->ident_number_user); ?></p>
                 <p style="text-align: right">місце проживання: <?= Html::encode($model->postcode_user); ?>, <?= $model->region_user; ?></p>
-                <p style="text-align: right"><?= Html::encode($model->town_user); ?>, <?= Html::encode($model->street_user); ?>, буд.<?= Html::encode($model->house_user); ?>
+                <p style="text-align: right">місто (сел., район): <?= Html::encode($model->town_user); ?>, вул. <?= Html::encode($model->street_user); ?>, буд.<?= Html::encode($model->house_user); ?>
                     <?php if ($model->apartment_user) echo 'кв.' . Html::encode($model->apartment_user); ?></p>
                 <p style="text-align: right">офіційна електронна адреса: відсутня</p>
                 <p style="text-align: right">адреса електронної пошти: <?= $model->email_user; ?></p>
@@ -31,7 +31,7 @@ use yii\helpers\Html;
                 <h4 style="text-align: right"><?= Html::encode($model->defendant_name); ?> <?= Html::encode($model->date_birth_defendant); ?> р.н.</h4>
                 <p style="text-align: right">РНОКПП: <?= Html::encode($model->ident_number_defendant); ?></p>
                 <p style="text-align: right">місце реєстрації: <?= Html::encode($model->postcode_defendant); ?>, <?= $model->region_defendant; ?></p>
-                <p style="text-align: right"><?= Html::encode($model->town_defendant); ?>, <?= Html::encode($model->street_defendant); ?>, буд.<?= Html::encode($model->house_defendant); ?>
+                <p style="text-align: right">місто (сел., район): <?= Html::encode($model->town_defendant); ?>, вул. <?= Html::encode($model->street_defendant); ?>, буд.<?= Html::encode($model->house_defendant); ?>
                     <?php if ($model->apartment_defendant) echo 'кв.' . Html::encode($model->apartment_defendant); ?></p>
                 <p style="text-align: right">офіційна електронна адреса: відсутня</p>
                 <p style="text-align: right">адреса електронної пошти:

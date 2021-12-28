@@ -33,20 +33,19 @@ use yii\helpers\Html;
                 <h4 style="text-align: right"><?= Html::encode($model->username); ?></h4>
                 <p style="text-align: right">РНОКПП: <?= Html::encode($model->ident_number_user); ?></p>
                 <p style="text-align: right">місце проживання: <?= Html::encode($model->postcode_user); ?>, <?= $model->region_user; ?></p>
-                <p style="text-align: right"><?= Html::encode($model->town_user); ?>, <?= Html::encode($model->street_user); ?>, буд.<?= Html::encode($model->house_user); ?>
+                <p style="text-align: right">місто (сел., район): <?= Html::encode($model->town_user); ?>, вул. <?= Html::encode($model->street_user); ?>, буд.<?= Html::encode($model->house_user); ?>
                     <?php if ($model->apartment_user) echo 'кв.' . Html::encode($model->apartment_user); ?></p>
                 <p style="text-align: right">офіційна електронна адреса: відсутня</p>
                 <p style="text-align: right">адреса електронної пошти: <?= $model->email_user; ?></p>
                 <p style="text-align: right">номер засобу зв’язку: <?= Html::encode($model->phone_user); ?></p>
-                <br>
                 <h3 style="text-align: right">Заінтересована особа:</h3>
                 <div class="interested-person-name">
                     <h4 class="interested-name"><?= Html::encode($model->interested_person_name); ?></h4>
                 </div>
                 <p style="text-align: right">ЄДРПОУ: <?= Html::encode($model->code_interested_person); ?></p>
                 <p style="text-align: right"><?= Html::encode($model->postcode_interested_person); ?>, <?= $model->region_interested_person; ?></p>
-                <p style="text-align: right"><?= Html::encode($model->town_interested_person); ?>, <?= Html::encode($model->street_interested_person); ?>, буд.<?= Html::encode($model->house_interested_person); ?></p>
-                <p style="text-align: right">офіційна електронна адреса: відсутня</p>
+                <p style="text-align: right">місто (сел., район): <?= Html::encode($model->town_interested_person); ?>, вул. <?= Html::encode($model->street_interested_person); ?>, буд.<?= Html::encode($model->house_interested_person); ?></p>
+                <p style="text-align: right">офіційна електронна адреса: не відомо</p>
                 <p style="text-align: right">адреса електронної пошти:
                     <?php if ($model->email_interested_person) echo $model->email_interested_person;
                     else echo 'не відомо'; ?></p>
@@ -59,7 +58,7 @@ use yii\helpers\Html;
                     <?php if ($model->apartment_registration_deceased) echo 'кв.' . Html::encode($model->apartment_registration_deceased) . ',' ?> місце смерті: <?= Html::encode($model->region_deceased); ?>, <?= Html::encode($model->town_deceased); ?>, причина смерті: <?= Html::encode($model->cause_death); ?>, місце поховання – на кладовищі за адресою: <?= Html::encode($model->region_deceased); ?>, <?= Html::encode($model->town_deceased); ?>.
                 </p>
                 <p>
-                    На звернення до відповідного органу РАЦС, яким є: <?= Html::encode($model->interested_person_name); ?>, про реєстрацію факту смерті на підконтрольній владі України території отримано відповідь про те, що неможливо на підставі наявних документів зареєструвати смерть.
+                    Оскільки наявні документи про смерть особи видані на непідконтрольній владі України території і у зв’язку з цим не можуть бути прийнятими відповідними органами РАЦС для державної реєстрації факту смерті, то, відповідно, є неможливим без судового рішення про встановлення факту смерті державна реєстрація цього факту смерті.
                 </p>
                 <h4>Який факт заявник просить встановити та з якою метою:</h4>
                 <p>
@@ -85,7 +84,7 @@ use yii\helpers\Html;
                     else echo 'померла' ?> <?= Html::encode($model->date_death); ?> р., і які отримані за місцем смерті, як доказів, оскільки можливості збору доказів на підтвердження смерті особи на тимчасово окупованій території є істотно обмеженими, у той час як встановлення цього факту має істотне значення для реалізації цілої низки прав людини, включаючи право на спадщину тощо.
                 </p>
                 <p>
-                    Також вважаю, що <?= Html::encode($model->interested_person_name); ?> має приймати участь у розгляді справи у якості заінтересованої особи, оскільки від встановлення вищезазначеного факту залежить чи буде внесено відповідним органом РАЦС відомості до державного реєстру та чи буде видане ним свідоцтво про смерть, а саме цим органом було дано відмову у реєстрації.
+                    Також вважаю, що <?= Html::encode($model->interested_person_name); ?> має приймати участь у розгляді справи у якості заінтересованої особи, оскільки від встановлення вищезазначеного факту залежить чи буде внесено відповідним органом РАЦС відомості до державного реєстру та чи буде видане ним свідоцтво про смерть, і саме цей орган за місцем ухвалення судового рішення має здійснити державну реєстрацію смерті особи.
                 </p>
                 <p>
                     Так як дана заява є заявою окремого провадження, то, згідно Закону України «Про судовий збір», мною було сплачено судовий збір, розмір якого становить: 0,2 розміру прожиткового мінімуму на одну працездатну особу, що є судовими витратами у справі, і в подальшому додатково я не очікую понесення інших судових витрат у зв’язку із розглядом справи.
@@ -107,9 +106,8 @@ use yii\helpers\Html;
                 <h4>Перелік документів, що додаються до заяви:</h4>
                 <ul>
                     <li>копії паспорту, ідентифікаційного коду, та документа щодо зареєстрованого місця проживання заявника</li>
-                    <li>копії свідоцтва про народження та інших документів, які підтверджують рідство з померлою особою</li>
+                    <li>копії свідоцтва про народження (інших документів, які підтверджують рідство з померлою особою)</li>
                     <li>документи померлої особи, в т.ч. які підтверджують смерть і поховання</li>
-                    <li>відмова органу РАЦС щодо реєстрації факту смерті і видачі свідоцтва про смерть</li>
                     <li>квитанція про сплату судового збору</li>
                     <li>копія заяви з додатками для заінтересованої особи.</li>
                 </ul>

@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use Yii;
 use yii\web\Controller;
 use \app\models\Top_menu;
 use \app\models\Innovation;
@@ -15,7 +16,8 @@ use app\models\Aliment_wifeForm;
 use app\models\Fact_deathForm;
 use yii\helpers\Url;
 use app\models\Court;
-use Yii;
+use Mpdf\Mpdf;
+
 
 class Ua_contentController extends Controller
 {
@@ -39,6 +41,64 @@ class Ua_contentController extends Controller
         $keywords = Top_menu::find()->where(['action' => $action])->one();
         $keywords = $keywords->keywords;
         return $this->view->registerMetaTag(['name' => 'keywords', 'content' => $keywords]);
+    }
+
+    public $action_innovation;
+    public function getTitle_innovation($action_innovation)
+    {
+        $title = Innovation::find()->where(['action' => $action_innovation])->one();
+        $title = $title->title_ua;
+        return $this->view->title = $title;
+    }
+
+    public function getDescription_innovation($action_innovation)
+    {
+        $description = Innovation::find()->where(['action' => $action_innovation])
+            ->one();
+        $description = $description->descriptions_ua;
+        return $this->view->registerMetaTag(['name' => 'description', 'content' => $description]);
+    }
+
+    public function getKeywords_innovation($action_innovation)
+    {
+        $keywords = Innovation::find()->where(['action' => $action_innovation])->one();
+        $keywords = $keywords->keywords;
+        return $this->view->registerMetaTag(['name' => 'keywords', 'content' => $keywords]);
+    }
+
+    public function actionCourt($id)
+    {
+        $results = Court::find()
+            ->select('name')
+            ->where(['id_region' => $id])
+            ->asArray()
+            ->all();
+        return json_encode($results);
+    }
+
+    public function viewActionPdf($model, $action)
+    {
+        Yii::$app->response->format = 'pdf';
+        $this->layout = false;
+        $mpdf = new Mpdf();
+        $mpdf->WriteHTML($this->render($action, [
+            'model' => $model
+        ]));
+        $filename = 'application_' . substr(md5($model->username), 0, 5) . '_' . date('d-m-Y') . '.pdf';
+        $mpdf->Output($filename, 'F');
+        $mpdf->Output();
+        return $filename;
+    }
+
+    public function sendEmailPdf($filename, $model)
+    {
+        Yii::$app->mailer->compose()
+            ->attach($filename)
+            ->setTo([$model->email_user])
+            ->setFrom('dashko@advokhaser.online')
+            ->setSubject('Адвокатська компанія Дашко & Чорнобай')
+            ->setTextBody('У вкладинці Ваша сгенерована заява')
+            ->send();
     }
 
     public function actionIndex()
@@ -284,28 +344,6 @@ class Ua_contentController extends Controller
         return $this->render('contacti');
     }
 
-    public $action_innovation;
-    public function getTitle_innovation($action_innovation)
-    {
-        $title = Innovation::find()->where(['action' => $action_innovation])->one();
-        $title = $title->title_ua;
-        return $this->view->title = $title;
-    }
-
-    public function getDescription_innovation($action_innovation)
-    {
-        $description = Innovation::find()->where(['action' => $action_innovation])->one();
-        $description = $description->descriptions_ua;
-        return $this->view->registerMetaTag(['name' => 'description', 'content' => $description]);
-    }
-
-    public function getKeywords_innovation($action_innovation)
-    {
-        $keywords = Innovation::find()->where(['action' => $action_innovation])->one();
-        $keywords = $keywords->keywords;
-        return $this->view->registerMetaTag(['name' => 'keywords', 'content' => $keywords]);
-    }
-
     public function actionZapis_consultation()
     {
         $action_innovation = 'Zapis_consultation';
@@ -325,16 +363,6 @@ class Ua_contentController extends Controller
         return $this->render('send_email', compact('model'));
     }
 
-    public function actionCourt($id)
-    {
-        $results = Court::find()
-            ->select('name')
-            ->where(['id_region' => $id])
-            ->asArray()
-            ->all();
-        return json_encode($results);
-    }
-
     public function actionDivorce_children()
     {
         $action_innovation = 'Divorce_children';
@@ -348,25 +376,24 @@ class Ua_contentController extends Controller
         return $this->render('divorce_children', compact('model'));
     }
 
+    public function actionDivorce_children_claim()
+    {
+        $model = new Divorce_childrenForm();
+        $action = 'Divorce_children_claim';
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $filename = $this->viewActionPdf($model, $action);
+            $this->sendEmailPdf($filename, $model);
+            unlink($filename);
+            exit;
+        } else
+            return $this->render('divorce_children', ['model' => $model]);
+    }
+
     public function actionDivorce_children_instruction()
     {
         Yii::$app->response->format = 'pdf';
         $this->layout = false;
         return $this->render('divorce_children_instruction', []);
-    }
-
-    public function actionDivorce_children_claim()
-    {
-        $model = new Divorce_childrenForm();
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            // echo '<pre>';
-            // print_r($model);
-            // exit;
-            Yii::$app->response->format = 'pdf';
-            $this->layout = false;
-            return $this->render('divorce_children_claim', ['model' => $model]);
-        } else
-            return $this->render('divorce_children', ['model' => $model]);
     }
 
     public function actionDivorce()
@@ -382,25 +409,24 @@ class Ua_contentController extends Controller
         return $this->render('divorce', compact('model'));
     }
 
+    public function actionDivorce_claim()
+    {
+        $model = new DivorceForm();
+        $action = 'divorce_claim';
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $filename = $this->viewActionPdf($model, $action);
+            $this->sendEmailPdf($filename, $model);
+            unlink($filename);
+            exit;
+        } else
+            return $this->render('divorce', ['model' => $model]);
+    }
+
     public function actionDivorce_instruction()
     {
         Yii::$app->response->format = 'pdf';
         $this->layout = false;
         return $this->render('divorce_instruction', []);
-    }
-
-    public function actionDivorce_claim()
-    {
-        $model = new DivorceForm();
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            // echo '<pre>';
-            // print_r($model);
-            // exit;
-            Yii::$app->response->format = 'pdf';
-            $this->layout = false;
-            return $this->render('divorce_claim', ['model' => $model]);
-        } else
-            return $this->render('divorce', ['model' => $model]);
     }
 
     public function actionAliment()
@@ -416,25 +442,24 @@ class Ua_contentController extends Controller
         return $this->render('aliment', compact('model'));
     }
 
+    public function actionAliment_claim()
+    {
+        $model = new AlimentForm();
+        $action = 'aliment_claim';
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $filename = $this->viewActionPdf($model, $action);
+            $this->sendEmailPdf($filename, $model);
+            unlink($filename);
+            exit;
+        } else
+            return $this->render('aliment', ['model' => $model]);
+    }
+
     public function actionAliment_instruction()
     {
         Yii::$app->response->format = 'pdf';
         $this->layout = false;
         return $this->render('aliment_instruction', []);
-    }
-
-    public function actionAliment_claim()
-    {
-        $model = new AlimentForm();
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            // echo '<pre>';
-            // print_r($model);
-            // exit;
-            Yii::$app->response->format = 'pdf';
-            $this->layout = false;
-            return $this->render('aliment_claim', ['model' => $model]);
-        } else
-            return $this->render('aliment', ['model' => $model]);
     }
 
     public function actionAliment_student()
@@ -450,25 +475,24 @@ class Ua_contentController extends Controller
         return $this->render('aliment_student', compact('model'));
     }
 
+    public function actionAliment_student_claim()
+    {
+        $model = new Aliment_studentForm();
+        $action = 'aliment_student_claim';
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $filename = $this->viewActionPdf($model, $action);
+            $this->sendEmailPdf($filename, $model);
+            unlink($filename);
+            exit;
+        } else
+            return $this->render('aliment_student', ['model' => $model]);
+    }
+
     public function actionAliment_student_instruction()
     {
         Yii::$app->response->format = 'pdf';
         $this->layout = false;
         return $this->render('aliment_student_instruction', []);
-    }
-
-    public function actionAliment_student_claim()
-    {
-        $model = new Aliment_studentForm();
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            // echo '<pre>';
-            // print_r($model);
-            // exit;
-            Yii::$app->response->format = 'pdf';
-            $this->layout = false;
-            return $this->render('aliment_student_claim', ['model' => $model]);
-        } else
-            return $this->render('aliment_student', ['model' => $model]);
     }
 
     public function actionAliment_wife()
@@ -484,25 +508,24 @@ class Ua_contentController extends Controller
         return $this->render('aliment_wife', compact('model'));
     }
 
+    public function actionAliment_wife_claim()
+    {
+        $model = new Aliment_wifeForm();
+        $action = 'aliment_wife_claim';
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $filename = $this->viewActionPdf($model, $action);
+            $this->sendEmailPdf($filename, $model);
+            unlink($filename);
+            exit;
+        } else
+            return $this->render('aliment_wife', ['model' => $model]);
+    }
+
     public function actionAliment_wife_instruction()
     {
         Yii::$app->response->format = 'pdf';
         $this->layout = false;
         return $this->render('aliment_wife_instruction', []);
-    }
-
-    public function actionAliment_wife_claim()
-    {
-        $model = new Aliment_wifeForm();
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            // echo '<pre>';
-            // print_r($model);
-            // exit;
-            Yii::$app->response->format = 'pdf';
-            $this->layout = false;
-            return $this->render('aliment_wife_claim', ['model' => $model]);
-        } else
-            return $this->render('aliment_wife', ['model' => $model]);
     }
 
     public function actionFact_death()
@@ -518,24 +541,23 @@ class Ua_contentController extends Controller
         return $this->render('fact_death', compact('model'));
     }
 
+    public function actionFact_death_claim()
+    {
+        $model = new Fact_deathForm();
+        $action = 'fact_death_claim';
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $filename = $this->viewActionPdf($model, $action);
+            $this->sendEmailPdf($filename, $model);
+            unlink($filename);
+            exit;
+        } else
+            return $this->render('fact_death', ['model' => $model]);
+    }
+
     public function actionFact_death_instruction()
     {
         Yii::$app->response->format = 'pdf';
         $this->layout = false;
         return $this->render('fact_death_instruction', []);
-    }
-
-    public function actionFact_death_claim()
-    {
-        $model = new Fact_deathForm();
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            // echo '<pre>';
-            // print_r($model);
-            // exit;
-            Yii::$app->response->format = 'pdf';
-            $this->layout = false;
-            return $this->render('fact_death_claim', ['model' => $model]);
-        } else
-            return $this->render('fact_death', ['model' => $model]);
     }
 }

@@ -7,7 +7,6 @@ use yii\web\Controller;
 use \app\models\Top_menu;
 use \app\models\Innovation;
 use app\models\Ru_content;
-use app\models\MailerForm;
 use app\models\Zapis_consultationForm;
 use app\models\Divorce_childrenForm;
 use app\models\DivorceForm;
@@ -15,7 +14,6 @@ use app\models\AlimentForm;
 use app\models\Aliment_studentForm;
 use app\models\Aliment_wifeForm;
 use app\models\Fact_deathForm;
-use app\models\Region;
 use app\models\Court;
 use yii\helpers\Url;
 use Mpdf\Mpdf;
@@ -104,7 +102,7 @@ class Ru_contentController extends Controller
 
     public function actionIndex()
     {
-        $action = 'Index';
+        $action = 'index';
         $this->getTitle($action);
         $this->getKeywords($action);
         $this->getDescription($action);
@@ -113,7 +111,7 @@ class Ru_contentController extends Controller
 
     public function actionO_nas()
     {
-        $action = 'O_nas';
+        $action = 'o_nas';
         $this->getTitle($action);
         $this->getKeywords($action);
         $this->getDescription($action);
@@ -122,7 +120,7 @@ class Ru_contentController extends Controller
 
     public function actionLawyer_consultation()
     {
-        $action = 'Lawyer_consultation';
+        $action = 'lawyer_consultation';
         $this->getTitle($action);
         $this->getKeywords($action);
         $this->getDescription($action);
@@ -131,7 +129,7 @@ class Ru_contentController extends Controller
 
     public function actionInnovation()
     {
-        $action = 'Innovation';
+        $action = 'innovation';
         $this->getTitle($action);
         $this->getKeywords($action);
         $this->getDescription($action);
@@ -140,7 +138,7 @@ class Ru_contentController extends Controller
 
     public function actionSostavlenye_document()
     {
-        $action = 'Sostavlenye_document';
+        $action = 'sostavlenye_document';
         $this->getTitle($action);
         $this->getKeywords($action);
         $this->getDescription($action);
@@ -149,7 +147,7 @@ class Ru_contentController extends Controller
 
     public function actionZaschita_predstavitelstvo()
     {
-        $action = 'Zaschita_predstavitelstvo';
+        $action = 'zaschita_predstavitelstvo';
         $this->getTitle($action);
         $this->getKeywords($action);
         $this->getDescription($action);
@@ -158,7 +156,7 @@ class Ru_contentController extends Controller
 
     public function actionPomosch_dtp()
     {
-        $action = 'Pomosch_dtp';
+        $action = 'pomosch_dtp';
         $this->getTitle($action);
         $this->getKeywords($action);
         $this->getDescription($action);
@@ -167,7 +165,7 @@ class Ru_contentController extends Controller
 
     public function actionZaschita_po_ugolovnim()
     {
-        $action = 'Zaschita_po_ugolovnim';
+        $action = 'zaschita_po_ugolovnim';
         $this->getTitle($action);
         $this->getKeywords($action);
         $this->getDescription($action);
@@ -176,7 +174,7 @@ class Ru_contentController extends Controller
 
     public function actionSemeynoye_pravo()
     {
-        $action = 'Semeynoye_pravo';
+        $action = 'semeynoye_pravo';
         $this->getTitle($action);
         $this->getKeywords($action);
         $this->getDescription($action);
@@ -185,7 +183,7 @@ class Ru_contentController extends Controller
 
     public function actionNasledstvo_pravo()
     {
-        $action = 'Nasledstvo_pravo';
+        $action = 'nasledstvo_pravo';
         $this->getTitle($action);
         $this->getKeywords($action);
         $this->getDescription($action);
@@ -194,7 +192,7 @@ class Ru_contentController extends Controller
 
     public function actionZhilishnoye_pravo()
     {
-        $action = 'Zhilishnoye_pravo';
+        $action = 'zhilishnoye_pravo';
         $this->getTitle($action);
         $this->getKeywords($action);
         $this->getDescription($action);
@@ -203,7 +201,7 @@ class Ru_contentController extends Controller
 
     public function actionTrud_spor()
     {
-        $action = 'Trud_spor';
+        $action = 'trud_spor';
         $this->getTitle($action);
         $this->getKeywords($action);
         $this->getDescription($action);
@@ -212,7 +210,7 @@ class Ru_contentController extends Controller
 
     public function actionNedvizhimost()
     {
-        $action = 'Nedvizhimost';
+        $action = 'nedvizhimost';
         $this->getTitle($action);
         $this->getKeywords($action);
         $this->getDescription($action);
@@ -221,7 +219,7 @@ class Ru_contentController extends Controller
 
     public function actionZemelnoye_pravo()
     {
-        $action = 'Zemelnoye_pravo';
+        $action = 'zemelnoye_pravo';
         $this->getTitle($action);
         $this->getKeywords($action);
         $this->getDescription($action);
@@ -230,7 +228,7 @@ class Ru_contentController extends Controller
 
     public function actionZaschita_sobstvenosti()
     {
-        $action = 'Zaschita_sobstvenosti';
+        $action = 'zaschita_sobstvenosti';
         $this->getTitle($action);
         $this->getKeywords($action);
         $this->getDescription($action);
@@ -239,7 +237,7 @@ class Ru_contentController extends Controller
 
     public function actionUgolovnoe_pravo()
     {
-        $action = 'Ugolovnoe_pravo';
+        $action = 'ugolovnoe_pravo';
         $this->getTitle($action);
         $this->getKeywords($action);
         $this->getDescription($action);
@@ -248,7 +246,7 @@ class Ru_contentController extends Controller
 
     public function actionHozyaystvenie_spori()
     {
-        $action = 'Hozyaystvenie_spori';
+        $action = 'hozyaystvenie_spori';
         $this->getTitle($action);
         $this->getKeywords($action);
         $this->getDescription($action);
@@ -257,7 +255,7 @@ class Ru_contentController extends Controller
 
     public function actionNalog_spor()
     {
-        $action = 'Nalog_spor';
+        $action = 'nalog_spor';
         $this->getTitle($action);
         $this->getKeywords($action);
         $this->getDescription($action);
@@ -266,7 +264,7 @@ class Ru_contentController extends Controller
 
     public function actionAdmin_spor()
     {
-        $action = 'Admin_spor';
+        $action = 'admin_spor';
         $this->getTitle($action);
         $this->getKeywords($action);
         $this->getDescription($action);
@@ -275,7 +273,7 @@ class Ru_contentController extends Controller
 
     public function actionPravo_business()
     {
-        $action = 'Pravo_business';
+        $action = 'pravo_business';
         $this->getTitle($action);
         $this->getKeywords($action);
         $this->getDescription($action);
@@ -284,7 +282,7 @@ class Ru_contentController extends Controller
 
     public function actionOt_lubvi_do_nenavisti()
     {
-        $action = 'Ot_lubvi_do_nenavisti';
+        $action = 'ot_lubvi_do_nenavisti';
         $this->getTitle($action);
         $this->getKeywords($action);
         $this->getDescription($action);
@@ -293,7 +291,7 @@ class Ru_contentController extends Controller
 
     public function actionO_nevinovnosti_dtp()
     {
-        $action = 'O_nevinovnosti_dtp';
+        $action = 'o_nevinovnosti_dtp';
         $this->getTitle($action);
         $this->getKeywords($action);
         $this->getDescription($action);
@@ -302,7 +300,7 @@ class Ru_contentController extends Controller
 
     public function actionPravovoy_obzor_1()
     {
-        $action = 'Pravovoy_obzor_1';
+        $action = 'pravovoy_obzor_1';
         $this->getTitle($action);
         $this->getKeywords($action);
         $this->getDescription($action);
@@ -311,7 +309,7 @@ class Ru_contentController extends Controller
 
     public function actionPravovoy_obzor_2()
     {
-        $action = 'Pravovoy_obzor_2';
+        $action = 'pravovoy_obzor_2';
         $this->getTitle($action);
         $this->getKeywords($action);
         $this->getDescription($action);
@@ -320,7 +318,7 @@ class Ru_contentController extends Controller
 
     public function actionPravovoy_obzor_3()
     {
-        $action = 'Pravovoy_obzor_3';
+        $action = 'pravovoy_obzor_3';
         $this->getTitle($action);
         $this->getKeywords($action);
         $this->getDescription($action);
@@ -329,7 +327,7 @@ class Ru_contentController extends Controller
 
     public function actionAnekdoti()
     {
-        $action = 'Anekdoti';
+        $action = 'anekdoti';
         $this->getTitle($action);
         $this->getKeywords($action);
         $this->getDescription($action);
@@ -338,7 +336,7 @@ class Ru_contentController extends Controller
 
     public function actionContacti()
     {
-        $action = 'Contacti';
+        $action = 'contacti';
         $this->getTitle($action);
         $this->getKeywords($action);
         $this->getDescription($action);
@@ -347,7 +345,7 @@ class Ru_contentController extends Controller
 
     public function actionZapis_consultation()
     {
-        $action_innovation = 'Zapis_consultation';
+        $action_innovation = 'zapis_consultation';
         $this->getTitle_innovation($action_innovation);
         $this->getKeywords_innovation($action_innovation);
         $this->getDescription_innovation($action_innovation);
@@ -366,7 +364,7 @@ class Ru_contentController extends Controller
 
     public function actionDivorce_children()
     {
-        $action_innovation = 'Divorce_children';
+        $action_innovation = 'divorce_children';
         $this->getTitle_innovation($action_innovation);
         $this->getKeywords_innovation($action_innovation);
         $this->getDescription_innovation($action_innovation);
@@ -380,7 +378,7 @@ class Ru_contentController extends Controller
     public function actionDivorce_children_claim()
     {
         $model = new Divorce_childrenForm();
-        $action = 'Divorce_children_claim';
+        $action = 'divorce_children_claim';
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $filename = $this->viewActionPdf($model, $action);
             $this->sendEmailPdf($filename, $model);
@@ -399,7 +397,7 @@ class Ru_contentController extends Controller
 
     public function actionDivorce()
     {
-        $action_innovation = 'Divorce';
+        $action_innovation = 'divorce';
         $this->getTitle_innovation($action_innovation);
         $this->getKeywords_innovation($action_innovation);
         $this->getDescription_innovation($action_innovation);
@@ -432,7 +430,7 @@ class Ru_contentController extends Controller
 
     public function actionAliment()
     {
-        $action_innovation = 'Aliment';
+        $action_innovation = 'aliment';
         $this->getTitle_innovation($action_innovation);
         $this->getKeywords_innovation($action_innovation);
         $this->getDescription_innovation($action_innovation);
@@ -465,7 +463,7 @@ class Ru_contentController extends Controller
 
     public function actionAliment_student()
     {
-        $action_innovation = 'Aliment_student';
+        $action_innovation = 'aliment_student';
         $this->getTitle_innovation($action_innovation);
         $this->getKeywords_innovation($action_innovation);
         $this->getDescription_innovation($action_innovation);
@@ -498,7 +496,7 @@ class Ru_contentController extends Controller
 
     public function actionAliment_wife()
     {
-        $action_innovation = 'Aliment_wife';
+        $action_innovation = 'aliment_wife';
         $this->getTitle_innovation($action_innovation);
         $this->getKeywords_innovation($action_innovation);
         $this->getDescription_innovation($action_innovation);
@@ -531,7 +529,7 @@ class Ru_contentController extends Controller
 
     public function actionFact_death()
     {
-        $action_innovation = 'Fact_death';
+        $action_innovation = 'fact_death';
         $this->getTitle_innovation($action_innovation);
         $this->getKeywords_innovation($action_innovation);
         $this->getDescription_innovation($action_innovation);

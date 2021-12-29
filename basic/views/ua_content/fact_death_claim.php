@@ -38,7 +38,6 @@ use yii\helpers\Html;
                 <p style="text-align: right">офіційна електронна адреса: відсутня</p>
                 <p style="text-align: right">адреса електронної пошти: <?= $model->email_user; ?></p>
                 <p style="text-align: right">номер засобу зв’язку: <?= Html::encode($model->phone_user); ?></p>
-                <br>
                 <h3 style="text-align: right">Заінтересована особа:</h3>
                 <div class="interested-person-name">
                     <h4 class="interested-name"><?= Html::encode($model->interested_person_name); ?></h4>
